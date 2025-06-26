@@ -9,6 +9,12 @@ import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 
 const headerStyle = css`
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.1));
   height: 60px;
   display: flex;
   align-items: center;
@@ -94,6 +100,12 @@ const Header = () => {
           to="/" 
           className={pathname === '/' ? 'active' : ''}
         >
+          Home
+        </Link>
+        <Link 
+          to="/about" 
+          className={pathname === '/about' ? 'active' : ''}
+        >
           About
         </Link>
         <Link 
@@ -113,6 +125,12 @@ const Header = () => {
           className={pathname === '/hobbies' ? 'active' : ''}
         >
           Hobbies
+        </Link>
+        <Link 
+          to="/fosters" 
+          className={pathname === '/fosters' ? 'active' : ''}
+        >
+          Fosters
         </Link>
       </nav>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 
-const aboutPageStyle = css`
+const fostersPageStyle = css`
   padding: 40px 20px;
   max-width: 1280px;
   margin: 0 auto;
@@ -19,14 +19,14 @@ const aboutPageStyle = css`
   }
 `;
 
-const AboutPage = () => {
+const FostersPage = () => {
   return (
-    <div css={aboutPageStyle}>
-      <h1>About Me</h1>
-      <p>Learn more about who I am, my background, and what drives me.</p>
-      {/* Add your about content here */}
+    <div css={fostersPageStyle}>
+      <h1>Fosters</h1>
+      <p>Welcome to the Fosters section. Share your fostering experiences and stories here.</p>
+      {/* Add your fosters content here */}
     </div>
   );
 };
 
-export default AboutPage; 
+export default FostersPage; 
