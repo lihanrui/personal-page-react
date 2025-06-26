@@ -2,7 +2,7 @@ export const Color = {
   light: {
     primary: '#FED766',
 
-    bg: '#fafafa',
+    bg: '#fcfcfc',
     'bg-hover': '#eeeeee',
 
     layer: '#f1f1f1',
@@ -41,11 +41,11 @@ export const Color = {
   dark: {
     primary: '#FED766',
 
-    bg: '#424242',
-    'bg-hover': '#757575',
+    bg: '#111111',
+    'bg-hover': '#1a1a1a',
 
-    layer: '#616161',
-    'layer-hover': '#9e9e9e',
+    layer: '#1a1a1a',
+    'layer-hover': '#2a2a2a',
 
     'layer-accent': '',
     'layer-accent-hover': '',
@@ -63,7 +63,7 @@ export const Color = {
     'border-layer-strong': '',
     'border-layer-disabled': '',
 
-    'text-primary': '#fafafa',
+    'text-primary': '#f8f8f8',
     'text-secondary': '',
     'text-placeholder': '',
     'text-on-primary': '',

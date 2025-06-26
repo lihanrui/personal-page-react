@@ -11,18 +11,9 @@ const getPreferColor = () => {
 
   if (stored) return stored;
 
-  if (!window.matchMedia) {
-    Storage.set('theme', 'light');
-    return 'light';
-  }
-
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    Storage.set('theme', 'dark');
-    return 'dark';
-  }
-
-  Storage.set('theme', 'light');
-  return 'light';
+  // Default to dark theme to show our custom colors
+  Storage.set('theme', 'dark');
+  return 'dark';
 };
 
 export default function ThemeContext({ children }) {

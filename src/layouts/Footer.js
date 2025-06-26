@@ -34,7 +34,7 @@ const Footer = () => {
       <nav>
         <div>{new Date().getFullYear()} &copy; your copyright</div>
         <div>
-          <a href="https://github.com/ofnullable/react-spa-template" rel="noopener noreferrer" target="_blank">
+          <a href="https://wikipedia.org" rel="noopener noreferrer" target="_blank">
             <GithubIcon css={iconStyle(isLight ? '#000' : '#fff')} className="github" />
           </a>
         </div>

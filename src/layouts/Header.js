@@ -22,7 +22,7 @@ const headerStyle = css`
     height: 50px;
   }
 
-  a {
+  .brand-link {
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -34,6 +34,36 @@ const headerStyle = css`
       width: 2rem;
       height: 2rem;
       margin-right: 0.4rem;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+
+    ${Media.medium} {
+      gap: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--primary);
+      }
+
+      &.active {
+        color: var(--primary);
+        font-weight: bold;
+      }
     }
   }
 
@@ -55,9 +85,36 @@ const Header = () => {
 
   return (
     <header css={[headerStyle]}>
-      <Link to="/" replace={pathname === '/'}>
+      <Link to="/" replace={pathname === '/'} className="brand-link">
         <LogoIcon /> brand
       </Link>
+
+      <nav className="nav-links">
+        <Link 
+          to="/" 
+          className={pathname === '/' ? 'active' : ''}
+        >
+          About
+        </Link>
+        <Link 
+          to="/projects" 
+          className={pathname === '/projects' ? 'active' : ''}
+        >
+          Projects
+        </Link>
+        <Link 
+          to="/posts" 
+          className={pathname === '/posts' ? 'active' : ''}
+        >
+          Posts
+        </Link>
+        <Link 
+          to="/hobbies" 
+          className={pathname === '/hobbies' ? 'active' : ''}
+        >
+          Hobbies
+        </Link>
+      </nav>
 
       <div>
         {isLight ? (

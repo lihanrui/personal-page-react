@@ -38,7 +38,7 @@ $ npm install
 $ npm start
 ```
 
-Run dev server on [http://localhost:8080](http://localhost:8080)
+Run dev server on [http://localhost:3000](http://localhost:3000)
 
 ### Build
 
