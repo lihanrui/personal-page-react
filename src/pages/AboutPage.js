@@ -1,31 +1,12 @@
 import React from 'react';
-import { css } from '@emotion/react';
-
-const aboutPageStyle = css`
-  padding: 40px 20px;
-  max-width: 1280px;
-  margin: 0 auto;
-
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--primary);
-  }
-
-  p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: var(--text);
-  }
-`;
+import PageLayout from '../layouts/PageLayout';
 
 const AboutPage = () => {
   return (
-    <div css={aboutPageStyle}>
-      <h1>About Me</h1>
+    <PageLayout title="About Me">
       <p>Learn more about who I am, my background, and what drives me.</p>
       {/* Add your about content here */}
-    </div>
+    </PageLayout>
   );
 };
 
