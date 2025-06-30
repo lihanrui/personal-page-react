@@ -2,24 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import { Media } from '../lib/style';
+import { layout, component, responsiveText } from '../lib/util';
 import { default as TakenSVG } from '../assets/undraw_Taken.svg';
 
 const errorPageWrapper = css`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  ${layout('centerPage')};
 
   h1 {
-    font-size: 3rem;
-    font-weight: 600;
-    color: var(--text-error);
+    ${component('errorHeading')};
   }
 
   img {
-    margin: 1rem auto;
-    max-width: 60%;
+    ${component('errorImage')};
   }
 
   a {

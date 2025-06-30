@@ -4,17 +4,28 @@ import Header from './Header';
 import Footer from './Footer';
 
 const layoutStyle = css`
+  /* Page container with 5% margins on left and right */
+  .page-container {
+    margin: 0 5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   main {
     padding-top: 20px; /* Add some space below the sticky header */
+    flex: 1; /* Allow main to grow and push footer down */
   }
 `;
 
 const AppLayout = ({ children }) => {
   return (
     <div css={layoutStyle}>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <div className="page-container">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 };
