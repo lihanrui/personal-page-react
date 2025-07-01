@@ -1,7 +1,20 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "installCommand": "NODE_ENV=development npm install",
+        "buildCommand": "npm run build",
+        "outputDirectory": "dist"
+      }
+    }
   ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 } 
