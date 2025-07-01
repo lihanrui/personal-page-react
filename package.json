@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --progress --port 3000",
-    "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack",
     "lint": "eslint src"
   },
   "dependencies": {
