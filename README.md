@@ -1,65 +1,86 @@
-<h1 align="center">🎉 React SPA Template 🎉</h1>
+# Personal React Portfolio
 
-<p align="center">  
-  <img src="https://img.shields.io/github/license/ofnullable/react-spa-template" />
-  <a href="https://github.com/ofnullable/react-spa-template/issues">
-    <img src="https://img.shields.io/github/issues/ofnullable/react-spa-template" />
-  </a>
-</p>
+A modern, responsive React single-page application portfolio site featuring:
 
-## An easy-to-use react template
+- Home page with personal introduction
+- About page for detailed background
+- Projects showcase
+- Blog posts section
+- Hobbies section
+- Foster care information page
+- Dark/Light theme support
+- Modern glass-card UI components
+- Responsive design
 
-- React Single-Page-Application template without create-react-app
-- Configured with Webpack, Babel, ESLint, Sass, PostCSS and emotion
-- If you need anything else, please contribute or leave an issue!
+## Features
 
-## Live demo
+- Built with React and modern JavaScript
+- Styled with Emotion and SCSS
+- Configured with Webpack, Babel, ESLint, and PostCSS
+- Responsive layout with mobile-first design
+- Theme switching capability
+- Glass-card UI components for modern aesthetics
+- Code splitting with React.lazy for optimal performance
 
-[https://ofnullable.github.io/react-spa-template](https://ofnullable.github.io/react-spa-template)
+## Pages
+
+- **Home** (`/`): Landing page with personal introduction
+- **About** (`/about`): Detailed background information
+- **Projects** (`/projects`): Showcase of development projects
+- **Posts** (`/posts`): Blog posts and articles
+- **Hobbies** (`/hobbies`): Personal interests and activities
+- **Fosters** (`/fosters`): Information about foster care involvement
 
 ## Installation
 
 ```shell
 # clone this repository
-$ git clone https://github.com/ofnullable/react-spa-template
+$ git clone [your-repo-url]
 
-# go into template directory
-$ cd react-spa-template
+# go into project directory
+$ cd [project-directory]
 
 # install dependencies
 $ npm install
 ```
 
-## Commands
+## Available Commands
 
-### Run dev server
+### Development Server
 
 ```shell
 $ npm start
 ```
 
-Run dev server on [http://localhost:3000](http://localhost:3000)
+Runs the development server on [http://localhost:3000](http://localhost:3000)
 
-### Build
+### Production Build
 
 ```shell
 $ npm run build
 ```
 
-Creating a Production Build. The build artifacts will be stored in the `dist/` directory.
+Creates a production build. The build artifacts will be stored in the `dist/` directory.
 
-### Deploy github pages
+### Deploy to GitHub Pages
+
+First, update the homepage in package.json:
 
 ```json
-# edit package.json
 {
   ...
-  "hompage": "https://{github username}.github.io/{repository name}",
+  "homepage": "https://{github username}.github.io/{repository name}",
 }
 ```
+
+Then run:
 
 ```shell
 $ npm run deploy
 ```
 
-Deploy to github pages
+This will deploy the application to GitHub Pages.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
