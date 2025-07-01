@@ -74,7 +74,10 @@ module.exports = {
         collapseWhitespace: true,
       },
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+      protectWebpackAssets: true,
+    }),
     ...(prod
       ? [
           new MiniCssExtractPlugin({
