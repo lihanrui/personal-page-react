@@ -305,7 +305,7 @@ export const Typography = {
         position: 'relative',
         paddingLeft: '1rem',
         '&::before': {
-          content: '→',
+          content: '"→"',
           position: 'absolute',
           left: 0,
           color: 'var(--primary)',
