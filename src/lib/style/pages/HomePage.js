@@ -123,7 +123,7 @@ export const homeContentStyle = css`
         
         .company-name {
           ${typography('h4')};
-          color: var(--primary);
+          color: var(--nav-active);
           margin: 0;
           text-shadow: var(--shadow-sm);
         }
@@ -195,7 +195,7 @@ export const homeContentStyle = css`
         
         .school-name {
           ${typography('h4')};
-          color: var(--primary);
+          color: var(--nav-active);
           margin: 0;
           text-shadow: var(--shadow-sm);
         }

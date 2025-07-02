@@ -12,52 +12,6 @@ const HomePage = () => {
           building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
         </p>
         
-        <p>
-          With a background in both design and development, I love the intersection where 
-          aesthetics meet functionality. I believe that great software isn't just about 
-          clean code—it's about creating experiences that delight users and solve real problems.
-        </p>
-        
-        <h2>What I Do</h2>
-        <div className="skills-grid">
-          <GradientCard gradientType="primary" gradient={true} className="skill-category">
-            <h4>Frontend Development</h4>
-            <ul>
-              <li>React & Next.js</li>
-              <li>TypeScript & JavaScript</li>
-              <li>CSS-in-JS & SCSS</li>
-              <li>Responsive Design</li>
-              <li>Performance Optimization</li>
-            </ul>
-          </GradientCard>
-          
-          <GradientCard gradientType="secondary" gradient={true} className="skill-category">
-            <h4>Design & UX</h4>
-            <ul>
-              <li>User Interface Design</li>
-              <li>Interaction Design</li>
-              <li>Design Systems</li>
-              <li>Prototyping</li>
-              <li>Accessibility</li>
-            </ul>
-          </GradientCard>
-          
-          <GradientCard gradientType="cool" gradient={true} className="skill-category">
-            <h4>Tools & Technologies</h4>
-            <ul>
-              <li>Figma & Adobe Creative Suite</li>
-              <li>Git & Version Control</li>
-              <li>Webpack & Build Tools</li>
-              <li>Testing & Quality Assurance</li>
-              <li>CI/CD & Deployment</li>
-            </ul>
-          </GradientCard>
-        </div>
-        
-        <RainbowGradientCard intensity="strong" gradient={true} className="quote">
-          The best way to predict the future is to create it.
-        </RainbowGradientCard>
-        
         <h2>A Few Fun Facts</h2>
         <GlassCard intensity="medium" gradient={true} gradientType="warm" className="fun-facts">
           <h3>By the Numbers</h3>

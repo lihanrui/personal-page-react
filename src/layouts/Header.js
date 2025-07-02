@@ -11,8 +11,8 @@ import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 const headerStyle = css`
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 15%;
+  right: 15%;
   z-index: 1000;
   background-color: var(--bg);
   backdrop-filter: blur(10px);
@@ -22,15 +22,19 @@ const headerStyle = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12px;
-  width: 100%;
+  padding: 0 24px;
 
   ${Media.medium} {
     height: 50px;
+    left: 10%;
+    right: 10%;
+    padding: 0 16px;
   }
 
   ${Media.small} {
-    padding: 0 8px;
+    left: 0;
+    right: 0;
+    padding: 0 12px;
   }
 
   .mobile-left-section {
