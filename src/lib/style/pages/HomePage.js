@@ -116,14 +116,14 @@ export const homeContentStyle = css`
       .company-header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         margin-bottom: 1rem;
         flex-wrap: wrap;
         gap: 0.5rem;
         
         .company-info {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 0.75rem;
           
           .company-logo {

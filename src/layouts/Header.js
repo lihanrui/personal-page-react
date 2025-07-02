@@ -66,8 +66,8 @@ const headerStyle = css`
     }
 
     svg {
-      width: 2rem;
-      height: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
       margin-right: 0.4rem;
     }
 
@@ -80,8 +80,8 @@ const headerStyle = css`
       transform: translateX(-50%);
       
       svg {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
       }
     }
   }
