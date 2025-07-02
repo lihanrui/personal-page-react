@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import PageLayout from '../layouts/PageLayout';
 import { typography, textEffect, fontFamily, layout, component } from '../lib/util';
-import GlassCard from '../components/GlassCard';
+import GlassCard, { GradientCard, PrimaryGradientCard, RainbowGradientCard } from '../components/GlassCard';
 
 const aboutContentStyle = css`
   .hero-text {
@@ -238,7 +238,7 @@ const AboutPage = () => {
         
         <h2>What I Do</h2>
         <div className="skills-grid">
-          <GlassCard intensity="medium" className="skill-category">
+          <GradientCard gradientType="primary" className="skill-category">
             <h4>Frontend Development</h4>
             <ul>
               <li>React & Next.js</li>
@@ -247,9 +247,9 @@ const AboutPage = () => {
               <li>Responsive Design</li>
               <li>Performance Optimization</li>
             </ul>
-          </GlassCard>
+          </GradientCard>
           
-          <GlassCard intensity="medium" className="skill-category">
+          <GradientCard gradientType="secondary" className="skill-category">
             <h4>Design & UX</h4>
             <ul>
               <li>User Interface Design</li>
@@ -258,9 +258,9 @@ const AboutPage = () => {
               <li>Prototyping</li>
               <li>Accessibility</li>
             </ul>
-          </GlassCard>
+          </GradientCard>
           
-          <GlassCard intensity="medium" className="skill-category">
+          <GradientCard gradientType="cool" className="skill-category">
             <h4>Tools & Technologies</h4>
             <ul>
               <li>Figma & Adobe Creative Suite</li>
@@ -269,15 +269,15 @@ const AboutPage = () => {
               <li>Testing & Quality Assurance</li>
               <li>CI/CD & Deployment</li>
             </ul>
-          </GlassCard>
+          </GradientCard>
         </div>
         
-        <GlassCard intensity="strong" className="quote">
+        <RainbowGradientCard intensity="strong" className="quote">
           The best way to predict the future is to create it.
-        </GlassCard>
+        </RainbowGradientCard>
         
         <h2>A Few Fun Facts</h2>
-        <GlassCard intensity="medium" className="fun-facts">
+        <GlassCard intensity="medium" gradient={true} gradientType="warm" className="fun-facts">
           <h3>By the Numbers</h3>
           <div className="facts-list">
             <div className="fact">
@@ -302,7 +302,7 @@ const AboutPage = () => {
         <div className="experience-section">
           <h2>Professional Experience</h2>
           
-          <GlassCard intensity="medium" className="experience-item">
+          <GlassCard intensity="medium" gradient={true} gradientType="primary" className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Google (Contract: Vendor)</h4>
               <span className="duration">2019-2024</span>
@@ -317,7 +317,7 @@ const AboutPage = () => {
             </p>
           </GlassCard>
 
-          <GlassCard intensity="medium" className="experience-item">
+          <GlassCard intensity="medium" gradient={true} gradientType="secondary" className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Career Development & Personal Growth</h4>
               <span className="duration">2017-2018</span>
@@ -328,7 +328,7 @@ const AboutPage = () => {
             </p>
           </GlassCard>
 
-          <GlassCard intensity="medium" className="experience-item">
+          <GlassCard intensity="medium" gradient={true} gradientType="warm" className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Mercedes-Benz (Contract)</h4>
               <span className="duration">2015-2016</span>
@@ -339,7 +339,7 @@ const AboutPage = () => {
             </p>
           </GlassCard>
 
-          <GlassCard intensity="medium" className="experience-item">
+          <GlassCard intensity="medium" gradient={true} gradientType="cool" className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Samsung Semiconductor Inc.</h4>
               <span className="duration">2013-2015</span>
@@ -350,7 +350,7 @@ const AboutPage = () => {
             </p>
           </GlassCard>
 
-          <GlassCard intensity="medium" className="experience-item">
+          <GlassCard intensity="medium" gradient={true} gradientType="primary" className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Proximic (Acquired by ComScore)</h4>
               <span className="duration">2013</span>
@@ -365,7 +365,7 @@ const AboutPage = () => {
         <div className="education-section">
           <h2>Education</h2>
           
-          <GlassCard intensity="strong" className="education-item">
+          <RainbowGradientCard intensity="strong" className="education-item">
             <div className="school-header">
               <h4 className="school-name">University of California, Berkeley</h4>
               <span className="graduation">Graduated: 2012</span>
@@ -377,7 +377,7 @@ const AboutPage = () => {
             <p className="description">
               Demonstrated strong passion for technology by actively pursuing computer science coursework alongside core MCB requirements. This unique combination of biological sciences foundation with computational skills reflects adaptability and commitment to continuous learning across diverse academic disciplines. Acquired analytical and problem-solving capabilities through intensive study of complex biological systems while simultaneously developing computational thinking and programming competencies through CS electives.
             </p>
-          </GlassCard>
+          </RainbowGradientCard>
         </div>
         
         <p>

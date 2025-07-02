@@ -7,11 +7,14 @@ const GlassCard = ({
   className,
   intensity = 'medium', // 'light', 'medium', 'strong'
   hover = true,
+  gradient = false, // Enable gradient background
+  gradientType = 'primary', // 'primary', 'secondary', 'rainbow', 'custom'
+  customGradient = null, // Custom gradient string
   ...props 
 }) => {
   const glassStyles = css`
     /* Base glassmorphism styling */
-    background: var(--glass-bg, rgba(255, 255, 255, 0.1));
+    background: ${getBackgroundStyle()};
     backdrop-filter: blur(${getBlurIntensity(intensity)});
     -webkit-backdrop-filter: blur(${getBlurIntensity(intensity)});
     border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.2));
@@ -68,7 +71,7 @@ const GlassCard = ({
         transform: translateY(-4px);
         box-shadow: var(--shadow-lg);
         border-color: var(--primary, rgba(254, 215, 102, 0.3));
-        background: var(--glass-bg-hover, rgba(255, 255, 255, 0.15));
+        background: ${gradient ? getHoverGradientStyle() : 'var(--glass-bg-hover, rgba(255, 255, 255, 0.15))'};
 
         [data-theme="light"] & {
           --glass-bg-hover: rgba(255, 255, 255, 0.35);
@@ -86,6 +89,54 @@ const GlassCard = ({
       border-radius: 12px;
     }
   `;
+
+  // Helper function to get background style
+  function getBackgroundStyle() {
+    if (!gradient) {
+      return 'var(--glass-bg, rgba(255, 255, 255, 0.1))';
+    }
+
+    if (customGradient) {
+      return customGradient;
+    }
+
+    switch (gradientType) {
+      case 'primary':
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.1), rgba(255, 255, 255, 0.1))';
+      case 'secondary':
+        return 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1))';
+      case 'rainbow':
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.1), rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1), rgba(34, 197, 94, 0.1))';
+      case 'warm':
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.1), rgba(251, 146, 60, 0.1), rgba(239, 68, 68, 0.1))';
+      case 'cool':
+        return 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 197, 94, 0.1), rgba(6, 182, 212, 0.1))';
+      default:
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.1), rgba(255, 255, 255, 0.1))';
+    }
+  }
+
+  // Helper function to get hover gradient style
+  function getHoverGradientStyle() {
+    if (customGradient) {
+      return customGradient.replace(/0\.1/g, '0.2').replace(/0\.05/g, '0.15');
+    }
+
+    switch (gradientType) {
+      case 'primary':
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.2), rgba(255, 255, 255, 0.2))';
+      case 'secondary':
+        return 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2))';
+      case 'rainbow':
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.2), rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2), rgba(34, 197, 94, 0.2))';
+      case 'warm':
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.2), rgba(251, 146, 60, 0.2), rgba(239, 68, 68, 0.2))';
+      case 'cool':
+        return 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(34, 197, 94, 0.2), rgba(6, 182, 212, 0.2))';
+      default:
+        return 'linear-gradient(135deg, rgba(254, 215, 102, 0.2), rgba(255, 255, 255, 0.2))';
+    }
+  }
 
   return (
     <div css={glassStyles} className={className} {...props}>
@@ -108,19 +159,38 @@ export default GlassCard;
 
 // Pre-configured variants for common use cases
 export const ProjectCard = ({ children, ...props }) => (
-  <GlassCard intensity="medium" hover={true} {...props}>
+  <GlassCard intensity="medium" hover={true} gradient={true} gradientType="primary" {...props}>
     {children}
   </GlassCard>
 );
 
 export const HobbyCard = ({ children, ...props }) => (
-  <GlassCard intensity="light" hover={true} {...props}>
+  <GlassCard intensity="light" hover={true} gradient={true} gradientType="warm" {...props}>
     {children}
   </GlassCard>
 );
 
 export const FeatureCard = ({ children, ...props }) => (
-  <GlassCard intensity="strong" hover={false} {...props}>
+  <GlassCard intensity="strong" hover={false} gradient={true} gradientType="rainbow" {...props}>
+    {children}
+  </GlassCard>
+);
+
+// New gradient-specific variants
+export const GradientCard = ({ children, gradientType = 'primary', ...props }) => (
+  <GlassCard intensity="medium" hover={true} gradient={true} gradientType={gradientType} {...props}>
+    {children}
+  </GlassCard>
+);
+
+export const PrimaryGradientCard = ({ children, ...props }) => (
+  <GlassCard intensity="medium" hover={true} gradient={true} gradientType="primary" {...props}>
+    {children}
+  </GlassCard>
+);
+
+export const RainbowGradientCard = ({ children, ...props }) => (
+  <GlassCard intensity="medium" hover={true} gradient={true} gradientType="rainbow" {...props}>
     {children}
   </GlassCard>
 ); 
