@@ -4,6 +4,12 @@ import PageLayout from '../layouts/PageLayout';
 import GlassCard, { GradientCard, RainbowGradientCard } from '../components/GlassCard';
 import { homeContentStyle } from '../lib/style/pages/HomePage';
 
+// Import company logos
+import GoogleLogo from '../assets/icon_company/Google_2015_logo.svg';
+import MercedesLogo from '../assets/icon_company/Mercedes-Benz_Star.svg.png';
+import SamsungLogo from '../assets/icon_company/Samsung_Logo.svg.png';
+import ProximicLogo from '../assets/icon_company/Proximic_by_Comscore_Logo_Standard.png';
+
 const HomePage = () => {
   return (
     <PageLayout title="Henry Li">
@@ -49,7 +55,10 @@ const HomePage = () => {
 
           <GlassCard intensity="medium" gradient={true} gradientType="primary" className="experience-item">
             <div className="company-header">
-              <h4 className="company-name">Google (Contract: Vendor)</h4>
+              <div className="company-info">
+                <img src={GoogleLogo} alt="Google" className="company-logo" />
+                <h4 className="company-name">Google (Contract: Vendor)</h4>
+              </div>
               <span className="duration">2019-2024</span>
             </div>
             <h5 className="role-title">Chrome Enterprise Partners - Android Developer Advocate (2019 - 2023)</h5>
@@ -82,7 +91,10 @@ const HomePage = () => {
 
           <GlassCard intensity="medium" gradient={true} gradientType="warm" className="experience-item">
             <div className="company-header">
-              <h4 className="company-name">Mercedes-Benz (Contract)</h4>
+              <div className="company-info">
+                <img src={MercedesLogo} alt="Mercedes-Benz" className="company-logo" />
+                <h4 className="company-name">Mercedes-Benz (Contract)</h4>
+              </div>
               <span className="duration">2015-2016</span>
             </div>
             <h5 className="role-title">AI Machine Learning Team (MLPUX) - Android Developer</h5>
@@ -95,7 +107,10 @@ const HomePage = () => {
 
           <GlassCard intensity="medium" gradient={true} gradientType="cool" className="experience-item">
             <div className="company-header">
-              <h4 className="company-name">Samsung Semiconductor Inc.</h4>
+              <div className="company-info">
+                <img src={SamsungLogo} alt="Samsung" className="company-logo" />
+                <h4 className="company-name">Samsung Semiconductor Inc.</h4>
+              </div>
               <span className="duration">2013-2015</span>
             </div>
             <h5 className="role-title">Quantitative Performance Testing Team - GPS Systems Developer</h5>
@@ -108,7 +123,10 @@ const HomePage = () => {
 
           <GlassCard intensity="medium" gradient={true} gradientType="primary" className="experience-item">
             <div className="company-header">
-              <h4 className="company-name">Proximic (Acquired by ComScore)</h4>
+              <div className="company-info">
+                <img src={ProximicLogo} alt="Proximic" className="company-logo" />
+                <h4 className="company-name">Proximic (Acquired by ComScore)</h4>
+              </div>
               <span className="duration">2013</span>
             </div>
             <h5 className="role-title">Systems Administration Intern - Ad Serving Infrastructure</h5>

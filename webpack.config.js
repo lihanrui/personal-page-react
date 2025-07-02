@@ -65,7 +65,7 @@ module.exports = {
         use: loaders.style,
       },
       {
-        test: /\.(jpe?g|png|gif|bmp)$/,
+        test: /\.(jpe?g|png|gif|bmp|webp)$/,
         use: [loaders.url],
       },
       {

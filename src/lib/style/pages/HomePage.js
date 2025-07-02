@@ -116,10 +116,31 @@ export const homeContentStyle = css`
       .company-header {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
+        align-items: center;
         margin-bottom: 1rem;
         flex-wrap: wrap;
         gap: 0.5rem;
+        
+        .company-info {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          
+          .company-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease;
+            
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
         
         .company-name {
           ${typography('h4')};
