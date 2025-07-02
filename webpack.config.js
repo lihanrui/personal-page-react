@@ -66,17 +66,24 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+      protectWebpackAssets: false,
+      cleanOnceBeforeBuildPatterns: ['**/*'],
+      dangerouslyAllowCleanPatternsOutsideProject: false,
+    }),
     new HtmlWebpackPlugin({
       hash: true,
       template: 'public/index.html',
       favicon: 'public/favicon.ico',
-      minify: {
+      minify: prod ? {
         collapseWhitespace: true,
-      },
-    }),
-    new CleanWebpackPlugin({
-      cleanStaleWebpackAssets: false,
-      protectWebpackAssets: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      } : false,
     }),
     ...(prod
       ? [
@@ -97,10 +104,22 @@ module.exports = {
         },
       }),
     ],
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'static/js/[name].[fullhash:8].js',
     chunkFilename: 'static/js/[name].[fullhash:8].chunk.js',
+    publicPath: '/',
+    clean: true,
   },
 };
