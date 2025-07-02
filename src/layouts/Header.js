@@ -310,7 +310,7 @@ const Header = () => {
             Hobbies
           </Link>
           <Link to="/fosters" className={pathname === '/fosters' ? 'active' : ''} onClick={closeMobileMenu}>
-            Fosters
+            Fosters 🐱
           </Link>
         </nav>
 

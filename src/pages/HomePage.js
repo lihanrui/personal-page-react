@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageLayout from '../layouts/PageLayout';
 import GlassCard, { GradientCard, RainbowGradientCard } from '../components/GlassCard';
 import { homeContentStyle } from '../lib/style/pages/HomePage';
@@ -33,6 +34,19 @@ const HomePage = () => {
         <div className="experience-section">
           <h2>Professional Experience</h2>
           
+          <GlassCard intensity="medium" gradient={true} gradientType="warm" className="experience-item">
+            <div className="company-header">
+              <h4 className="company-name">Personal Development & Learning</h4>
+              <span className="duration">2024-Present</span>
+            </div>
+            <h5 className="role-title">Independent Social Media Projects</h5>
+            <ul className="description">
+              <li>See <Link to="/projects">Projects</Link> for more details</li>
+              <li>Currently focused on personal project development and continuous learning initiatives to expand technical capabilities</li>
+              <li>Dedicated to staying current with industry trends and best practices through self-directed learning and hands-on experimentation</li>
+            </ul>
+          </GlassCard>
+
           <GlassCard intensity="medium" gradient={true} gradientType="primary" className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Google (Contract: Vendor)</h4>
