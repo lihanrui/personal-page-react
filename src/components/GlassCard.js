@@ -14,15 +14,20 @@ const GlassCard = ({
 }) => {
   const glassStyles = css`
     /* Base glassmorphism styling */
-    background: ${getBackgroundStyle()};
+    background: var(--glass-bg, rgba(255, 255, 255, 0.1));
     backdrop-filter: blur(${getBlurIntensity(intensity)});
     -webkit-backdrop-filter: blur(${getBlurIntensity(intensity)});
-    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.2));
+    border: 2px solid transparent;
     border-radius: 16px;
     box-shadow: var(--shadow-md);
     padding: 1.5rem;
     position: relative;
     overflow: hidden;
+    
+    /* Gradient border */
+    ${gradient && css`
+      border-image: ${getBorderGradientStyle(gradientType, customGradient)} 1;
+    `}
     
     /* Ensure backdrop support */
     @supports not (backdrop-filter: blur(10px)) {
@@ -135,6 +140,24 @@ const GlassCard = ({
         return 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(34, 197, 94, 0.2), rgba(6, 182, 212, 0.2))';
       default:
         return 'linear-gradient(135deg, rgba(254, 215, 102, 0.2), rgba(255, 255, 255, 0.2))';
+    }
+  }
+
+  function getBorderGradientStyle(type, custom) {
+    if (custom) return `linear-gradient(135deg, ${custom})`;
+    switch (type) {
+      case 'primary':
+        return 'linear-gradient(135deg, #FED766, #FFFFFF)';
+      case 'secondary':
+        return 'linear-gradient(135deg, #6366F1, #A855F7)';
+      case 'rainbow':
+        return 'linear-gradient(135deg, #FED766, #6366F1, #A855F7, #22C55E)';
+      case 'warm':
+        return 'linear-gradient(135deg, #FED766, #FB923C, #EF4444)';
+      case 'cool':
+        return 'linear-gradient(135deg, #6366F1, #22C55E, #06B6D4)';
+      default:
+        return 'linear-gradient(135deg, #FED766, #FFFFFF)';
     }
   }
 

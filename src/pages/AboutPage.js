@@ -238,7 +238,7 @@ const AboutPage = () => {
         
         <h2>What I Do</h2>
         <div className="skills-grid">
-          <GradientCard gradientType="primary" className="skill-category">
+          <GradientCard gradientType="primary" gradient={true} className="skill-category">
             <h4>Frontend Development</h4>
             <ul>
               <li>React & Next.js</li>
@@ -249,7 +249,7 @@ const AboutPage = () => {
             </ul>
           </GradientCard>
           
-          <GradientCard gradientType="secondary" className="skill-category">
+          <GradientCard gradientType="secondary" gradient={true} className="skill-category">
             <h4>Design & UX</h4>
             <ul>
               <li>User Interface Design</li>
@@ -260,7 +260,7 @@ const AboutPage = () => {
             </ul>
           </GradientCard>
           
-          <GradientCard gradientType="cool" className="skill-category">
+          <GradientCard gradientType="cool" gradient={true} className="skill-category">
             <h4>Tools & Technologies</h4>
             <ul>
               <li>Figma & Adobe Creative Suite</li>
@@ -272,7 +272,7 @@ const AboutPage = () => {
           </GradientCard>
         </div>
         
-        <RainbowGradientCard intensity="strong" className="quote">
+        <RainbowGradientCard intensity="strong" gradient={true} className="quote">
           The best way to predict the future is to create it.
         </RainbowGradientCard>
         
@@ -365,7 +365,7 @@ const AboutPage = () => {
         <div className="education-section">
           <h2>Education</h2>
           
-          <RainbowGradientCard intensity="strong" className="education-item">
+          <RainbowGradientCard intensity="strong" gradient={true} className="education-item">
             <div className="school-header">
               <h4 className="school-name">University of California, Berkeley</h4>
               <span className="graduation">Graduated: 2012</span>
