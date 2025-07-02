@@ -279,4 +279,53 @@ const Header = () => {
       
       <header css={headerStyle}>
         <div className="mobile-left-section">
-          <div className={`
+          <div className={`hamburger-mobile ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <Link to="/" replace={pathname === '/'} className="brand-link" onClick={closeMobileMenu}>
+          <LogoIcon />
+        </Link>
+
+        <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}> 
+          <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
+            Home
+          </Link>
+          <Link to="/about" className={pathname === '/about' ? 'active' : ''} onClick={closeMobileMenu}>
+            About
+          </Link>
+          <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
+            Projects
+          </Link>
+          <Link to="/posts" className={pathname === '/posts' ? 'active' : ''} onClick={closeMobileMenu}>
+            Posts
+          </Link>
+          <Link to="/hobbies" className={pathname === '/hobbies' ? 'active' : ''} onClick={closeMobileMenu}>
+            Hobbies
+          </Link>
+          <Link to="/fosters" className={pathname === '/fosters' ? 'active' : ''} onClick={closeMobileMenu}>
+            Fosters
+          </Link>
+        </nav>
+
+        <div className="header-actions">
+          <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          {isLight ? (
+            <SunIcon className="theme" onClick={toggleTheme} />
+          ) : (
+            <MoonIcon className="theme" onClick={toggleTheme} />
+          )}
+        </div>
+      </header>
+    </>
+  );
+};
+
+export default Header;
