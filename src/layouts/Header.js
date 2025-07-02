@@ -9,11 +9,14 @@ import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 
 const headerStyle = css`
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   background-color: var(--bg);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.1));
   height: 60px;
   display: flex;
@@ -21,7 +24,6 @@ const headerStyle = css`
   justify-content: space-between;
   padding: 0 12px;
   width: 100%;
-  position: relative;
 
   ${Media.medium} {
     height: 50px;
@@ -293,9 +295,6 @@ const Header = () => {
         <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}> 
           <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
             Home
-          </Link>
-          <Link to="/about" className={pathname === '/about' ? 'active' : ''} onClick={closeMobileMenu}>
-            About
           </Link>
           <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
             Projects

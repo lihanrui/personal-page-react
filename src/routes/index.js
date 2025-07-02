@@ -1,27 +1,23 @@
-import React, { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from '../pages/HomePage';
+import ProjectsPage from '../pages/ProjectsPage';
+import PostsPage from '../pages/PostsPage';
+import HobbiesPage from '../pages/HobbiesPage';
+import FostersPage from '../pages/FostersPage';
+import ErrorPage from '../pages/ErrorPage';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
-const AboutPage = lazy(() => import('../pages/AboutPage'));
-const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
-const PostsPage = lazy(() => import('../pages/PostsPage'));
-const HobbiesPage = lazy(() => import('../pages/HobbiesPage'));
-const FostersPage = lazy(() => import('../pages/FostersPage'));
-const ErrorPage = lazy(() => import('../pages/ErrorPage'));
-
-export default function AppRouter() {
+const AppRoutes = () => {
   return (
-    <Suspense fallback={<div />}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/posts" element={<PostsPage />} />
-        <Route path="/hobbies" element={<HobbiesPage />} />
-        <Route path="/fosters" element={<FostersPage />} />
-        
-        <Route path="*" element={<ErrorPage status={404} message="Page not found." />} />
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/posts" element={<PostsPage />} />
+      <Route path="/hobbies" element={<HobbiesPage />} />
+      <Route path="/fosters" element={<FostersPage />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
-}
+};
+
+export default AppRoutes;

@@ -7,11 +7,21 @@ const pageLayoutStyle = css`
   background-color: var(--bg);
   color: var(--text-primary);
   min-height: 100vh;
-  padding: 3rem 2rem 2rem;
+  padding: calc(60px + 3rem) 2rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   ${fontFamily('primary')};
+
+  ${Media.medium} {
+    padding-top: calc(50px + 2rem);
+  }
+
+  ${Media.small} {
+    padding-top: calc(50px + 1.5rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
   h1 {
     ${typography('h1')};
