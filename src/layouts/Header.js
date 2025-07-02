@@ -11,8 +11,8 @@ import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 const headerStyle = css`
   position: fixed;
   top: 0;
-  left: 15%;
-  right: 15%;
+  left: 12%;
+  right: 12%;
   z-index: 1000;
   background-color: var(--bg);
   backdrop-filter: blur(10px);

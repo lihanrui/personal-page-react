@@ -5,14 +5,13 @@ import { homeContentStyle } from '../lib/style/pages/HomePage';
 
 const HomePage = () => {
   return (
-    <PageLayout title="Henry">
+    <PageLayout title="Henry Li">
       <div css={homeContentStyle}>
         <p className="hero-text">
-          Hi, I'm a creative developer passionate about 
+          Hi, I'm a developer passionate about 
           building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
         </p>
         
-        <h2>A Few Fun Facts</h2>
         <GlassCard intensity="medium" gradient={true} gradientType="warm" className="fun-facts">
           <h3>By the Numbers</h3>
           <div className="facts-list">
@@ -21,12 +20,8 @@ const HomePage = () => {
               <div className="label">Years Experience</div>
             </div>
             <div className="fact">
-              <div className="number">50+</div>
+              <div className="number">25+</div>
               <div className="label">Projects Completed</div>
-            </div>
-            <div className="fact">
-              <div className="number">∞</div>
-              <div className="label">Cups of Coffee</div>
             </div>
             <div className="fact">
               <div className="number">24/7</div>
