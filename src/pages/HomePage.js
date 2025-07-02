@@ -1,14 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { css } from '@emotion/react';
 import PageLayout from '../layouts/PageLayout';
-import GlassCard, { GradientCard, RainbowGradientCard } from '../components/GlassCard';
 import { homeContentStyle } from '../lib/style/pages/HomePage';
+import { Media } from '../lib/style';
 
 // Import company logos
 import GoogleLogo from '../assets/icon_company/Google_2015_logo.svg';
 import MercedesLogo from '../assets/icon_company/Mercedes-Benz_Star.svg.png';
 import SamsungLogo from '../assets/icon_company/Samsung_Logo.svg.png';
 import ProximicLogo from '../assets/icon_company/Proximic_by_Comscore_Logo_Standard.png';
+
+// Regular card styles without glassmorphism
+const cardStyle = css`
+  background: var(--bg);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary, rgba(254, 215, 102, 0.3));
+  }
+
+  ${Media.small} {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+`;
 
 const HomePage = () => {
   return (
@@ -19,7 +42,7 @@ const HomePage = () => {
           building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
         </p>
         
-        <GlassCard intensity="medium" gradient={true} gradientType="warm" className="fun-facts">
+        <div css={cardStyle} className="fun-facts">
           <h3>By the Numbers</h3>
           <div className="facts-list">
             <div className="fact">
@@ -35,12 +58,12 @@ const HomePage = () => {
               <div className="label">Learning Mode</div>
             </div>
           </div>
-        </GlassCard>
+        </div>
         
         <div className="experience-section">
           <h2>Professional Experience</h2>
           
-          <GlassCard intensity="medium" gradient={true} gradientType="warm" className="experience-item">
+          <div css={cardStyle} className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Personal Development & Learning</h4>
               <span className="duration">2024-Present</span>
@@ -51,9 +74,9 @@ const HomePage = () => {
               <li>Currently focused on personal project development and continuous learning initiatives to expand technical capabilities</li>
               <li>Dedicated to staying current with industry trends and best practices through self-directed learning and hands-on experimentation</li>
             </ul>
-          </GlassCard>
+          </div>
 
-          <GlassCard intensity="medium" gradient={true} gradientType="primary" className="experience-item">
+          <div css={cardStyle} className="experience-item">
             <div className="company-header">
               <div className="company-info">
                 <img src={GoogleLogo} alt="Google" className="company-logo" />
@@ -73,9 +96,9 @@ const HomePage = () => {
               <li>Contributed to the successful launch of dozens of Chrome OS features, participating in the complete product development lifecycle from testing to deployment</li>
               <li>Implemented systematic testing methodologies that improved device reliability and enhanced user experience across the Chromebook ecosystem</li>
             </ul>
-          </GlassCard>
+          </div>
 
-          <GlassCard intensity="medium" gradient={true} gradientType="secondary" className="experience-item">
+          <div css={cardStyle} className="experience-item">
             <div className="company-header">
               <h4 className="company-name">Career Development & Personal Growth</h4>
               <span className="duration">2017-2018</span>
@@ -87,9 +110,9 @@ const HomePage = () => {
               <li>Cultivated expertise in strategic planning, conflict resolution, and remote team leadership while organizing complex, time-sensitive collaborative initiatives</li>
               <li>This intentional career pause provided valuable perspective and leadership experience that significantly enriched subsequent professional contributions</li>
             </ul>
-          </GlassCard>
+          </div>
 
-          <GlassCard intensity="medium" gradient={true} gradientType="warm" className="experience-item">
+          <div css={cardStyle} className="experience-item">
             <div className="company-header">
               <div className="company-info">
                 <img src={MercedesLogo} alt="Mercedes-Benz" className="company-logo" />
@@ -103,9 +126,9 @@ const HomePage = () => {
               <li>Contributed to the development of advanced AI-driven user experience technologies that revolutionized automotive interface design and personalization capabilities</li>
               <li>Collaborated with machine learning engineers to integrate predictive algorithms into mobile applications, enhancing driver experience and system responsiveness</li>
             </ul>
-          </GlassCard>
+          </div>
 
-          <GlassCard intensity="medium" gradient={true} gradientType="cool" className="experience-item">
+          <div css={cardStyle} className="experience-item">
             <div className="company-header">
               <div className="company-info">
                 <img src={SamsungLogo} alt="Samsung" className="company-logo" />
@@ -119,9 +142,9 @@ const HomePage = () => {
               <li>Enhanced testing infrastructure to support Samsung's strategic initiative to develop proprietary GPS technologies, contributing to the company's goal of reducing dependency on third-party navigation solutions</li>
               <li>Implemented advanced testing protocols that improved GPS accuracy measurements and performance validation across diverse device configurations</li>
             </ul>
-          </GlassCard>
+          </div>
 
-          <GlassCard intensity="medium" gradient={true} gradientType="primary" className="experience-item">
+          <div css={cardStyle} className="experience-item">
             <div className="company-header">
               <div className="company-info">
                 <img src={ProximicLogo} alt="Proximic" className="company-logo" />
@@ -135,39 +158,29 @@ const HomePage = () => {
               <li>Implemented comprehensive monitoring solutions using StatsD and Graphite, establishing real-time system performance tracking that improved operational visibility</li>
               <li>Supported mission-critical advertising technology infrastructure that processed high-volume ad serving requests with minimal latency</li>
             </ul>
-          </GlassCard>
+          </div>
         </div>
 
         <div className="education-section">
           <h2>Education</h2>
           
-          <RainbowGradientCard intensity="strong" gradient={true} className="education-item">
+          <div css={cardStyle} className="education-item">
             <div className="school-header">
               <h4 className="school-name">University of California, Berkeley</h4>
               <span className="graduation">Graduated: 2012</span>
             </div>
             <h5 className="degree">Bachelor of Science in Molecular and Cell Biology (MCB)</h5>
             <p className="description">
-              Comprehensive study of molecular structures and cellular processes, encompassing biochemistry, molecular biology, genetics, and cell biology fundamentals. Successfully completed rigorous coursework across multiple scientific disciplines including organic chemistry, calculus-based physics, and advanced biological sciences.
+              Comprehensive study of molecular structures and cellular processes, including biochemistry, molecular biology, genetics, and cell biology. Combined rigorous biological sciences coursework with computer science electives, developing strong analytical and computational thinking skills across diverse academic disciplines.
             </p>
-            <p className="description">
-              Demonstrated strong passion for technology by actively pursuing computer science coursework alongside core MCB requirements. This unique combination of biological sciences foundation with computational skills reflects adaptability and commitment to continuous learning across diverse academic disciplines. Acquired analytical and problem-solving capabilities through intensive study of complex biological systems while simultaneously developing computational thinking and programming competencies through CS electives.
-            </p>
-          </RainbowGradientCard>
+          </div>
         </div>
-        
-        <p>
-          When I'm not coding, you'll find me exploring new design trends, 
-          contributing to open source projects, or planning my next adventure. 
-          I'm always excited to collaborate on interesting projects and meet 
-          fellow creators who share a passion for exceptional digital experiences.
-        </p>
         
         <p className="large">
           <strong>Let's build something amazing together!</strong>
         </p>
       </div>
-    </PageLayout>
+    </PageLayout> 
   );
 };
 

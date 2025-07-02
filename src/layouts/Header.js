@@ -298,7 +298,7 @@ const Header = () => {
 
         <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}> 
           <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
-            Home
+            About Me
           </Link>
           <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
             Projects

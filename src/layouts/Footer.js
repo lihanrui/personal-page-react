@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <footer css={[footerStyle]}>
       <nav>
-        <div>{new Date().getFullYear()} &copy; your copyright</div>
+        <div>© 2025 Hanrui Li</div>
       </nav>
     </footer>
   );

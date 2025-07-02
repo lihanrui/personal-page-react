@@ -38,8 +38,9 @@ const FostersPage = () => {
 
     .foster-image {
       width: 100%;
-      height: 300px;
-      object-fit: cover;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
       border-radius: 12px;
       box-shadow: var(--shadow-md);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -90,7 +91,7 @@ const FostersPage = () => {
       }
 
       .foster-image {
-        height: 250px;
+        max-height: 300px;
       }
     }
   `;
@@ -147,7 +148,7 @@ const FostersPage = () => {
   ];
 
   return (
-    <PageLayout title="Fosters">
+    <PageLayout>
       <div css={fosterStyles}>
         <RainbowGradientCard>
           <h2 style={{ marginBottom: '1rem', textAlign: 'center' }}>
