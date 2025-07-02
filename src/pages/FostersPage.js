@@ -80,11 +80,11 @@ const FostersPage = () => {
       <div css={[fosterStyles, gridStyles.fostersGrid]}>
         <RainbowGradientCard>
           <h2 css={[marginStyles.mb1, textAlignStyles.center]}>
-            Meet Our Fosters
+            Meet the Kittens
           </h2>
           <p css={[textAlignStyles.center, { color: 'var(--text-secondary)', lineHeight: '1.6' }]}>
-            Each foster has a unique story and personality. These wonderful animals have touched our lives 
-            and found their forever homes through love and care.
+            These wonderful kitties have touched our lives 
+            and found their forever homes through the <a href="https://hssv.org" target="_blank" rel="noopener noreferrer">Humane Society of Silicon Valley</a>.
           </p>
         </RainbowGradientCard>
 
