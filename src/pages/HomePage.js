@@ -1,37 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { css } from '@emotion/react';
 import PageLayout from '../layouts/PageLayout';
 import { homeContentStyle } from '../lib/style/pages/HomePage';
-import { Media } from '../lib/style';
+import { cardStyles, companyHeaderStyles, companyLogoStyles, gridStyles, factStyles } from '../lib/style/Components';
 
 // Import company logos
 import GoogleLogo from '../assets/icon_company/Google_2015_logo.svg';
 import MercedesLogo from '../assets/icon_company/Mercedes-Benz_Star.svg.png';
 import SamsungLogo from '../assets/icon_company/Samsung_Logo.svg.png';
 import ProximicLogo from '../assets/icon_company/Proximic_by_Comscore_Logo_Standard.png';
-
-// Regular card styles without glassmorphism
-const cardStyle = css`
-  background: var(--bg);
-  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary, rgba(254, 215, 102, 0.3));
-  }
-
-  ${Media.small} {
-    padding: 1.25rem;
-    border-radius: 12px;
-  }
-`;
 
 const HomePage = () => {
   return (
@@ -46,18 +23,18 @@ const HomePage = () => {
           <strong>Let's build something amazing together!</strong>
         </p>
         
-        <div css={cardStyle} className="fun-facts">
+        <div css={cardStyles} className="fun-facts">
           <h3>By the Numbers</h3>
-          <div className="facts-list">
-            <div className="fact">
+          <div css={gridStyles.statsGrid}>
+            <div css={factStyles}>
               <div className="number">5+</div>
               <div className="label">Years Experience</div>
             </div>
-            <div className="fact">
+            <div css={factStyles}>
               <div className="number">25+</div>
               <div className="label">Projects Completed</div>
             </div>
-            <div className="fact">
+            <div css={factStyles}>
               <div className="number">24/7</div>
               <div className="label">Learning Mode</div>
             </div>
@@ -67,8 +44,8 @@ const HomePage = () => {
         <div className="experience-section">
           <h2>Professional Experience</h2>
           
-          <div css={cardStyle} className="experience-item">
-            <div className="company-header">
+          <div css={cardStyles} className="experience-item">
+            <div css={companyHeaderStyles}>
               <h4 className="company-name">Personal Development & Learning</h4>
               <span className="duration">2024-Present</span>
             </div>
@@ -80,10 +57,10 @@ const HomePage = () => {
             </ul>
           </div>
 
-          <div css={cardStyle} className="experience-item">
-            <div className="company-header">
+          <div css={cardStyles} className="experience-item">
+            <div css={companyHeaderStyles}>
               <div className="company-info">
-                <img src={GoogleLogo} alt="Google" className="company-logo" />
+                <img src={GoogleLogo} alt="Google" css={companyLogoStyles} />
                 <h4 className="company-name">Google (Contract: Vendor)</h4>
               </div>
               <span className="duration">2019-2024</span>
@@ -102,8 +79,8 @@ const HomePage = () => {
             </ul>
           </div>
 
-          <div css={cardStyle} className="experience-item">
-            <div className="company-header">
+          <div css={cardStyles} className="experience-item">
+            <div css={companyHeaderStyles}>
               <h4 className="company-name">Career Development & Personal Growth</h4>
               <span className="duration">2017-2018</span>
             </div>
@@ -116,10 +93,10 @@ const HomePage = () => {
             </ul>
           </div>
 
-          <div css={cardStyle} className="experience-item">
-            <div className="company-header">
+          <div css={cardStyles} className="experience-item">
+            <div css={companyHeaderStyles}>
               <div className="company-info">
-                <img src={MercedesLogo} alt="Mercedes-Benz" className="company-logo" />
+                <img src={MercedesLogo} alt="Mercedes-Benz" css={companyLogoStyles} />
                 <h4 className="company-name">Mercedes-Benz (Contract)</h4>
               </div>
               <span className="duration">2015-2016</span>
@@ -132,10 +109,10 @@ const HomePage = () => {
             </ul>
           </div>
 
-          <div css={cardStyle} className="experience-item">
-            <div className="company-header">
+          <div css={cardStyles} className="experience-item">
+            <div css={companyHeaderStyles}>
               <div className="company-info">
-                <img src={SamsungLogo} alt="Samsung" className="company-logo" />
+                <img src={SamsungLogo} alt="Samsung" css={companyLogoStyles} />
                 <h4 className="company-name">Samsung Semiconductor Inc.</h4>
               </div>
               <span className="duration">2013-2015</span>
@@ -148,10 +125,10 @@ const HomePage = () => {
             </ul>
           </div>
 
-          <div css={cardStyle} className="experience-item">
-            <div className="company-header">
+          <div css={cardStyles} className="experience-item">
+            <div css={companyHeaderStyles}>
               <div className="company-info">
-                <img src={ProximicLogo} alt="Proximic" className="company-logo" />
+                <img src={ProximicLogo} alt="Proximic" css={companyLogoStyles} />
                 <h4 className="company-name">Proximic (Acquired by ComScore)</h4>
               </div>
               <span className="duration">2013</span>
@@ -168,7 +145,7 @@ const HomePage = () => {
         <div className="education-section">
           <h2>Education</h2>
           
-          <div css={cardStyle} className="education-item">
+          <div css={cardStyles} className="education-item">
             <div className="school-header">
               <h4 className="school-name">University of California, Berkeley</h4>
               <span className="graduation">Graduated: 2012</span>

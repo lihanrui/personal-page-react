@@ -1,8 +1,15 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import PageLayout from '../layouts/PageLayout';
 import GlassCard, { RainbowGradientCard, HobbyCard } from '../components/GlassCard';
-import { Media } from '../lib/style';
+import { 
+  fosterStyles, 
+  gridStyles, 
+  imageStyles, 
+  statStyles, 
+  textAlignStyles, 
+  marginStyles, 
+  flexStyles 
+} from '../lib/style/Components';
 
 // Import foster images
 import monmonmonImg from '../assets/fosters/monmonmon.jpg';
@@ -16,85 +23,6 @@ import catsplosionImg from '../assets/fosters/catsplosion.jpg';
 import newbornKittensImg from '../assets/fosters/newborn_kittens.jpg';
 
 const FostersPage = () => {
-  const fosterStyles = css`
-    .fosters-grid {
-      display: grid;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .foster-card {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .foster-images {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      align-items: center;
-    }
-
-    .foster-image {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        transform: scale(1.02);
-        box-shadow: var(--shadow-lg);
-      }
-    }
-
-    .foster-content {
-      flex: 1;
-    }
-
-    .foster-name {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--text-primary);
-    }
-
-    .foster-description {
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .foster-stats {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .stat {
-      background: var(--primary);
-      color: #000;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    ${Media.small} {
-      .foster-images {
-        grid-template-columns: 1fr;
-      }
-
-      .foster-image {
-        max-height: 300px;
-      }
-    }
-  `;
 
   const fosters = [
     {
@@ -149,27 +77,27 @@ const FostersPage = () => {
 
   return (
     <PageLayout>
-      <div css={fosterStyles}>
+      <div css={[fosterStyles, gridStyles.fostersGrid]}>
         <RainbowGradientCard>
-          <h2 style={{ marginBottom: '1rem', textAlign: 'center' }}>
+          <h2 css={[marginStyles.mb1, textAlignStyles.center]}>
             Meet Our Fosters
           </h2>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+          <p css={[textAlignStyles.center, { color: 'var(--text-secondary)', lineHeight: '1.6' }]}>
             Each foster has a unique story and personality. These wonderful animals have touched our lives 
             and found their forever homes through love and care.
           </p>
         </RainbowGradientCard>
 
-        <div className="fosters-grid">
+        <div>
           {fosters.map((foster, index) => (
             <HobbyCard key={index} className="foster-card">
-              <div className="foster-images">
+              <div css={gridStyles.fosterImagesGrid}>
                 {foster.images.map((image, imgIndex) => (
                   <img
                     key={imgIndex}
                     src={image}
                     alt={`${foster.name} - Image ${imgIndex + 1}`}
-                    className="foster-image"
+                    css={imageStyles.fosterImage}
                   />
                 ))}
               </div>
@@ -178,7 +106,7 @@ const FostersPage = () => {
                 <p className="foster-description">{foster.description}</p>
                 <div className="foster-stats">
                   {foster.stats.map((stat, statIndex) => (
-                    <span key={statIndex} className="stat">
+                    <span key={statIndex} css={statStyles}>
                       {stat}
                     </span>
                   ))}
@@ -188,16 +116,16 @@ const FostersPage = () => {
           ))}
         </div>
 
-        <GlassCard gradient={true} gradientType="warm" style={{ marginTop: '2rem', textAlign: 'center' }}>
+        <GlassCard gradient={true} gradientType="warm" css={[marginStyles.mt2, textAlignStyles.center]}>
           <h3>Interested in Fostering?</h3>
-          <p style={{ marginBottom: '1rem' }}>
+          <p css={marginStyles.mb1}>
             Fostering saves lives and opens up space in shelters for more animals in need. 
             If you're interested in becoming a foster parent, please reach out to your local animal shelters.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <span className="stat">Save Lives</span>
-            <span className="stat">Make a Difference</span>
-            <span className="stat">Rewarding Experience</span>
+          <div css={flexStyles.centerWrap}>
+            <span css={statStyles}>Save Lives</span>
+            <span css={statStyles}>Make a Difference</span>
+            <span css={statStyles}>Rewarding Experience</span>
           </div>
         </GlassCard>
       </div>
