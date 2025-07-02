@@ -41,6 +41,10 @@ const HomePage = () => {
           Hi, I'm a developer passionate about 
           building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
         </p>
+                
+        <p className="hero-text">
+          <strong>Let's build something amazing together!</strong>
+        </p>
         
         <div css={cardStyle} className="fun-facts">
           <h3>By the Numbers</h3>
@@ -175,10 +179,6 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-        
-        <p className="large">
-          <strong>Let's build something amazing together!</strong>
-        </p>
       </div>
     </PageLayout> 
   );
