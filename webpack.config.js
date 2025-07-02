@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const prod = process.env.NODE_ENV === 'production';
 
@@ -14,6 +15,14 @@ const loaders = {
     loader: 'swc-loader',
     options: {
       minify: prod,
+      jsc: {
+        transform: {
+          react: {
+            runtime: 'automatic',
+            refresh: !prod,
+          },
+        },
+      },
     },
   },
   style: [prod ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
@@ -92,7 +101,9 @@ module.exports = {
             chunkFilename: 'static/css/[name].[fullhash:8].chunk.css',
           }),
         ]
-      : []),
+      : [
+          new ReactRefreshWebpackPlugin(),
+        ]),
   ],
   optimization: {
     minimize: prod,
@@ -121,5 +132,14 @@ module.exports = {
     chunkFilename: 'static/js/[name].[fullhash:8].chunk.js',
     publicPath: '/',
     clean: true,
+  },
+  devServer: {
+    static: {
+      directory: resolve(__dirname, 'public'),
+    },
+    hot: true,
+    port: 3000,
+    open: true,
+    historyApiFallback: true,
   },
 };

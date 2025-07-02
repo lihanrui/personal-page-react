@@ -35,6 +35,9 @@ export const Color = {
     'link-primary': '#2196f3',
     'link-primary-hover': '',
 
+    /* Custom: active navigation link color */
+    'nav-active': '#2196f3',
+
     'skeleton-element': '',
     'skeleton-bg': '',
   },
@@ -73,6 +76,9 @@ export const Color = {
 
     'link-primary': '#42a5f5',
     'link-primary-hover': '',
+
+    /* Custom: active navigation link color */
+    'nav-active': '#FED766',
 
     'skeleton-element': '',
     'skeleton-bg': '',

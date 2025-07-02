@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { Media } from '../lib/style';
 import { useThemeContext } from '../contexts/ThemeContext';
 
-import { ReactComponent as LogoIcon } from '../assets/zap.svg';
+import { ReactComponent as LogoIcon } from '../assets/hl-svgrepo-com.svg';
 import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 
@@ -49,6 +49,15 @@ const headerStyle = css`
     font-weight: bold;
     margin-right: 40px;
     z-index: 1001;
+
+    /* Ensure the brand SVG icon adapts to theme colors */
+    svg path,
+    svg polyline,
+    svg line,
+    svg rect,
+    svg circle {
+      stroke: var(--text-primary);
+    }
 
     svg {
       width: 2rem;
@@ -118,7 +127,7 @@ const headerStyle = css`
       }
 
       &.active {
-        color: var(--primary);
+        color: var(--nav-active, var(--primary));
         font-weight: bold;
       }
 
@@ -270,78 +279,4 @@ const Header = () => {
       
       <header css={headerStyle}>
         <div className="mobile-left-section">
-          <div className={`hamburger-mobile ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        
-        <Link to="/" replace={pathname === '/'} className="brand-link" onClick={closeMobileMenu}>
-          <LogoIcon /> brand
-        </Link>
-
-        <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-        <Link 
-          to="/" 
-          className={pathname === '/' ? 'active' : ''}
-          onClick={closeMobileMenu}
-        >
-          Home
-        </Link>
-        <Link 
-          to="/about" 
-          className={pathname === '/about' ? 'active' : ''}
-          onClick={closeMobileMenu}
-        >
-          About
-        </Link>
-        <Link 
-          to="/projects" 
-          className={pathname === '/projects' ? 'active' : ''}
-          onClick={closeMobileMenu}
-        >
-          Projects
-        </Link>
-        <Link 
-          to="/posts" 
-          className={pathname === '/posts' ? 'active' : ''}
-          onClick={closeMobileMenu}
-        >
-          Posts
-        </Link>
-        <Link 
-          to="/hobbies" 
-          className={pathname === '/hobbies' ? 'active' : ''}
-          onClick={closeMobileMenu}
-        >
-          Hobbies
-        </Link>
-        <Link 
-          to="/fosters" 
-          className={pathname === '/fosters' ? 'active' : ''}
-          onClick={closeMobileMenu}
-        >
-          Fosters
-        </Link>
-      </nav>
-
-      <div className="header-actions">
-        <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        
-        {isLight ? (
-          <SunIcon className="theme" onClick={toggleTheme} />
-        ) : (
-          <MoonIcon className="theme" onClick={toggleTheme} />
-        )}
-      </div>
-    </header>
-    </>
-  );
-};
-
-export default Header;
+          <div className={`
