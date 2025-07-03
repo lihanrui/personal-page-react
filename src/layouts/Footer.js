@@ -5,19 +5,19 @@ import { useThemeContext } from '../contexts/ThemeContext';
 
 const footerStyle = css`
   position: relative;
-  left: 12%;
-  right: 12%;
+  left: 10%;
+  right: 10%;
   padding: 40px 24px;
 
   ${Media.medium} {
-    left: 10%;
-    right: 10%;
+    left: 5%;
+    right: 5%;
     padding: 40px 16px;
   }
 
   ${Media.small} {
-    left: 0;
-    right: 0;
+    left: 2%;
+    right: 2%;
     padding: 40px 12px;
   }
 

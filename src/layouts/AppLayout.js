@@ -4,12 +4,20 @@ import Header from './Header';
 import Footer from './Footer';
 
 const layoutStyle = css`
-  /* Page container */
+  /* Page container with responsive margins */
   .page-container {
-    margin: 0;
+    margin: 0 10%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    
+    @media (max-width: 768px) {
+      margin: 0 5%;
+    }
+    
+    @media (max-width: 480px) {
+      margin: 0 2%;
+    }
   }
 
   main {
