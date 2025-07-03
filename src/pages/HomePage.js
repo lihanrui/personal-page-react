@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PageLayout from '../layouts/PageLayout';
 import { homeContentStyle } from '../lib/style/pages/HomePage';
-import { cardStyles, companyHeaderStyles, companyLogoStyles, gridStyles, factStyles } from '../lib/style/Components';
+import { cardStyles, gridStyles, factStyles } from '../lib/style/Components';
+import ExperienceItem from '../components/ExperienceItem';
 
 // Import company logos
 import GoogleLogo from '../assets/icon_company/Google_2015_logo.svg';
@@ -11,6 +11,133 @@ import SamsungLogo from '../assets/icon_company/Samsung_Logo.svg.png';
 import ProximicLogo from '../assets/icon_company/Proximic_by_Comscore_Logo_Standard.png';
 
 const HomePage = () => {
+  // Experience data
+  const experienceData = [
+    {
+      id: 1,
+      company: {
+        name: "Personal Development & Learning",
+        logo: null,
+        alt: null
+      },
+      duration: "2024-Present",
+      roles: [
+        {
+          title: "Independent Social Media Projects",
+          description: [
+            "See Projects for more details",
+            "Currently focused on personal project development and continuous learning initiatives to expand technical capabilities",
+            "Dedicated to staying current with industry trends and best practices through self-directed learning and hands-on experimentation"
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
+      company: {
+        name: "Google (Contract: Vendor)",
+        logo: GoogleLogo,
+        alt: "Google"
+      },
+      duration: "2019-2024",
+      roles: [
+        {
+          title: "Chrome Enterprise Partners - Android Developer Advocate (2019 - 2023)",
+          description: [
+            "Facilitated partner integration by building proof-of-concept MVP applications and providing technical guidance on Android Runtime Container integration with Chrome OS",
+            "Conducted comprehensive graphics performance profiling for an education partner application serving 35+ million users, optimizing performance metrics and ensuring seamless user experience",
+            "Collaborated with cross-functional partner teams to troubleshoot integration challenges and deliver technical solutions that enhanced Android app compatibility on Chrome OS platforms"
+          ]
+        },
+        {
+          title: "Chrome OS Team - Device Testing & Feature Launch Specialist (2023-2024)",
+          description: [
+            "Orchestrated comprehensive testing protocols across hundreds of Chromebook devices in the fleet, ensuring quality assurance standards and device compatibility",
+            "Contributed to the successful launch of dozens of Chrome OS features, participating in the complete product development lifecycle from testing to deployment",
+            "Implemented systematic testing methodologies that improved device reliability and enhanced user experience across the Chromebook ecosystem"
+          ]
+        }
+      ]
+    },
+    {
+      id: 3,
+      company: {
+        name: "Career Development & Personal Growth",
+        logo: null,
+        alt: null
+      },
+      duration: "2017-2018",
+      roles: [
+        {
+          title: "Strategic Professional Development Period",
+          description: [
+            "Dedicated time to focused skill development and self-discovery initiatives that enhanced professional capabilities",
+            "Developed leadership skills through community management and team coordination roles, managing diverse groups of 20-40 individuals across multiple time zones",
+            "Cultivated expertise in strategic planning, conflict resolution, and remote team leadership while organizing complex, time-sensitive collaborative initiatives",
+            "This intentional career pause provided valuable perspective and leadership experience that significantly enriched subsequent professional contributions"
+          ]
+        }
+      ]
+    },
+    {
+      id: 4,
+      company: {
+        name: "Mercedes-Benz (Contract)",
+        logo: MercedesLogo,
+        alt: "Mercedes-Benz"
+      },
+      duration: "2015-2016",
+      roles: [
+        {
+          title: "AI Machine Learning Team (MLPUX) - Android Developer",
+          description: [
+            "Maintained and enhanced a critical Android application supporting Mercedes-Benz's Predictive User Experience feature, which later evolved into the comprehensive MBUX (Mercedes-Benz User Experience) infotainment system",
+            "Contributed to the development of advanced AI-driven user experience technologies that revolutionized automotive interface design and personalization capabilities",
+            "Collaborated with machine learning engineers to integrate predictive algorithms into mobile applications, enhancing driver experience and system responsiveness"
+          ]
+        }
+      ]
+    },
+    {
+      id: 5,
+      company: {
+        name: "Samsung Semiconductor Inc.",
+        logo: SamsungLogo,
+        alt: "Samsung"
+      },
+      duration: "2013-2015",
+      roles: [
+        {
+          title: "Quantitative Performance Testing Team - GPS Systems Developer",
+          description: [
+            "Designed and developed a comprehensive Android GPS testing application featuring direct JNI interface integration with GPS system libraries, expanding testing capabilities following Samsung's acquisition of Cambridge Silicon Radio PLC in 2012",
+            "Enhanced testing infrastructure to support Samsung's strategic initiative to develop proprietary GPS technologies, contributing to the company's goal of reducing dependency on third-party navigation solutions",
+            "Implemented advanced testing protocols that improved GPS accuracy measurements and performance validation across diverse device configurations"
+          ]
+        }
+      ]
+    },
+    {
+      id: 6,
+      company: {
+        name: "Proximic (Acquired by ComScore)",
+        logo: ProximicLogo,
+        alt: "Proximic"
+      },
+      duration: "2013",
+      roles: [
+        {
+          title: "Systems Administration Intern - Ad Serving Infrastructure",
+          description: [
+            "Maintained critical network infrastructure and server uptime for high-speed ad serving algorithms during supervisor absences, ensuring zero downtime for revenue-generating systems",
+            "Implemented comprehensive monitoring solutions using StatsD and Graphite, establishing real-time system performance tracking that improved operational visibility",
+            "Supported mission-critical advertising technology infrastructure that processed high-volume ad serving requests with minimal latency"
+          ]
+        }
+      ]
+    }
+  ];
+
   return (
     <PageLayout title="Henry Li">
       <div css={homeContentStyle}>
@@ -44,102 +171,9 @@ const HomePage = () => {
         <div className="experience-section">
           <h2>Professional Experience</h2>
           
-          <div css={cardStyles} className="experience-item">
-            <div css={companyHeaderStyles}>
-              <h4 className="company-name">Personal Development & Learning</h4>
-              <span className="duration">2024-Present</span>
-            </div>
-            <h5 className="role-title">Independent Social Media Projects</h5>
-            <ul className="description">
-              <li>See <Link to="/projects">Projects</Link> for more details</li>
-              <li>Currently focused on personal project development and continuous learning initiatives to expand technical capabilities</li>
-              <li>Dedicated to staying current with industry trends and best practices through self-directed learning and hands-on experimentation</li>
-            </ul>
-          </div>
-
-          <div css={cardStyles} className="experience-item">
-            <div css={companyHeaderStyles}>
-              <div className="company-info">
-                <img src={GoogleLogo} alt="Google" css={companyLogoStyles} />
-                <h4 className="company-name">Google (Contract: Vendor)</h4>
-              </div>
-              <span className="duration">2019-2024</span>
-            </div>
-            <h5 className="role-title">Chrome Enterprise Partners - Android Developer Advocate (2019 - 2023)</h5>
-            <ul className="description">
-              <li>Facilitated partner integration by building proof-of-concept MVP applications and providing technical guidance on Android Runtime Container integration with Chrome OS</li>
-              <li>Conducted comprehensive graphics performance profiling for an education partner application serving 35+ million users, optimizing performance metrics and ensuring seamless user experience</li>
-              <li>Collaborated with cross-functional partner teams to troubleshoot integration challenges and deliver technical solutions that enhanced Android app compatibility on Chrome OS platforms</li>
-            </ul>
-            <h5 className="role-title">Chrome OS Team - Device Testing & Feature Launch Specialist (2023-2024)</h5>
-            <ul className="description">
-              <li>Orchestrated comprehensive testing protocols across hundreds of Chromebook devices in the fleet, ensuring quality assurance standards and device compatibility</li>
-              <li>Contributed to the successful launch of dozens of Chrome OS features, participating in the complete product development lifecycle from testing to deployment</li>
-              <li>Implemented systematic testing methodologies that improved device reliability and enhanced user experience across the Chromebook ecosystem</li>
-            </ul>
-          </div>
-
-          <div css={cardStyles} className="experience-item">
-            <div css={companyHeaderStyles}>
-              <h4 className="company-name">Career Development & Personal Growth</h4>
-              <span className="duration">2017-2018</span>
-            </div>
-            <h5 className="role-title">Strategic Professional Development Period</h5>
-            <ul className="description">
-              <li>Dedicated time to focused skill development and self-discovery initiatives that enhanced professional capabilities</li>
-              <li>Developed leadership skills through community management and team coordination roles, managing diverse groups of 20-40 individuals across multiple time zones</li>
-              <li>Cultivated expertise in strategic planning, conflict resolution, and remote team leadership while organizing complex, time-sensitive collaborative initiatives</li>
-              <li>This intentional career pause provided valuable perspective and leadership experience that significantly enriched subsequent professional contributions</li>
-            </ul>
-          </div>
-
-          <div css={cardStyles} className="experience-item">
-            <div css={companyHeaderStyles}>
-              <div className="company-info">
-                <img src={MercedesLogo} alt="Mercedes-Benz" css={companyLogoStyles} />
-                <h4 className="company-name">Mercedes-Benz (Contract)</h4>
-              </div>
-              <span className="duration">2015-2016</span>
-            </div>
-            <h5 className="role-title">AI Machine Learning Team (MLPUX) - Android Developer</h5>
-            <ul className="description">
-              <li>Maintained and enhanced a critical Android application supporting Mercedes-Benz's Predictive User Experience feature, which later evolved into the comprehensive MBUX (Mercedes-Benz User Experience) infotainment system</li>
-              <li>Contributed to the development of advanced AI-driven user experience technologies that revolutionized automotive interface design and personalization capabilities</li>
-              <li>Collaborated with machine learning engineers to integrate predictive algorithms into mobile applications, enhancing driver experience and system responsiveness</li>
-            </ul>
-          </div>
-
-          <div css={cardStyles} className="experience-item">
-            <div css={companyHeaderStyles}>
-              <div className="company-info">
-                <img src={SamsungLogo} alt="Samsung" css={companyLogoStyles} />
-                <h4 className="company-name">Samsung Semiconductor Inc.</h4>
-              </div>
-              <span className="duration">2013-2015</span>
-            </div>
-            <h5 className="role-title">Quantitative Performance Testing Team - GPS Systems Developer</h5>
-            <ul className="description">
-              <li>Designed and developed a comprehensive Android GPS testing application featuring direct JNI interface integration with GPS system libraries, expanding testing capabilities following Samsung's acquisition of Cambridge Silicon Radio PLC in 2012</li>
-              <li>Enhanced testing infrastructure to support Samsung's strategic initiative to develop proprietary GPS technologies, contributing to the company's goal of reducing dependency on third-party navigation solutions</li>
-              <li>Implemented advanced testing protocols that improved GPS accuracy measurements and performance validation across diverse device configurations</li>
-            </ul>
-          </div>
-
-          <div css={cardStyles} className="experience-item">
-            <div css={companyHeaderStyles}>
-              <div className="company-info">
-                <img src={ProximicLogo} alt="Proximic" css={companyLogoStyles} />
-                <h4 className="company-name">Proximic (Acquired by ComScore)</h4>
-              </div>
-              <span className="duration">2013</span>
-            </div>
-            <h5 className="role-title">Systems Administration Intern - Ad Serving Infrastructure</h5>
-            <ul className="description">
-              <li>Maintained critical network infrastructure and server uptime for high-speed ad serving algorithms during supervisor absences, ensuring zero downtime for revenue-generating systems</li>
-              <li>Implemented comprehensive monitoring solutions using StatsD and Graphite, establishing real-time system performance tracking that improved operational visibility</li>
-              <li>Supported mission-critical advertising technology infrastructure that processed high-volume ad serving requests with minimal latency</li>
-            </ul>
-          </div>
+          {experienceData.map((experience) => (
+            <ExperienceItem key={experience.id} experience={experience} />
+          ))}
         </div>
 
         <div className="education-section">
