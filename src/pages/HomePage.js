@@ -150,7 +150,7 @@ const HomePage = () => {
               <h4 className="school-name">University of California, Berkeley</h4>
               <span className="graduation">Graduated: 2012</span>
             </div>
-            <h5 className="degree">Bachelor of Science in Molecular and Cell Biology (MCB)</h5>
+            <h5 className="degree">Bachelor of Science in Molecular and Cell Biology with Computer Science Coursework</h5>
             <p className="description">
               Comprehensive study of molecular structures and cellular processes, including biochemistry, molecular biology, genetics, and cell biology. Combined rigorous biological sciences coursework with computer science electives, developing strong analytical and computational thinking skills across diverse academic disciplines.
             </p>

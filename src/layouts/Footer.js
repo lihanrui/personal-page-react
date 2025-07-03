@@ -1,13 +1,27 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import { Media } from '../lib/style';
 import { useThemeContext } from '../contexts/ThemeContext';
 
 const footerStyle = css`
-  padding: 40px 16px;
+  position: relative;
+  left: 12%;
+  right: 12%;
+  padding: 40px 24px;
+
+  ${Media.medium} {
+    left: 10%;
+    right: 10%;
+    padding: 40px 16px;
+  }
+
+  ${Media.small} {
+    left: 0;
+    right: 0;
+    padding: 40px 12px;
+  }
 
   & > nav {
-    margin: 0 auto;
-    max-width: 1280px;
     display: flex;
     align-items: center;
     justify-content: space-between;
