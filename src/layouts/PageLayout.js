@@ -11,6 +11,7 @@ const pageLayoutStyle = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
   ${fontFamily('primary')};
 
   ${Media.medium} {
@@ -44,6 +45,7 @@ const pageLayoutStyle = css`
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
+    box-sizing: border-box;
     
     ${Media.medium} {
       padding: 0 1.5rem;

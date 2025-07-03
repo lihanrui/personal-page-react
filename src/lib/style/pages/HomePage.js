@@ -147,6 +147,8 @@ export const homeContentStyle = css`
           color: var(--nav-active);
           margin: 0;
           text-shadow: var(--shadow-sm);
+          word-wrap: break-word;
+          overflow-wrap: break-word;
         }
         
         .duration {
@@ -169,6 +171,8 @@ export const homeContentStyle = css`
         margin: 0 0 0.5rem 0;
         font-weight: 600;
         text-shadow: var(--shadow-sm);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
       
       .description {
@@ -219,6 +223,8 @@ export const homeContentStyle = css`
           color: var(--nav-active);
           margin: 0;
           text-shadow: var(--shadow-sm);
+          word-wrap: break-word;
+          overflow-wrap: break-word;
         }
         
         .graduation {
@@ -241,6 +247,8 @@ export const homeContentStyle = css`
         margin: 0 0 0.5rem 0;
         font-weight: 600;
         text-shadow: var(--shadow-sm);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
       
       .description {

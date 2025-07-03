@@ -4,9 +4,9 @@ import Header from './Header';
 import Footer from './Footer';
 
 const layoutStyle = css`
-  /* Page container with 5% margins on left and right */
+  /* Page container */
   .page-container {
-    margin: 0 5%;
+    margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

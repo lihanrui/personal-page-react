@@ -21,6 +21,7 @@ export const baseStyles = css`
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
 
   #root > main {
@@ -36,6 +37,7 @@ export const baseStyles = css`
     transition-duration: 0.3s;
     transition-timing-function: ease;
     transition-property: border, background, color;
+    overflow-x: hidden;
   }
 
   main {
