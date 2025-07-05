@@ -1,5 +1,6 @@
 import React from 'react';
 import PageLayout from '../layouts/PageLayout';
+import PageContainer from '../layouts/PageContainer';
 import GlassCard, { RainbowGradientCard, HobbyCard } from '../components/GlassCard';
 import { 
   fosterStyles, 
@@ -76,60 +77,62 @@ const FostersPage = () => {
   ];
 
   return (
-    <PageLayout>
-      <div css={[fosterStyles, gridStyles.fostersGrid]}>
-        <RainbowGradientCard>
-          <h2 css={[marginStyles.mb1, textAlignStyles.center]}>
-            Meet the Kittens
-          </h2>
-          <p css={[textAlignStyles.center, { color: 'var(--text-secondary)', lineHeight: '1.6' }]}>
-            These wonderful kitties have touched our lives 
-            and found their forever homes through the <a href="https://hssv.org" target="_blank" rel="noopener noreferrer">Humane Society of Silicon Valley</a>.
-          </p>
-        </RainbowGradientCard>
+    <PageContainer margin="default" padding="default">
+      <PageLayout>
+        <div css={[fosterStyles, gridStyles.fostersGrid]}>
+          <RainbowGradientCard>
+            <h2 css={[marginStyles.mb1, textAlignStyles.center]}>
+              Meet the Kittens
+            </h2>
+            <p css={[textAlignStyles.center, { color: 'var(--text-secondary)', lineHeight: '1.6' }]}>
+              These wonderful kitties have touched our lives 
+              and found their forever homes through the <a href="https://hssv.org" target="_blank" rel="noopener noreferrer">Humane Society of Silicon Valley</a>.
+            </p>
+          </RainbowGradientCard>
 
-        <div>
-          {fosters.map((foster, index) => (
-            <HobbyCard key={index} className="foster-card">
-              <div css={gridStyles.fosterImagesGrid}>
-                {foster.images.map((image, imgIndex) => (
-                  <img
-                    key={imgIndex}
-                    src={image}
-                    alt={`${foster.name} - Image ${imgIndex + 1}`}
-                    css={imageStyles.fosterImage}
-                  />
-                ))}
-              </div>
-              <div className="foster-content">
-                <h3 className="foster-name">{foster.name}</h3>
-                <p className="foster-description">{foster.description}</p>
-                <div className="foster-stats">
-                  {foster.stats.map((stat, statIndex) => (
-                    <span key={statIndex} css={statStyles}>
-                      {stat}
-                    </span>
+          <div>
+            {fosters.map((foster, index) => (
+              <HobbyCard key={index} className="foster-card">
+                <div css={gridStyles.fosterImagesGrid}>
+                  {foster.images.map((image, imgIndex) => (
+                    <img
+                      key={imgIndex}
+                      src={image}
+                      alt={`${foster.name} - Image ${imgIndex + 1}`}
+                      css={imageStyles.fosterImage}
+                    />
                   ))}
                 </div>
-              </div>
-            </HobbyCard>
-          ))}
-        </div>
-
-        <GlassCard gradient={true} gradientType="warm" css={[marginStyles.mt2, textAlignStyles.center]}>
-          <h3>Interested in Fostering?</h3>
-          <p css={marginStyles.mb1}>
-            Fostering saves lives and opens up space in shelters for more animals in need. 
-            If you're interested in becoming a foster parent, please reach out to your local animal shelters.
-          </p>
-          <div css={flexStyles.centerWrap}>
-            <span css={statStyles}>Save Lives</span>
-            <span css={statStyles}>Make a Difference</span>
-            <span css={statStyles}>Rewarding Experience</span>
+                <div className="foster-content">
+                  <h3 className="foster-name">{foster.name}</h3>
+                  <p className="foster-description">{foster.description}</p>
+                  <div className="foster-stats">
+                    {foster.stats.map((stat, statIndex) => (
+                      <span key={statIndex} css={statStyles}>
+                        {stat}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </HobbyCard>
+            ))}
           </div>
-        </GlassCard>
-      </div>
-    </PageLayout>
+
+          <GlassCard gradient={true} gradientType="warm" css={[marginStyles.mt2, textAlignStyles.center]}>
+            <h3>Interested in Fostering?</h3>
+            <p css={marginStyles.mb1}>
+              Fostering saves lives and opens up space in shelters for more animals in need. 
+              If you're interested in becoming a foster parent, please reach out to your local animal shelters.
+            </p>
+            <div css={flexStyles.centerWrap}>
+              <span css={statStyles}>Save Lives</span>
+              <span css={statStyles}>Make a Difference</span>
+              <span css={statStyles}>Rewarding Experience</span>
+            </div>
+          </GlassCard>
+        </div>
+      </PageLayout>
+    </PageContainer>
   );
 };
 

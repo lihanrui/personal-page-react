@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
+import PageContainer from '../layouts/PageContainer';
 import { Media } from '../lib/style';
 import { layout, component, responsiveText } from '../lib/util';
 import { default as TakenSVG } from '../assets/undraw_Taken.svg';
@@ -43,11 +44,13 @@ const errorPageWrapper = css`
 
 const ErrorPage = () => {
   return (
-    <div css={[errorPageWrapper]}>
-      <h1>Page Not Found.</h1>
-      <img src={TakenSVG} alt="" />
-      <Link to="/">go Home</Link>
-    </div>
+    <PageContainer margin="default" padding="default">
+      <div css={[errorPageWrapper]}>
+        <h1>Page Not Found.</h1>
+        <img src={TakenSVG} alt="" />
+        <Link to="/">go Home</Link>
+      </div>
+    </PageContainer>
   );
 };
 

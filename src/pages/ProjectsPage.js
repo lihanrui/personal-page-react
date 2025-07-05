@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import PageLayout from '../layouts/PageLayout';
+import PageContainer from '../layouts/PageContainer';
 import { ProjectCard, FeatureCard } from '../components/GlassCard';
 import { Typography, Media } from '../lib/style';
 
@@ -198,56 +199,58 @@ const ProjectsPage = () => {
   };
 
   return (
-    <PageLayout title="Projects">
-      <div css={containerStyles}>
-        <div css={headerStyles}>
-          <h1>My Projects</h1>
-          <p>
-            Welcome to my projects! Here you can browse and explore my work across web development, 
-            mobile applications, and AI-powered solutions.
-          </p>
-        </div>
+    <PageContainer margin="default" padding="default">
+      <PageLayout title="Projects">
+        <div css={containerStyles}>
+          <div css={headerStyles}>
+            <h1>My Projects</h1>
+            <p>
+              Welcome to my projects! Here you can browse and explore my work across web development, 
+              mobile applications, and AI-powered solutions.
+            </p>
+          </div>
 
-        <div css={projectsGridStyles}>
-          {projects.map((project) => (
-            <ProjectCard 
-              key={project.id}
-              gradientType={project.gradient}
-              css={projectCardStyles}
-            >
-              <div className="project-header">
-                <div className="project-info">
-                  <h3>{project.title}</h3>
-                  <div className="subtitle">{project.subtitle}</div>
-                  <div className="meta">
-                    <span className="badge">{project.type}</span>
-                    <span className={`status ${getStatusClass(project.status)}`}>
-                      {project.status}
-                    </span>
-                    <span className="badge">{project.year}</span>
+          <div css={projectsGridStyles}>
+            {projects.map((project) => (
+              <ProjectCard 
+                key={project.id}
+                gradientType={project.gradient}
+                css={projectCardStyles}
+              >
+                <div className="project-header">
+                  <div className="project-info">
+                    <h3>{project.title}</h3>
+                    <div className="subtitle">{project.subtitle}</div>
+                    <div className="meta">
+                      <span className="badge">{project.type}</span>
+                      <span className={`status ${getStatusClass(project.status)}`}>
+                        {project.status}
+                      </span>
+                      <span className="badge">{project.year}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="project-description">
-                {project.description}
-              </div>
-              
-              <div className="project-technologies">
-                <h4>Technologies</h4>
-                <div className="tech-tags">
-                  {project.technologies.map((tech, index) => (
-                    <span key={index} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
+                
+                <div className="project-description">
+                  {project.description}
                 </div>
-              </div>
-            </ProjectCard>
-          ))}
+                
+                <div className="project-technologies">
+                  <h4>Technologies</h4>
+                  <div className="tech-tags">
+                    {project.technologies.map((tech, index) => (
+                      <span key={index} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </ProjectCard>
+            ))}
+          </div>
         </div>
-      </div>
-    </PageLayout>
+      </PageLayout>
+    </PageContainer>
   );
 };
 

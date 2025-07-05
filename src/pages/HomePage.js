@@ -1,5 +1,6 @@
 import React from 'react';
 import PageLayout from '../layouts/PageLayout';
+import PageContainer from '../layouts/PageContainer';
 import { homeContentStyle } from '../lib/style/pages/HomePage';
 import { cardStyles, gridStyles, factStyles } from '../lib/style/Components';
 import ExperienceItem from '../components/ExperienceItem';
@@ -139,59 +140,61 @@ const HomePage = () => {
   ];
 
   return (
-    <PageLayout title="Henry Li">
-      <div css={homeContentStyle}>
-        <p className="hero-text">
-          Hi, I'm a developer passionate about 
-          building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
-        </p>
-                
-        <p className="hero-text">
-          <strong>Let's build something amazing together!</strong>
-        </p>
-        
-        <div css={cardStyles} className="fun-facts">
-          <h3>By the Numbers</h3>
-          <div css={gridStyles.statsGrid}>
-            <div css={factStyles}>
-              <div className="number">5+</div>
-              <div className="label">Years Experience</div>
-            </div>
-            <div css={factStyles}>
-              <div className="number">25+</div>
-              <div className="label">Projects Completed</div>
-            </div>
-            <div css={factStyles}>
-              <div className="number">24/7</div>
-              <div className="label">Learning Mode</div>
+    <PageContainer margin="default" padding="default">
+      <PageLayout title="Henry Li">
+        <div css={homeContentStyle}>
+          <p className="hero-text">
+            Hi, I'm a developer passionate about 
+            building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
+          </p>
+                  
+          <p className="hero-text">
+            <strong>Let's build something amazing together!</strong>
+          </p>
+          
+          <div css={cardStyles} className="fun-facts">
+            <h3>By the Numbers</h3>
+            <div css={gridStyles.statsGrid}>
+              <div css={factStyles}>
+                <div className="number">5+</div>
+                <div className="label">Years Experience</div>
+              </div>
+              <div css={factStyles}>
+                <div className="number">25+</div>
+                <div className="label">Projects Completed</div>
+              </div>
+              <div css={factStyles}>
+                <div className="number">24/7</div>
+                <div className="label">Learning Mode</div>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div className="experience-section">
-          <h2>Professional Experience</h2>
           
-          {experienceData.map((experience) => (
-            <ExperienceItem key={experience.id} experience={experience} />
-          ))}
-        </div>
+          <div className="experience-section">
+            <h2>Professional Experience</h2>
+            
+            {experienceData.map((experience) => (
+              <ExperienceItem key={experience.id} experience={experience} />
+            ))}
+          </div>
 
-        <div className="education-section">
-          <h2>Education</h2>
-          
-          <div css={cardStyles} className="education-item">
-            <div className="school-header">
-              <h4 className="school-name">University of California, Berkeley</h4>
-              <span className="graduation">Graduated: 2012</span>
+          <div className="education-section">
+            <h2>Education</h2>
+            
+            <div css={cardStyles} className="education-item">
+              <div className="school-header">
+                <h4 className="school-name">University of California, Berkeley</h4>
+                <span className="graduation">Graduated: 2012</span>
+              </div>
+              <h5 className="degree">Bachelor of Science in Molecular and Cell Biology with Computer Science Coursework</h5>
+              <p className="description">
+                Comprehensive study of molecular structures and cellular processes, including biochemistry, molecular biology, genetics, and cell biology. Combined rigorous biological sciences coursework with computer science electives, developing strong analytical and computational thinking skills across diverse academic disciplines.
+              </p>
             </div>
-            <h5 className="degree">Bachelor of Science in Molecular and Cell Biology with Computer Science Coursework</h5>
-            <p className="description">
-              Comprehensive study of molecular structures and cellular processes, including biochemistry, molecular biology, genetics, and cell biology. Combined rigorous biological sciences coursework with computer science electives, developing strong analytical and computational thinking skills across diverse academic disciplines.
-            </p>
           </div>
         </div>
-      </div>
-    </PageLayout> 
+      </PageLayout> 
+    </PageContainer>
   );
 };
 

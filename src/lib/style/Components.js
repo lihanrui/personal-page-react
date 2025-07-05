@@ -92,20 +92,7 @@ export const statStyles = css`
 
 // Fact card styles for "By the Numbers" section
 export const factStyles = css`
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary, rgba(254, 215, 102, 0.2));
-  }
+  text-align: center;
   
   .number {
     font-size: 2.25rem;
@@ -245,12 +232,5 @@ export const companyHeaderStyles = css`
     font-weight: 500;
     line-height: 1.625;
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 0.25rem 0.75rem;
-    box-shadow: var(--shadow-sm);
   }
 `; 

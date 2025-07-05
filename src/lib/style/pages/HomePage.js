@@ -155,13 +155,6 @@ export const homeContentStyle = css`
           ${typography('body')};
           color: var(--text-secondary);
           font-weight: 500;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 8px;
-          padding: 0.25rem 0.75rem;
-          box-shadow: var(--shadow-sm);
         }
       }
       
@@ -231,13 +224,6 @@ export const homeContentStyle = css`
           ${typography('body')};
           color: var(--text-secondary);
           font-weight: 500;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 8px;
-          padding: 0.25rem 0.75rem;
-          box-shadow: var(--shadow-sm);
         }
       }
       
