@@ -26,7 +26,7 @@ const HomePage = () => {
         {
           title: "Independent Social Media Projects",
           description: [
-            "See Projects for more details",
+            "See Projects",
             "Currently focused on personal project development and continuous learning initiatives to expand technical capabilities",
             "Dedicated to staying current with industry trends and best practices through self-directed learning and hands-on experimentation"
           ]
@@ -144,7 +144,7 @@ const HomePage = () => {
       <PageLayout title="Henry Li">
         <div css={homeContentStyle}>
           <p className="hero-text">
-            Hi, I'm a developer passionate about 
+            I'm a developer passionate about 
             building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
           </p>
                   

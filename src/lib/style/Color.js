@@ -14,7 +14,7 @@ export const Color = {
     field: '',
     'field-active': '',
 
-    border: '',
+    border: 'rgba(0, 0, 0, 0.1)',
     'border-focused': '',
     'border-strong': '',
     'border-disabled': '',
@@ -25,7 +25,7 @@ export const Color = {
     'border-layer-disabled': '',
 
     'text-primary': '#424242',
-    'text-secondary': '',
+    'text-secondary': '#6b7280',
     'text-placeholder': '',
     'text-on-primary': '',
     'text-on-primary-disabled': '',
@@ -40,11 +40,20 @@ export const Color = {
 
     'skeleton-element': '',
     'skeleton-bg': '',
+
+    /* Custom: education section background */
+    'education-bg': '#f1f1f1',
+    /* Custom: education section text color */
+    'education-text': '#2c3e50',
+    /* Custom: experience section background */
+    'experience-bg': '#f8f9fa',
+    /* Custom: experience section text color */
+    'experience-text': '#2c3e50',
   },
   dark: {
     primary: '#FED766',
 
-    bg: '#111111',
+    bg: '#171c26',
     'bg-hover': '#1a1a1a',
 
     layer: '#1a1a1a',
@@ -55,8 +64,7 @@ export const Color = {
 
     field: '',
     'field-active': '',
-
-    border: '',
+    'border': 'rgba(255, 255, 255, 0.1)',
     'border-focused': '',
     'border-strong': '',
     'border-disabled': '',
@@ -66,8 +74,8 @@ export const Color = {
     'border-layer-strong': '',
     'border-layer-disabled': '',
 
-    'text-primary': '#f8f8f8',
-    'text-secondary': '',
+    'text-primary': '#ffffff',
+    'text-secondary': '#cbd5e1',
     'text-placeholder': '',
     'text-on-primary': '',
     'text-on-primary-disabled': '',
@@ -82,5 +90,14 @@ export const Color = {
 
     'skeleton-element': '',
     'skeleton-bg': '',
+
+    /* Custom: education section background - dark blue */
+    'education-bg': '#1e3a8a',
+    /* Custom: education section text color for better contrast */
+    'education-text': '#ffffff',
+    /* Custom: experience section background - dark gray */
+    'experience-bg': '#374151',
+    /* Custom: experience section text color for better contrast */
+    'experience-text': '#ffffff',
   },
 };

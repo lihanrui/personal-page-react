@@ -7,7 +7,8 @@ const footerStyle = css`
   position: relative;
   left: 10%;
   right: 10%;
-  padding: 40px 24px;
+  padding: 20px 14px;
+  font-size: 12px;
 
   ${Media.medium} {
     left: 5%;

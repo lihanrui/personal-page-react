@@ -1,7 +1,7 @@
 export const Typography = {
   // Font families - friendly and elegant sans serif
   fontFamily: {
-    primary: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif",
+    primary: "'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif",
     secondary: "'Poppins', -apple-system, BlinkMacSystemFont, sans-serif",
     mono: "'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace",
   },

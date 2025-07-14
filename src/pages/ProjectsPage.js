@@ -205,7 +205,7 @@ const ProjectsPage = () => {
           <div css={headerStyles}>
             <h1>My Projects</h1>
             <p>
-              Welcome to my projects! Here you can browse and explore my work across web development, 
+              Here you can browse and explore my work across web development, 
               mobile applications, and AI-powered solutions.
             </p>
           </div>

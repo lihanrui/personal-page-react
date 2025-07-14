@@ -7,13 +7,20 @@ const Context = createContext();
 export const useThemeContext = () => useContext(Context);
 
 const getPreferColor = () => {
-  const stored = Storage.get('theme');
-
-  if (stored) return stored;
-
-  // Default to dark theme to show our custom colors
-  Storage.set('theme', 'dark');
-  return 'dark';
+  try {
+    const stored = Storage.get('theme');
+    
+    if (stored && (stored === 'light' || stored === 'dark')) {
+      return stored;
+    }
+    
+    // Default to dark theme to show our custom colors
+    Storage.set('theme', 'dark');
+    return 'dark';
+  } catch (error) {
+    console.warn('Failed to get theme preference, defaulting to dark:', error);
+    return 'dark';
+  }
 };
 
 export default function ThemeContext({ children }) {

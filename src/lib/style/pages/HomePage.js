@@ -107,6 +107,7 @@ export const homeContentStyle = css`
       ${typography('h2')};
       margin-bottom: 2rem;
       text-shadow: var(--shadow-sm);
+      color: var(--experience-text, var(--text-primary));
     }
     
     .experience-item {
@@ -144,7 +145,7 @@ export const homeContentStyle = css`
         
         .company-name {
           ${typography('h4')};
-          color: var(--nav-active);
+          color: var(--experience-text, var(--nav-active));
           margin: 0;
           text-shadow: var(--shadow-sm);
           word-wrap: break-word;
@@ -160,7 +161,7 @@ export const homeContentStyle = css`
       
       .role-title {
         ${typography('h5')};
-        color: var(--text-primary);
+        color: var(--experience-text, var(--text-primary));
         margin: 0 0 0.5rem 0;
         font-weight: 600;
         text-shadow: var(--shadow-sm);
@@ -170,7 +171,7 @@ export const homeContentStyle = css`
       
       .description {
         ${typography('body')};
-        color: var(--text-secondary);
+        color: var(--experience-text, var(--text-secondary));
         line-height: 1.6;
         margin: 0;
         
@@ -198,6 +199,7 @@ export const homeContentStyle = css`
       ${typography('h2')};
       margin-bottom: 2rem;
       text-shadow: var(--shadow-sm);
+      color: var(--education-text, var(--text-primary));
     }
     
     .education-item {
@@ -213,7 +215,7 @@ export const homeContentStyle = css`
         
         .school-name {
           ${typography('h4')};
-          color: var(--nav-active);
+          color: var(--education-text, var(--nav-active));
           margin: 0;
           text-shadow: var(--shadow-sm);
           word-wrap: break-word;
@@ -229,7 +231,7 @@ export const homeContentStyle = css`
       
       .degree {
         ${typography('h5')};
-        color: var(--text-primary);
+        color: var(--education-text, var(--text-primary));
         margin: 0 0 0.5rem 0;
         font-weight: 600;
         text-shadow: var(--shadow-sm);
@@ -239,7 +241,7 @@ export const homeContentStyle = css`
       
       .description {
         ${typography('body')};
-        color: var(--text-secondary);
+        color: var(--education-text, var(--text-secondary));
         line-height: 1.6;
         margin: 0;
       }

@@ -1,12 +1,15 @@
 import React from 'react';
 import PageContainer from '../layouts/PageContainer';
-import { cardStyles } from '../lib/style/Components';
+import PageLayout from '../layouts/PageLayout';
+
 
 // Import company logos
 import GoogleLogo from '../assets/icon_company/Google_2015_logo.svg';
 import MercedesLogo from '../assets/icon_company/Mercedes-Benz_Star.svg.png';
 import SamsungLogo from '../assets/icon_company/Samsung_Logo.svg.png';
 import ProximicLogo from '../assets/icon_company/Proximic_by_Comscore_Logo_Standard.png';
+
+
 
 const AboutPage = () => {
   // Experience data (imported from HomePage)
@@ -23,7 +26,7 @@ const AboutPage = () => {
         {
           title: "Independent Social Media Projects",
           description: [
-            "See Projects for more details",
+            "See Projects",
             "Currently focused on personal project development and continuous learning initiatives to expand technical capabilities",
             "Dedicated to staying current with industry trends and best practices through self-directed learning and hands-on experimentation"
           ]
@@ -137,257 +140,73 @@ const AboutPage = () => {
   ];
 
   return (
-    <PageContainer margin="full" padding="none">
-      <div className="about-page-full-width">
-        <div className="about-page-wrapper">
-          <div className="about-content">
-            {/* Intro Section - Light Blue Background */}
-            <div className="section-container intro-section">
-              <div className="page-header">
-                <h1>About Me</h1>
-                <p className="intro-text">
-                  A passionate developer with over 5 years of experience building innovative solutions 
-                  at leading technology companies. I specialize in Android development, Chrome OS integration, 
-                  and creating user-centric digital experiences.
-                </p>
-              </div>
-            </div>
-            
-            {/* Experience Section - Light Green Background */}
-            <div className="section-container experience-section">
-              <h2>Professional Experience</h2>
-              
-              {experienceData.map((experience) => (
-                <div key={experience.id} className="experience-item-custom">
-                  <div className="company-header">
-                    {experience.company.logo ? (
-                      <div className="company-info">
-                        <img src={experience.company.logo} alt={experience.company.alt} className="company-logo" />
-                        <h4 className="company-name">{experience.company.name}</h4>
-                      </div>
-                    ) : (
-                      <h4 className="company-name">{experience.company.name}</h4>
-                    )}
-                    <span className="duration">{experience.duration}</span>
-                  </div>
+    <PageContainer margin="default" padding="default">
+      <PageLayout title="Henry Li">
+        <div className="about-content">
+          <p className="hero-text">
+            I'm a developer passionate about 
+            building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
+          </p>
                   
-                  {experience.roles.map((role, index) => (
-                    <div key={index} className="role-section">
-                      <h5 className="role-title">{role.title}</h5>
-                      <ul className="description">
-                        {role.description.map((item, itemIndex) => (
-                          <li key={itemIndex}>
-                            {item.includes("See Projects for more details") ? (
-                              <>
-                                See <a href="/projects">Projects</a> for more details
-                              </>
-                            ) : (
-                              item
-                            )}
-                          </li>
-                        ))}
-                      </ul>
+          <p className="hero-text">
+            <strong>Let's build something amazing together!</strong>
+          </p>
+          
+          <div className="experience-section">
+            <h2>Professional Experience</h2>
+            
+            {experienceData.map((experience) => (
+              <div key={experience.id} className="experience-item-custom">
+                <div className="company-header">
+                  {experience.company.logo ? (
+                    <div className="company-info">
+                      <img src={experience.company.logo} alt={experience.company.alt} className="company-logo" />
+                      <h4 className="company-name">{experience.company.name}</h4>
                     </div>
-                  ))}
+                  ) : (
+                    <h4 className="company-name">{experience.company.name}</h4>
+                  )}
+                  <span className="duration">{experience.duration}</span>
                 </div>
-              ))}
-            </div>
-
-            {/* Education Section - Light Purple Background */}
-            <div className="section-container education-section">
-              <h2>Education</h2>
-              
-              <div css={cardStyles} className="education-item">
-                <div className="school-header">
-                  <h4 className="school-name">University of California, Berkeley</h4>
-                  <span className="graduation">Graduated: 2012</span>
-                </div>
-                <h5 className="degree">Bachelor of Science in Molecular and Cell Biology with Computer Science Coursework</h5>
-                <p className="description">
-                  Comprehensive study of molecular structures and cellular processes, including biochemistry, molecular biology, genetics, and cell biology. Combined rigorous biological sciences coursework with computer science electives, developing strong analytical and computational thinking skills across diverse academic disciplines.
-                </p>
+                
+                {experience.roles.map((role, index) => (
+                  <div key={index} className="role-section">
+                    <h5 className="role-title">{role.title}</h5>
+                    <ul className="description">
+                      {role.description.map((item, itemIndex) => (
+                        <li key={itemIndex}>
+                          {item.includes("See Projects") ? (
+                            <>
+                              See <a href="/projects">Projects</a>
+                            </>
+                          ) : (
+                            item
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
+            ))}
+          </div>
+
+          <div className="education-section">
+            <h2>Education</h2>
+            
+            <div className="education-item">
+              <div className="school-header">
+                <h4 className="school-name">University of California, Berkeley</h4>
+                <span className="graduation">Graduated: 2012</span>
+              </div>
+              <h5 className="degree">Bachelor of Science in Molecular and Cell Biology with Computer Science Coursework</h5>
+              <p className="description">
+                Comprehensive study of molecular structures and cellular processes, including biochemistry, molecular biology, genetics, and cell biology. Combined rigorous biological sciences coursework with computer science electives, developing strong analytical and computational thinking skills across diverse academic disciplines.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-
-      <style jsx>{`
-        .about-page-full-width {
-          position: relative;
-          width: 100%;
-          margin: 0;
-          padding: 0;
-        }
-
-        .about-page-wrapper {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-        }
-
-        .about-content {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0;
-        }
-
-        .section-container {
-          padding: 60px 0;
-          margin: 0;
-          border-radius: 0;
-        }
-
-        .intro-section {
-          background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-          min-height: 300px;
-          display: flex;
-          align-items: center;
-        }
-
-        .experience-section {
-          background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
-          min-height: 400px;
-        }
-
-        .education-section {
-          background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-          min-height: 300px;
-        }
-
-        .page-header {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-
-        .page-header h1 {
-          font-size: 3rem;
-          margin-bottom: 1.5rem;
-          color: #2c3e50;
-        }
-
-        .intro-text {
-          font-size: 1.2rem;
-          line-height: 1.8;
-          color: #34495e;
-          margin: 0;
-        }
-
-        .experience-section h2,
-        .education-section h2 {
-          font-size: 2.5rem;
-          margin-bottom: 2rem;
-          text-align: center;
-          color: #2c3e50;
-        }
-
-        .experience-item-custom {
-          width: 100%;
-          margin-bottom: 0;
-          padding: 2rem 40px;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border-radius: 0;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .experience-item-custom:last-child {
-          margin-bottom: 0;
-        }
-
-        .company-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          margin-bottom: 1.5rem;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-        }
-
-        .company-info {
-          display: flex;
-          align-items: center;
-        }
-
-        .company-logo {
-          width: 2rem;
-          height: 2rem;
-          object-fit: contain;
-          margin-right: 0.75rem;
-        }
-
-        .company-name {
-          font-size: 1.25rem;
-          font-weight: 600;
-          line-height: 1.2;
-          color: #2c3e50;
-          margin: 0;
-        }
-
-        .duration {
-          font-size: 1rem;
-          font-weight: 500;
-          line-height: 1.625;
-          color: #666;
-        }
-
-        .role-section {
-          margin-bottom: 1.5rem;
-        }
-
-        .role-section:last-child {
-          margin-bottom: 0;
-        }
-
-        .role-title {
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: #34495e;
-          margin-bottom: 0.75rem;
-        }
-
-        .description {
-          margin: 0;
-          padding-left: 1.5rem;
-        }
-
-        .description li {
-          margin-bottom: 0.5rem;
-          line-height: 1.6;
-          color: #555;
-        }
-
-        .description a {
-          color: #3498db;
-          text-decoration: underline;
-        }
-
-        .description a:hover {
-          color: #2980b9;
-        }
-
-        .education-item {
-          background: rgba(255, 255, 255, 0.9) !important;
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        @media (max-width: 768px) {
-          .section-container {
-            padding: 40px 20px;
-          }
-
-          .page-header h1 {
-            font-size: 2.5rem;
-          }
-
-          .experience-section h2,
-          .education-section h2 {
-            font-size: 2rem;
-          }
-        }
-      `}</style>
+      </PageLayout>
     </PageContainer>
   );
 };

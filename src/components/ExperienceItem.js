@@ -25,9 +25,9 @@ const ExperienceItem = ({ experience }) => {
           <ul className="description">
             {role.description.map((item, itemIndex) => (
               <li key={itemIndex}>
-                {item.includes("See Projects for more details") ? (
+                {item.includes("See Projects") ? (
                   <>
-                    See <Link to="/projects">Projects</Link> for more details
+                    See <Link to="/projects">Projects</Link>
                   </>
                 ) : (
                   item

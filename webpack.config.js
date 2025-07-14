@@ -133,30 +133,37 @@ module.exports = {
     publicPath: '/',
     clean: true,
   },
-          devServer: {
-      static: {
-        directory: resolve(__dirname, 'public'),
-        watch: {
-          usePolling: true,
-          interval: 1000,
-        }
-      },
-      hot: true,
-      port: 3000,
-      open: false,
-      historyApiFallback: true,
-      watchFiles: {
-        paths: ['src/**/*', 'public/**/*'],
-        options: {
-          usePolling: true,
-          interval: 1000,
-          followSymlinks: true,
-        }
-      },
+  devServer: {
+    static: {
+      directory: resolve(__dirname, 'public'),
+      watch: {
+        usePolling: true,
+        interval: 1000,
+      }
     },
-    watchOptions: {
-      poll: 1000,
-      followSymlinks: true,
-      ignored: /node_modules/
+    hot: true,
+    port: 3000,
+    open: false,
+    historyApiFallback: true,
+    watchFiles: {
+      paths: ['src/**/*', 'public/**/*'],
+      options: {
+        usePolling: true,
+        interval: 1000,
+        followSymlinks: true,
+      }
     },
+    client: {
+      overlay: {
+        warnings: false,
+        errors: true,
+      },
+      logging: 'warn',
+    },
+  },
+  watchOptions: {
+    poll: 1000,
+    followSymlinks: true,
+    ignored: /node_modules/
+  },
 };

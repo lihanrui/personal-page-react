@@ -5,3 +5,148 @@
   
   The base styles are now applied through Emotion's Global component in App.js
 */
+
+
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+
+.experience-section {
+  margin: 3rem 0;
+}
+
+
+
+.education-section {
+  margin: 3rem 0;
+}
+
+
+
+.hero-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--text-secondary, var(--text-primary));
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary, #fef7e6) 0%, #fef7e6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-primary, #34495e);
+  margin: 0;
+  font-weight: 500;
+}
+
+.experience-section h2,
+.education-section h2 {
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.experience-item-custom {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+
+
+.company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  margin-right: 0.75rem;
+}
+
+.company-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary, #2c3e50);
+  margin: 0;
+}
+
+.duration {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.625;
+  color: var(--text-secondary, #666);
+}
+
+.role-section {
+  margin-bottom: 1.5rem;
+}
+
+
+
+.role-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary, #34495e);
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.description li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #555);
+}
+
+.description a {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.description a:hover {
+  color: #2980b9;
+}
+
+.education-item {
+  padding: 2rem 0;
+  color: var(--text-primary);
+}
+
+
+
+@media (max-width: 768px) {
+  .experience-section h2,
+  .education-section h2 {
+    font-size: 2rem;
+  }
+}

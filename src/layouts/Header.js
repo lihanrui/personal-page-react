@@ -11,8 +11,8 @@ import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 const headerStyle = css`
   position: fixed;
   top: 0;
-  left: 10%;
-  right: 10%;
+  left: 0;
+  right: 0;
   z-index: 1000;
   background-color: var(--bg);
   backdrop-filter: blur(10px);
@@ -21,19 +21,29 @@ const headerStyle = css`
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  ${Media.medium} {
+    height: 50px;
+  }
+`;
+
+const headerContentsStyle = css`
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0 24px;
 
   ${Media.medium} {
-    height: 50px;
-    left: 5%;
-    right: 5%;
+    width: 90%;
     padding: 0 16px;
   }
 
   ${Media.small} {
-    left: 2%;
-    right: 2%;
+    width: 96%;
     padding: 0 12px;
   }
 
@@ -284,47 +294,44 @@ const Header = () => {
       )}
       
       <header css={headerStyle}>
-        <div className="mobile-left-section">
-          <div className={`hamburger-mobile ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div css={headerContentsStyle}>
+          <div className="mobile-left-section">
+            <div className={`hamburger-mobile ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
-        </div>
 
-        <Link to="/" replace={pathname === '/'} className="brand-link" onClick={closeMobileMenu}>
-          <LogoIcon />
-        </Link>
+          <Link to="/" replace={pathname === '/'} className="brand-link" onClick={closeMobileMenu}>
+            <LogoIcon />
+          </Link>
 
-        <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}> 
-          <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
-            Home
-          </Link>
-          <Link to="/about" className={pathname === '/about' ? 'active' : ''} onClick={closeMobileMenu}>
-            About Me
-          </Link>
-          <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
-            Projects
-          </Link>
-          <Link to="/hobbies" className={pathname === '/hobbies' ? 'active' : ''} onClick={closeMobileMenu}>
-            Hobbies
-          </Link>
-          <Link to="/fosters" className={pathname === '/fosters' ? 'active' : ''} onClick={closeMobileMenu}>
-            Fosters 🐱
-          </Link>
-        </nav>
+          <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}> 
+            <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
+              Home
+            </Link>
+            <Link to="/about" className={pathname === '/about' ? 'active' : ''} onClick={closeMobileMenu}>
+              About Me
+            </Link>
+            <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
+              Projects
+            </Link>
+            <Link to="/hobbies" className={pathname === '/hobbies' ? 'active' : ''} onClick={closeMobileMenu}>
+              Hobbies
+            </Link>
+            <Link to="/fosters" className={pathname === '/fosters' ? 'active' : ''} onClick={closeMobileMenu}>
+              Fosters 🐱
+            </Link>
+          </nav>
 
-        <div className="header-actions">
-          <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
+          <div className="header-actions">
+            {isLight ? (
+              <SunIcon className="theme" onClick={toggleTheme} />
+            ) : (
+              <MoonIcon className="theme" onClick={toggleTheme} />
+            )}
           </div>
-          {isLight ? (
-            <SunIcon className="theme" onClick={toggleTheme} />
-          ) : (
-            <MoonIcon className="theme" onClick={toggleTheme} />
-          )}
         </div>
       </header>
     </>
