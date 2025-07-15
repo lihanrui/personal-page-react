@@ -8,9 +8,12 @@ const footerStyle = css`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 2rem;
   margin-left: 15%;
+  padding:0px 28px;
   margin-right: 15%;
-  padding: 20px 14px;
   font-size: 12px;
 
   ${Media.medium} {

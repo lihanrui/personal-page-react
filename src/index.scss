@@ -6,27 +6,19 @@
   The base styles are now applied through Emotion's Global component in App.js
 */
 
-
-
 .about-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0;
 }
 
-
-
 .experience-section {
   margin: 3rem 0;
 }
 
-
-
 .education-section {
   margin: 3rem 0;
 }
-
-
 
 .hero-text {
   font-size: 1.5rem;
@@ -61,11 +53,7 @@
 
 .experience-item-custom {
   width: 100%;
-  margin-bottom: 2rem;
-  padding: 2rem 0;
 }
-
-
 
 .company-header {
   display: flex;
@@ -107,8 +95,6 @@
   margin-bottom: 1.5rem;
 }
 
-
-
 .role-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -138,11 +124,8 @@
 }
 
 .education-item {
-  padding: 2rem 0;
   color: var(--text-primary);
 }
-
-
 
 @media (max-width: 768px) {
   .experience-section h2,

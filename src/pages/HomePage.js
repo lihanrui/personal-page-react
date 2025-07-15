@@ -138,7 +138,7 @@ const HomePage = () => {
   ];
 
   return (
-    <PageContainer margin="narrow" padding="default">
+    <PageContainer margin="narrow" padding="none">
       <PageLayout title="Henry Li">
         <div className="about-content">
           <p className="hero-text">
