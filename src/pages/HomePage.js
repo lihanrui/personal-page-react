@@ -1,9 +1,7 @@
 import React from 'react';
-import PageLayout from '../layouts/PageLayout';
 import PageContainer from '../layouts/PageContainer';
-import { homeContentStyle } from '../lib/style/pages/HomePage';
-import { cardStyles, gridStyles, factStyles } from '../lib/style/Components';
-import ExperienceItem from '../components/ExperienceItem';
+import PageLayout from '../layouts/PageLayout';
+
 
 // Import company logos
 import GoogleLogo from '../assets/icon_company/Google_2015_logo.svg';
@@ -11,8 +9,8 @@ import MercedesLogo from '../assets/icon_company/Mercedes-Benz_Star.svg.png';
 import SamsungLogo from '../assets/icon_company/Samsung_Logo.svg.png';
 import ProximicLogo from '../assets/icon_company/Proximic_by_Comscore_Logo_Standard.png';
 
+
 const HomePage = () => {
-  // Experience data
   const experienceData = [
     {
       id: 1,
@@ -140,48 +138,60 @@ const HomePage = () => {
   ];
 
   return (
-    <PageContainer margin="default" padding="default">
+    <PageContainer margin="narrow" padding="default">
       <PageLayout title="Henry Li">
-        <div css={homeContentStyle}>
+        <div className="about-content">
           <p className="hero-text">
-            I'm a developer passionate about 
-            building beautiful, functional, and user-friendly <span className="gradient-text">digital experiences</span>.
+          A passionate developer with over <span className="gradient-text">5 years of experience</span> building innovative solutions at leading technology companies. I specialize in <span className="gradient-text">Android development</span>, <span className="gradient-text">Chrome OS integration</span>, and creating user-centric digital experiences.
           </p>
                   
           <p className="hero-text">
             <strong>Let's build something amazing together!</strong>
           </p>
           
-          <div css={cardStyles} className="fun-facts">
-            <h3>By the Numbers</h3>
-            <div css={gridStyles.statsGrid}>
-              <div css={factStyles}>
-                <div className="number">5+</div>
-                <div className="label">Years Experience</div>
-              </div>
-              <div css={factStyles}>
-                <div className="number">25+</div>
-                <div className="label">Projects Completed</div>
-              </div>
-              <div css={factStyles}>
-                <div className="number">24/7</div>
-                <div className="label">Learning Mode</div>
-              </div>
-            </div>
-          </div>
-          
           <div className="experience-section">
             <h2>Professional Experience</h2>
             
             {experienceData.map((experience) => (
-              <ExperienceItem key={experience.id} experience={experience} />
+              <div key={experience.id} className="experience-item-custom">
+                <div className="company-header">
+                  {experience.company.logo ? (
+                    <div className="company-info">
+                      <img src={experience.company.logo} alt={experience.company.alt} className="company-logo" />
+                      <h4 className="company-name">{experience.company.name}</h4>
+                    </div>
+                  ) : (
+                    <h4 className="company-name">{experience.company.name}</h4>
+                  )}
+                  <span className="duration">{experience.duration}</span>
+                </div>
+                
+                {experience.roles.map((role, index) => (
+                  <div key={index} className="role-section">
+                    <h5 className="role-title">{role.title}</h5>
+                    <ul className="description">
+                      {role.description.map((item, itemIndex) => (
+                        <li key={itemIndex}>
+                          {item.includes("See Projects") ? (
+                            <>
+                              See <a href="/projects">Projects</a>
+                            </>
+                          ) : (
+                            item
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             ))}
           </div>
 
           <div className="education-section">
             <h2>Education</h2>
             
-            <div css={cardStyles} className="education-item">
+            <div className="education-item">
               <div className="school-header">
                 <h4 className="school-name">University of California, Berkeley</h4>
                 <span className="graduation">Graduated: 2012</span>
@@ -193,7 +203,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </PageLayout> 
+      </PageLayout>
     </PageContainer>
   );
 };
