@@ -29,22 +29,38 @@ const headerStyle = css`
 `;
 
 const headerContentsStyle = css`
-  width: 80%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  margin-left: 15%;
+  margin-right: 15%;
 
   ${Media.medium} {
-    width: 90%;
+    margin-left: 15%;
+    margin-right: 15%;
     padding: 0 16px;
   }
 
   ${Media.small} {
-    width: 96%;
+    margin-left: 15%;
+    margin-right: 15%;
     padding: 0 12px;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0 10px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 0 5px;
   }
 
   .mobile-left-section {
@@ -310,9 +326,6 @@ const Header = () => {
           <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}> 
             <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
               Home
-            </Link>
-            <Link to="/about" className={pathname === '/about' ? 'active' : ''} onClick={closeMobileMenu}>
-              About Me
             </Link>
             <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
               Projects

@@ -5,21 +5,36 @@ import { useThemeContext } from '../contexts/ThemeContext';
 
 const footerStyle = css`
   position: relative;
-  left: 10%;
-  right: 10%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-left: 15%;
+  margin-right: 15%;
   padding: 20px 14px;
   font-size: 12px;
 
   ${Media.medium} {
-    left: 5%;
-    right: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
     padding: 40px 16px;
   }
 
   ${Media.small} {
-    left: 2%;
-    right: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
     padding: 40px 12px;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 40px 10px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 40px 5px;
   }
 
   & > nav {

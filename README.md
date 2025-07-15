@@ -2,10 +2,8 @@
 
 A modern, responsive React single-page application portfolio site featuring:
 
-- Home page with personal introduction
-- About page for detailed background
+- Home page with personal introduction and background
 - Projects showcase
-- Blog posts section
 - Hobbies section
 - Foster care information page
 - Dark/Light theme support
@@ -24,10 +22,8 @@ A modern, responsive React single-page application portfolio site featuring:
 
 ## Pages
 
-- **Home** (`/`): Landing page with personal introduction
-- **About** (`/about`): Detailed background information
+- **Home** (`/`): Landing page with personal introduction and background
 - **Projects** (`/projects`): Showcase of development projects
-- **Posts** (`/posts`): Blog posts and articles
 - **Hobbies** (`/hobbies`): Personal interests and activities
 - **Fosters** (`/fosters`): Information about foster care involvement
 

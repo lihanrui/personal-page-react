@@ -37,7 +37,7 @@ The `PageContainer` component allows individual pages to specify their own margi
   </PageLayout>
 </PageContainer>
 
-// Full-width page (like AboutPage)
+// Full-width page (like HomePage)
 <PageContainer margin="full" padding="none">
   {/* Full-width content */}
 </PageContainer>
@@ -58,11 +58,11 @@ The `PageContainer` component allows individual pages to specify their own margi
 
 ## Current Page Configurations
 
-### AboutPage
-- **Margin**: `full` - Uses full width for section backgrounds
-- **Padding**: `none` - No padding to allow full-width sections
+### HomePage
+- **Margin**: `default` - Standard 10% margins
+- **Padding**: `default` - Standard 20px top/bottom padding
 
-### HomePage, ProjectsPage, HobbiesPage, FostersPage, ErrorPage
+### ProjectsPage, HobbiesPage, FostersPage, ErrorPage
 - **Margin**: `default` - Standard 10% margins
 - **Padding**: `default` - Standard 20px top/bottom padding
 
