@@ -121,6 +121,14 @@ export const marginStyles = {
   my2: css`margin: 2rem 0;`
 };
 
+// Text alignment utilities
+export const textAlignStyles = {
+  center: css`text-align: center;`,
+  left: css`text-align: left;`,
+  right: css`text-align: right;`,
+  justify: css`text-align: justify;`
+};
+
 // Flex utilities
 export const flexStyles = {
   center: css`
