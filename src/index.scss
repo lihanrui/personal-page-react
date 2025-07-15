@@ -1,7 +1,7 @@
 /* 
   Global styles are now centralized in src/lib/style/Styles.js
-  This file can be used for additional SCSS-specific styles that aren't 
-  handled by the Emotion global styles, or for component-specific styles.
+  This file contains only essential SCSS-specific styles that aren't 
+  handled by the Emotion global styles.
   
   The base styles are now applied through Emotion's Global component in App.js
 */
@@ -20,39 +20,12 @@
   margin: 3rem 0;
 }
 
-.hero-text {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  // text-align: center;
-  color: var(--text-secondary, var(--text-primary));
-  margin-bottom: 3rem;
-  font-weight: 500;
-}
-
 .gradient-text {
   background: linear-gradient(135deg, var(--primary, #fef7e6) 0%, #fef7e6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
-}
-
-.intro-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: var(--text-primary, #34495e);
-  margin: 0;
-  font-weight: 500;
-}
-
-.experience-section h2,
-.education-section h2 {
-  margin-bottom: 2rem;
-  color: var(--text-primary);
-}
-
-.experience-item-custom {
-  width: 100%;
 }
 
 .company-header {

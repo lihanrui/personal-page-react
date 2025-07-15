@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import { Media } from './Media';
-import { Typography } from './Typography';
 
 // Card component styles
 export const cardStyles = css`
@@ -111,21 +110,6 @@ export const factStyles = css`
     color: var(--text-secondary, var(--text-primary));
   }
 `;
-
-// Text alignment utilities
-export const textAlignStyles = {
-  center: css`
-    text-align: center;
-  `,
-  
-  left: css`
-    text-align: left;
-  `,
-  
-  right: css`
-    text-align: right;
-  `
-};
 
 // Margin utilities
 export const marginStyles = {

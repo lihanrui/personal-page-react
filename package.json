@@ -1,9 +1,9 @@
 {
-  "name": "react-spa-template",
+  "name": "personal-page-henry",
   "version": "0.2.0",
-  "description": "React Single Page App template without CRA",
+  "description": "Henry's personal page - React Single Page App",
   "main": "src/index.js",
-  "repository": "https://github.com/ofnullable/react-spa-template",
+  "repository": "https://github.com/ofnullable/personal-page-henry",
   "author": "ofnullable <ofnullable@gmail.com>",
   "license": "MIT",
   "engines": {

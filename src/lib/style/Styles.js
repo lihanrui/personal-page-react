@@ -74,6 +74,13 @@ export const baseStyles = css`
     background-color: var(--primary);
     color: var(--text-on-primary, white);
   }
+
+  /* Essential shadow variables */
+  :root {
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
 `;
 
 // Theme-specific styles that depend on CSS variables
