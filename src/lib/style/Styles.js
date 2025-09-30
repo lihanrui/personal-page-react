@@ -12,6 +12,7 @@ export const baseStyles = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    scroll-padding-top: calc(var(--header-space, 60px) + 16px);
   }
 
   html,
@@ -33,7 +34,11 @@ export const baseStyles = css`
     line-height: 1.625;
     letter-spacing: normal;
     color: var(--text-primary);
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: var(--bg-texture, none);
+    background-size: var(--bg-texture-size, auto);
+    background-blend-mode: var(--bg-texture-blend, normal);
+    background-repeat: repeat;
     transition-duration: 0.3s;
     transition-timing-function: ease;
     transition-property: border, background, color;
@@ -80,6 +85,17 @@ export const baseStyles = css`
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --header-space: 60px;
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --header-space: 50px;
+    }
+  }
+
+  :root.header-hidden {
+    --header-space: 0px;
   }
 `;
 

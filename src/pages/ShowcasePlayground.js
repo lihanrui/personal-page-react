@@ -6,42 +6,40 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const pageWrapperStyles = css`
-  min-height: calc(100vh - var(--header-height, 72px));
+  min-height: calc(100vh - var(--header-space, 72px));
   display: flex;
   flex-direction: column;
-  gap: 6rem;
-  padding: 6rem 1.5rem 8rem;
+  gap: clamp(2.5rem, 4vw, 4rem);
+  padding: clamp(3rem, 5vw, 5.5rem) 1.5rem clamp(5.5rem, 9vw, 7rem);
+`;
+
+const scrollSceneStyles = css`
   position: relative;
-`;
-
-const introWrapperStyles = css`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const introContentStyles = css`
-  max-width: 720px;
-  text-align: center;
-  display: grid;
-  gap: 1.25rem;
-  padding: 2.5rem 1rem;
+const pinInnerStyles = css`
+  position: relative;
+  width: clamp(360px, 88vw, 1280px);
+  margin: clamp(0.5rem, 1.6vw, 1.5rem) auto;
+  height: clamp(500px, 65vh, 760px);
+  display: flex;
+  align-items: stretch;
 
-  h1 {
-    font-size: clamp(2.2rem, 1.6rem + 2vw, 3rem);
+  @media (max-width: 768px) {
+    position: static;
+    height: auto;
+    flex-direction: column;
+    gap: 3rem;
+    margin: clamp(0.5rem, 1.8vw, 1rem) auto;
   }
-
-  p {
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.7;
-  }
-`;
-
-const cardStackStyles = css`
-  display: grid;
-  gap: 4rem;
 `;
 
 const cardStyles = css`
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: stretch;
   background: rgba(15, 22, 35, 0.92);
@@ -49,29 +47,35 @@ const cardStyles = css`
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(3, 11, 25, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  min-height: clamp(420px, 55vh, 640px);
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  pointer-events: none;
 
-  @media (max-width: 1024px) {
-    min-height: clamp(400px, 65vh, 680px);
+  &.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 28px 70px rgba(3, 11, 25, 0.45);
+    pointer-events: auto;
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    min-height: unset;
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 `;
 
 const textColumnStyles = css`
   flex: 1;
-  padding: clamp(1.75rem, 1.1rem + 2vw, 2.6rem);
+  padding: clamp(1.8rem, 1.2rem + 2vw, 2.8rem);
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
   opacity: 0;
   transform: translateY(60px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 
   &.is-1 {
     opacity: 1;
@@ -87,13 +91,13 @@ const labelStyles = css`
 `;
 
 const headingStyles = css`
-  font-size: clamp(1.9rem, 1.4rem + 1.2vw, 2.5rem);
+  font-size: clamp(1.9rem, 1.3rem + 1.5vw, 2.6rem);
   font-weight: 600;
 `;
 
 const descriptionStyles = css`
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.76);
 `;
 
 const listStyles = css`
@@ -123,9 +127,7 @@ const imageColumnStyles = css`
   position: relative;
   opacity: 0;
   transform: translateY(60px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 
   &.is-1 {
     opacity: 1;
@@ -144,6 +146,16 @@ const imageMockStyles = css`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+`;
+
+const spacerTrackStyles = css`
+  display: none;
+
+  @media (min-width: 769px) {
+    display: block;
+    width: 1px;
+    height: calc(max(1, var(--card-count, 3) - 1) * clamp(360px, 55vh, 640px));
+  }
 `;
 
 const cardsData = [
@@ -193,108 +205,158 @@ const ShowcasePlayground = () => {
       return undefined;
     }
 
+    const targetY = 70;
+
+    if (Math.abs(window.scrollY - targetY) > 1) {
+      window.scrollTo({ top: targetY, left: window.scrollX || 0, behavior: 'auto' });
+    }
+
+    return undefined;
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
     const container = containerRef.current;
     if (!container) {
       return undefined;
     }
 
-    const introWrapper = container.querySelector('.intro-wrapper');
-    const introContent = container.querySelector('.text-align-center');
+    const mm = ScrollTrigger.matchMedia();
 
-    let pinInstance;
+    mm.add('(max-width: 768px)', () => {
+      const texts = container.querySelectorAll('.tabs_let-content');
+      const media = container.querySelectorAll('.tabs_video');
+      const cards = container.querySelectorAll('.sticky-card');
 
-    if (introWrapper && introContent) {
-      pinInstance = ScrollTrigger.create({
-        trigger: introWrapper,
-        start: 'top top',
-        end: 'bottom top',
-        pin: introContent,
-        pinSpacing: false,
-      });
-    }
+      texts.forEach((section) => section.classList.add('is-1'));
+      media.forEach((section) => section.classList.add('is-1'));
+      cards.forEach((card) => card.classList.add('is-active'));
 
-    const textSections = container.querySelectorAll('.tabs_let-content');
-    const mediaSections = container.querySelectorAll('.tabs_video');
-    const sectionList = Array.from(textSections);
-    const mediaList = Array.from(mediaSections);
-
-    if (!sectionList.length) {
       return () => {
-        if (pinInstance) {
-          pinInstance.kill();
-        }
+        texts.forEach((section) => section.classList.remove('is-1'));
+        media.forEach((section) => section.classList.remove('is-1'));
+        cards.forEach((card, index) => {
+          if (index !== 0) {
+            card.classList.remove('is-active');
+          }
+        });
       };
-    }
+    });
 
-    const lastIndex = sectionList.length - 1;
+    mm.add('(min-width: 769px)', () => {
+      const pinWrapper = container.querySelector('.showcase-scroll-scene');
+      const pinInner = container.querySelector('.showcase-pin-inner');
+      const cards = Array.from(container.querySelectorAll('.sticky-card'));
+      const textSections = Array.from(container.querySelectorAll('.tabs_let-content'));
+      const mediaSections = Array.from(container.querySelectorAll('.tabs_video'));
 
-    const applyScrollState = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight * 0.75;
+      if (!pinWrapper || !pinInner || cards.length === 0) {
+        return () => {};
+      }
 
-      sectionList.forEach((section, index) => {
-        const isInWindow = scrollPosition >= index * windowHeight && scrollPosition < (index + 1) * windowHeight;
+      const activeIndexRef = { current: 0 };
 
-        if (isInWindow) {
-          section.classList.add('is-1');
-          if (mediaList[index]) {
-            mediaList[index].classList.add('is-1');
+      const setActiveCard = (index) => {
+        activeIndexRef.current = index;
+
+        cards.forEach((card, cardIndex) => {
+          card.classList.toggle('is-active', cardIndex === index);
+        });
+
+        textSections.forEach((section, sectionIndex) => {
+          section.classList.toggle('is-1', sectionIndex === index);
+        });
+
+        mediaSections.forEach((section, sectionIndex) => {
+          section.classList.toggle('is-1', sectionIndex === index);
+        });
+      };
+
+      setActiveCard(0);
+
+      const pinHeight = pinInner.offsetHeight || 1;
+      const cardsCount = Math.max(cards.length - 1, 1);
+      const scrollDistance = pinHeight * cardsCount;
+      const snapIncrement = cards.length > 1 ? 1 / cardsCount : 1;
+
+      const trigger = ScrollTrigger.create({
+        trigger: pinWrapper,
+        start: 'top top',
+        end: () => `+=${scrollDistance}`,
+        pin: pinInner,
+        scrub: true,
+        anticipatePin: 1,
+        snap: snapIncrement,
+        onUpdate: (self) => {
+          const rawIndex = Math.round(self.progress * cardsCount);
+          const nextIndex = Math.min(cards.length - 1, Math.max(0, rawIndex));
+          if (nextIndex !== activeIndexRef.current) {
+            setActiveCard(nextIndex);
           }
-        } else if (index !== lastIndex) {
-          section.classList.remove('is-1');
-          if (mediaList[index]) {
-            mediaList[index].classList.remove('is-1');
-          }
-        }
+        },
       });
 
-      if (scrollPosition > lastIndex * windowHeight) {
-        sectionList[lastIndex].classList.add('is-1');
-        if (mediaList[lastIndex]) {
-          mediaList[lastIndex].classList.add('is-1');
-        }
-      } else {
-        sectionList[lastIndex].classList.remove('is-1');
-        if (mediaList[lastIndex]) {
-          mediaList[lastIndex].classList.remove('is-1');
-        }
-      }
-    };
+      const handleResize = () => {
+        trigger.refresh();
+      };
 
-    window.addEventListener('scroll', applyScrollState, { passive: true });
-    // Run once so the first card is visible before scrolling
-    applyScrollState();
+      window.addEventListener('resize', handleResize);
+      ScrollTrigger.refresh();
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        trigger.kill();
+      };
+    });
 
     return () => {
-      if (pinInstance) {
-        pinInstance.kill();
-      }
-      window.removeEventListener('scroll', applyScrollState);
+      mm.revert();
     };
   }, []);
 
   return (
     <section css={pageWrapperStyles} ref={containerRef}>
-      <div css={cardStackStyles}>
-        {cardsData.map((card) => (
-          <article key={card.label} css={cardStyles}>
-            <div className="tabs_let-content" css={textColumnStyles}>
-              <span css={labelStyles}>{card.label}</span>
-              <h2 css={headingStyles}>{card.title}</h2>
-              <p css={descriptionStyles}>{card.description}</p>
-              <ul css={listStyles}>
-                {card.highlights.map((highlight) => (
-                  <li key={highlight} css={listItemStyles}>
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="tabs_video" css={imageColumnStyles}>
-              <div css={imageMockStyles} style={{ background: card.background }} />
-            </div>
-          </article>
-        ))}
+      <div
+        className="showcase-scroll-scene"
+        css={scrollSceneStyles}
+        style={{ '--card-count': cardsData.length }}
+      >
+        <div className="showcase-pin-inner" css={pinInnerStyles}>
+          {cardsData.map((card, index) => (
+            <article
+              key={card.label}
+              className={`sticky-card${index === 0 ? ' is-active' : ''}`}
+              css={cardStyles}
+            >
+              <div
+                className={`tabs_let-content${index === 0 ? ' is-1' : ''}`}
+                css={textColumnStyles}
+              >
+                <span css={labelStyles}>{card.label}</span>
+                <h2 css={headingStyles}>{card.title}</h2>
+                <p css={descriptionStyles}>{card.description}</p>
+                <ul css={listStyles}>
+                  {card.highlights.map((highlight) => (
+                    <li key={highlight} css={listItemStyles}>
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div
+                className={`tabs_video${index === 0 ? ' is-1' : ''}`}
+                css={imageColumnStyles}
+              >
+                <div css={imageMockStyles} style={{ background: card.background }} />
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div aria-hidden css={spacerTrackStyles} />
       </div>
     </section>
   );

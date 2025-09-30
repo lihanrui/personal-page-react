@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { css } from '@emotion/react';
 import { Media } from '../lib/style';
@@ -22,10 +22,17 @@ const headerStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateY(0);
+  transition: transform 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
 
   ${Media.medium} {
     height: 50px;
   }
+`;
+
+const headerHiddenStyle = css`
+  transform: translateY(-110%);
 `;
 
 const headerContentsStyle = css`
@@ -56,7 +63,7 @@ const headerContentsStyle = css`
     margin-right: 10%;
     padding: 0 10px;
   }
-  
+
   @media (max-width: 480px) {
     margin-left: 5%;
     margin-right: 5%;
@@ -82,7 +89,6 @@ const headerContentsStyle = css`
     margin-right: 40px;
     z-index: 1001;
 
-    /* Ensure the brand SVG icon adapts to theme colors */
     svg path,
     svg polyline,
     svg line,
@@ -104,7 +110,7 @@ const headerContentsStyle = css`
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      
+
       svg {
         width: 2rem;
         height: 2rem;
@@ -137,7 +143,7 @@ const headerContentsStyle = css`
       visibility: hidden;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
-      
+
       &.mobile-open {
         transform: translateY(0);
         opacity: 1;
@@ -278,6 +284,9 @@ const Header = () => {
   const { pathname } = useLocation();
   const { isLight, toggleTheme } = useThemeContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollYRef = useRef(0);
+  const scrollFrameRef = useRef(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -287,10 +296,102 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    lastScrollYRef.current = window.scrollY || 0;
+
+    const handleScroll = () => {
+      if (scrollFrameRef.current !== null) {
+        return;
+      }
+
+      scrollFrameRef.current = window.requestAnimationFrame(() => {
+        const currentY = window.scrollY || 0;
+        const delta = currentY - lastScrollYRef.current;
+        const scrolledDown = delta > 6;
+        const scrolledUp = delta < -6;
+
+        if (currentY < 80 || scrolledUp) {
+          setIsHidden(false);
+        } else if (scrolledDown) {
+          setIsHidden(true);
+        }
+
+        lastScrollYRef.current = currentY;
+        scrollFrameRef.current = null;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollFrameRef.current !== null) {
+        window.cancelAnimationFrame(scrollFrameRef.current);
+        scrollFrameRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    setIsHidden(false);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return undefined;
+    }
+
+    const root = document.documentElement;
+    root.classList.toggle('header-hidden', isHidden);
+
+    return () => {
+      root.classList.remove('header-hidden');
+    };
+  }, [isHidden]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    lastScrollYRef.current = window.scrollY || 0;
+    setIsHidden(false);
+    setIsMobileMenuOpen(false);
+
+    let delayedHideTimer = null;
+
+    if (pathname === '/showcase-lab') {
+      delayedHideTimer = window.setTimeout(() => {
+        if (typeof window === 'undefined' || isMobileMenuOpen) {
+          return;
+        }
+
+        lastScrollYRef.current = window.scrollY || 0;
+        if (lastScrollYRef.current > 80) {
+          setIsHidden(true);
+        }
+      }, 1500);
+    }
+
+    return () => {
+      if (delayedHideTimer) {
+        window.clearTimeout(delayedHideTimer);
+      }
+    };
+  }, [pathname, isMobileMenuOpen]);
+
   return (
     <>
       {isMobileMenuOpen && (
-        <div 
+        <div
           css={css`
             position: fixed;
             top: 0;
@@ -300,7 +401,7 @@ const Header = () => {
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
             display: none;
-            
+
             ${Media.small} {
               display: block;
             }
@@ -308,8 +409,8 @@ const Header = () => {
           onClick={closeMobileMenu}
         />
       )}
-      
-      <header css={headerStyle}>
+
+      <header css={[headerStyle, isHidden && headerHiddenStyle]}>
         <div css={headerContentsStyle}>
           <div className="mobile-left-section">
             <div className={`hamburger-mobile ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
@@ -323,12 +424,19 @@ const Header = () => {
             <LogoIcon />
           </Link>
 
-          <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}> 
+          <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
             <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
               Home
             </Link>
             <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
               Projects
+            </Link>
+            <Link
+              to="/showcase-lab"
+              className={pathname === '/showcase-lab' ? 'active' : ''}
+              onClick={closeMobileMenu}
+            >
+              Showcase Lab
             </Link>
             <Link to="/hobbies" className={pathname === '/hobbies' ? 'active' : ''} onClick={closeMobileMenu}>
               Hobbies
