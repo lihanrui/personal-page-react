@@ -148,16 +148,6 @@ const imageMockStyles = css`
   background-repeat: no-repeat;
 `;
 
-const spacerTrackStyles = css`
-  display: none;
-
-  @media (min-width: 769px) {
-    display: block;
-    width: 1px;
-    height: calc(max(1, var(--card-count, 3) - 1) * clamp(360px, 55vh, 640px));
-  }
-`;
-
 const cardsData = [
   {
     label: 'Personal Experiments',
@@ -360,11 +350,7 @@ const ShowcasePlayground = () => {
 
   return (
     <section css={pageWrapperStyles} ref={containerRef}>
-      <div
-        className="showcase-scroll-scene"
-        css={scrollSceneStyles}
-        style={{ '--card-count': cardsData.length }}
-      >
+      <div className="showcase-scroll-scene" css={scrollSceneStyles}>
         <div className="showcase-pin-inner" css={pinInnerStyles}>
           {cardsData.map((card, index) => (
             <article
@@ -396,8 +382,6 @@ const ShowcasePlayground = () => {
             </article>
           ))}
         </div>
-
-        <div aria-hidden css={spacerTrackStyles} />
       </div>
     </section>
   );
