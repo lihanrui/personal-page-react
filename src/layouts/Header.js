@@ -287,6 +287,26 @@ const Header = () => {
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollYRef = useRef(0);
   const scrollFrameRef = useRef(null);
+  const hiddenStateRef = useRef(false);
+  const lastToggleYRef = useRef(0);
+  const lastToggleTimeRef = useRef(0);
+
+  const updateHiddenState = (nextHidden, currentY, { force = false } = {}) => {
+    const now = typeof performance !== 'undefined' ? performance.now() : Date.now();
+
+    if (!force) {
+      const yDelta = Math.abs(currentY - lastToggleYRef.current);
+      const timeDelta = now - lastToggleTimeRef.current;
+      if (hiddenStateRef.current === nextHidden || (yDelta < 32 && timeDelta < 200)) {
+        return;
+      }
+    }
+
+    hiddenStateRef.current = nextHidden;
+    lastToggleYRef.current = currentY;
+    lastToggleTimeRef.current = now;
+    setIsHidden(nextHidden);
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -315,9 +335,9 @@ const Header = () => {
         const scrolledUp = delta < -6;
 
         if (currentY < 80 || scrolledUp) {
-          setIsHidden(false);
+          updateHiddenState(false, currentY);
         } else if (scrolledDown) {
-          setIsHidden(true);
+          updateHiddenState(true, currentY);
         }
 
         lastScrollYRef.current = currentY;
@@ -341,6 +361,7 @@ const Header = () => {
       return;
     }
 
+    hiddenStateRef.current = false;
     setIsHidden(false);
   }, [isMobileMenuOpen]);
 
@@ -363,6 +384,7 @@ const Header = () => {
     }
 
     lastScrollYRef.current = window.scrollY || 0;
+    hiddenStateRef.current = false;
     setIsHidden(false);
     setIsMobileMenuOpen(false);
 
@@ -376,7 +398,7 @@ const Header = () => {
 
         lastScrollYRef.current = window.scrollY || 0;
         if (lastScrollYRef.current > 80) {
-          setIsHidden(true);
+          updateHiddenState(true, lastScrollYRef.current, { force: true });
         }
       }, 1500);
     }
