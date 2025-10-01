@@ -265,18 +265,22 @@ const ShowcasePlayground = () => {
 
     const mm = ScrollTrigger.matchMedia();
 
-    mm.add('(max-width: 768px)', () => {
-      const texts = container.querySelectorAll('.tabs_let-content');
-      const media = container.querySelectorAll('.tabs_video');
-      const cards = container.querySelectorAll('.sticky-card');
+    const querySceneElements = () => ({
+      cards: Array.from(container.querySelectorAll('.sticky-card')),
+      textSections: Array.from(container.querySelectorAll('.tabs_let-content')),
+      mediaSections: Array.from(container.querySelectorAll('.tabs_video')),
+    });
 
-      texts.forEach((section) => section.classList.add('is-1'));
-      media.forEach((section) => section.classList.add('is-1'));
+    mm.add('(max-width: 768px)', () => {
+      const { cards, textSections, mediaSections } = querySceneElements();
+
+      textSections.forEach((section) => section.classList.add('is-1'));
+      mediaSections.forEach((section) => section.classList.add('is-1'));
       cards.forEach((card) => card.classList.add('is-active'));
 
       return () => {
-        texts.forEach((section) => section.classList.remove('is-1'));
-        media.forEach((section) => section.classList.remove('is-1'));
+        textSections.forEach((section) => section.classList.remove('is-1'));
+        mediaSections.forEach((section) => section.classList.remove('is-1'));
         cards.forEach((card, index) => {
           if (index !== 0) {
             card.classList.remove('is-active');
@@ -288,9 +292,7 @@ const ShowcasePlayground = () => {
     mm.add('(min-width: 769px)', () => {
       const pinWrapper = container.querySelector('.showcase-scroll-scene');
       const pinInner = container.querySelector('.showcase-pin-inner');
-      const cards = Array.from(container.querySelectorAll('.sticky-card'));
-      const textSections = Array.from(container.querySelectorAll('.tabs_let-content'));
-      const mediaSections = Array.from(container.querySelectorAll('.tabs_video'));
+      const { cards, textSections, mediaSections } = querySceneElements();
 
       if (!pinWrapper || !pinInner || cards.length === 0) {
         return () => {};
