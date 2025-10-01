@@ -199,19 +199,58 @@ const cardsData = [
 
 const ShowcasePlayground = () => {
   const containerRef = useRef(null);
+  const autoScrollHandledRef = useRef(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === 'undefined' || autoScrollHandledRef.current) {
       return undefined;
     }
 
     const targetY = 70;
 
-    if (Math.abs(window.scrollY - targetY) > 1) {
-      window.scrollTo({ top: targetY, left: window.scrollX || 0, behavior: 'auto' });
-    }
+    const markHandled = () => {
+      autoScrollHandledRef.current = true;
+      window.removeEventListener('wheel', markHandled, passiveOpts);
+      window.removeEventListener('touchstart', markHandled, passiveOpts);
+      window.removeEventListener('keydown', markHandled);
+    };
 
-    return undefined;
+    const passiveOpts = { passive: true };
+    window.addEventListener('wheel', markHandled, passiveOpts);
+    window.addEventListener('touchstart', markHandled, passiveOpts);
+    window.addEventListener('keydown', markHandled);
+
+    const shouldAutoScroll = () => {
+      const currentY = window.scrollY || document.documentElement.scrollTop || 0;
+      if (currentY > targetY * 0.5) {
+        return false;
+      }
+
+      const navEntries = performance.getEntriesByType('navigation');
+      const isBackForward = navEntries.some((entry) => entry.type === 'back_forward');
+      return !isBackForward;
+    };
+
+    const scrollIntoPosition = () => {
+      if (autoScrollHandledRef.current) {
+        return;
+      }
+
+      if (shouldAutoScroll()) {
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+
+      markHandled();
+    };
+
+    const rafId = window.requestAnimationFrame(() => {
+      window.setTimeout(scrollIntoPosition, 50);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      markHandled();
+    };
   }, []);
 
   useEffect(() => {
