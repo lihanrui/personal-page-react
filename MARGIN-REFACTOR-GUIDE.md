@@ -7,12 +7,14 @@ The application's margin system has been refactored to use the `PageContainer` c
 ## 🎯 Why This Refactor?
 
 ### Previous Issues
+
 - Fixed margins across all pages
 - Limited customization options
 - Difficult to maintain consistent spacing
 - Poor responsive behavior
 
 ### Current Benefits
+
 - **Flexible Layouts**: Each page can choose its own margin strategy
 - **Consistent Spacing**: Preset options ensure design consistency
 - **Better Responsiveness**: Built-in mobile-first responsive design
@@ -48,24 +50,24 @@ interface PaddingObject {
 
 ### Margin Options
 
-| Option | Description | Values |
-|--------|-------------|---------|
-| `'default'` | Standard margins | 10% left/right |
-| `'wide'` | Wider content area | 5% left/right |
-| `'narrow'` | Narrower content area | 15% left/right |
-| `'full'` | Full width | 0% left/right |
-| `'none'` | No margins | 0% left/right |
-| `MarginObject` | Custom margins | `{ left: '20px', right: '20px' }` |
+| Option         | Description           | Values                            |
+| -------------- | --------------------- | --------------------------------- |
+| `'default'`    | Standard margins      | 10% left/right                    |
+| `'wide'`       | Wider content area    | 5% left/right                     |
+| `'narrow'`     | Narrower content area | 15% left/right                    |
+| `'full'`       | Full width            | 0% left/right                     |
+| `'none'`       | No margins            | 0% left/right                     |
+| `MarginObject` | Custom margins        | `{ left: '20px', right: '20px' }` |
 
 ### Padding Options
 
-| Option | Description | Values |
-|--------|-------------|---------|
-| `'default'` | Standard padding | 20px top/bottom |
-| `'wide'` | More padding | 40px top/bottom, 20px left/right |
-| `'narrow'` | Less padding | 10px top/bottom |
-| `'none'` | No padding | 0px all around |
-| `PaddingObject` | Custom padding | `{ top: '30px', bottom: '30px' }` |
+| Option          | Description      | Values                            |
+| --------------- | ---------------- | --------------------------------- |
+| `'default'`     | Standard padding | 20px top/bottom                   |
+| `'wide'`        | More padding     | 40px top/bottom, 20px left/right  |
+| `'narrow'`      | Less padding     | 10px top/bottom                   |
+| `'none'`        | No padding       | 0px all around                    |
+| `PaddingObject` | Custom padding   | `{ top: '30px', bottom: '30px' }` |
 
 ## 💡 Usage Examples
 
@@ -111,7 +113,7 @@ interface PaddingObject {
 
 ```jsx
 // Custom margins and padding
-<PageContainer 
+<PageContainer
   margin={{ left: '15%', right: '15%' }}
   padding={{ top: '30px', bottom: '30px', left: '20px', right: '20px' }}
   maxWidth="1400px"
@@ -145,11 +147,13 @@ interface PaddingObject {
 The `PageContainer` component includes built-in responsive behavior:
 
 ### Mobile-First Approach
+
 - Margins automatically adjust for smaller screens
 - Padding scales appropriately
 - Content remains readable on all devices
 
 ### Breakpoint Behavior
+
 ```css
 /* Desktop (default) */
 margin: 10% (for 'default')
@@ -164,47 +168,42 @@ margin: 2% (minimal margins for small screens)
 ## 🎨 Current Page Configurations
 
 ### HomePage
+
 ```jsx
 <PageContainer margin="default" padding="default">
-  <PageLayout title="Welcome">
-    {/* Hero section and introduction */}
-  </PageLayout>
+  <PageLayout title="Welcome">{/* Hero section and introduction */}</PageLayout>
 </PageContainer>
 ```
 
 ### ProjectsPage
+
 ```jsx
 <PageContainer margin="default" padding="default">
-  <PageLayout title="Projects">
-    {/* Project showcase grid */}
-  </PageLayout>
+  <PageLayout title="Projects">{/* Project showcase grid */}</PageLayout>
 </PageContainer>
 ```
 
 ### HobbiesPage
+
 ```jsx
 <PageContainer margin="default" padding="default">
-  <PageLayout title="Hobbies">
-    {/* Hobbies and interests */}
-  </PageLayout>
+  <PageLayout title="Hobbies">{/* Hobbies and interests */}</PageLayout>
 </PageContainer>
 ```
 
 ### FostersPage
+
 ```jsx
 <PageContainer margin="default" padding="default">
-  <PageLayout title="Foster Care">
-    {/* Foster care information and gallery */}
-  </PageLayout>
+  <PageLayout title="Foster Care">{/* Foster care information and gallery */}</PageLayout>
 </PageContainer>
 ```
 
 ### ErrorPage
+
 ```jsx
 <PageContainer margin="default" padding="default">
-  <PageLayout title="Page Not Found">
-    {/* Error message and navigation */}
-  </PageLayout>
+  <PageLayout title="Page Not Found">{/* Error message and navigation */}</PageLayout>
 </PageContainer>
 ```
 
@@ -276,12 +275,13 @@ The component uses CSS custom properties for dynamic styling:
 If you're migrating from the old fixed-margin system:
 
 1. **Replace AppLayout margins**:
+
    ```jsx
    // Old
    <AppLayout margin="fixed">
      <PageLayout>Content</PageLayout>
    </AppLayout>
-   
+
    // New
    <PageContainer margin="default">
      <PageLayout>Content</PageLayout>
@@ -289,6 +289,7 @@ If you're migrating from the old fixed-margin system:
    ```
 
 2. **Update page components**:
+
    - Remove margin props from AppLayout
    - Wrap content with PageContainer
    - Choose appropriate margin/padding values
@@ -301,12 +302,14 @@ If you're migrating from the old fixed-margin system:
 ## 🔮 Future Enhancements
 
 ### Planned Features
+
 - **More Preset Options**: `hero`, `sidebar`, `dashboard`
 - **Breakpoint-Specific Margins**: Different margins per screen size
 - **Design System Integration**: Token-based spacing system
 - **Animation Support**: Smooth transitions between margin changes
 
 ### Customization Options
+
 - **Theme Integration**: Margins that adapt to theme changes
 - **Dynamic Margins**: Margins that change based on content
 - **Conditional Spacing**: Margins that adjust based on viewport or content
@@ -320,4 +323,4 @@ If you're migrating from the old fixed-margin system:
 
 ---
 
-**Need Help?** Check the [main README](./README.md) or [deployment guide](./DEPLOYMENT-OPTIONS.md) for more information. 
+**Need Help?** Check the [main README](./README.md) or [deployment guide](./DEPLOYMENT-OPTIONS.md) for more information.

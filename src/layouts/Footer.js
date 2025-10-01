@@ -12,7 +12,7 @@ const footerStyle = css`
   padding-top: 0;
   margin-bottom: 2rem;
   margin-left: 15%;
-  padding:0px 28px;
+  padding: 0px 28px;
   margin-right: 15%;
   font-size: 12px;
 
@@ -33,7 +33,7 @@ const footerStyle = css`
     margin-right: 10%;
     padding: 40px 10px;
   }
-  
+
   @media (max-width: 480px) {
     margin-left: 5%;
     margin-right: 5%;

@@ -85,14 +85,16 @@ module.exports = {
       hash: true,
       template: 'public/index.html',
       favicon: 'public/favicon.ico',
-      minify: prod ? {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-      } : false,
+      minify: prod
+        ? {
+            collapseWhitespace: true,
+            removeComments: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            useShortDoctype: true,
+          }
+        : false,
     }),
     ...(prod
       ? [
@@ -101,9 +103,7 @@ module.exports = {
             chunkFilename: 'static/css/[name].[fullhash:8].chunk.css',
           }),
         ]
-      : [
-          new ReactRefreshWebpackPlugin(),
-        ]),
+      : [new ReactRefreshWebpackPlugin()]),
   ],
   optimization: {
     minimize: prod,
@@ -139,7 +139,7 @@ module.exports = {
       watch: {
         usePolling: true,
         interval: 1000,
-      }
+      },
     },
     hot: true,
     port: 3000,
@@ -151,7 +151,7 @@ module.exports = {
         usePolling: true,
         interval: 1000,
         followSymlinks: true,
-      }
+      },
     },
     client: {
       overlay: {
@@ -164,6 +164,6 @@ module.exports = {
   watchOptions: {
     poll: 1000,
     followSymlinks: true,
-    ignored: /node_modules/
+    ignored: /node_modules/,
   },
 };

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { css } from '@emotion/react';
 
@@ -44,7 +45,7 @@ class ErrorBoundary extends React.Component {
               border-radius: 4px;
               cursor: pointer;
               font-weight: 500;
-              
+
               &:hover {
                 opacity: 0.9;
               }
@@ -60,4 +61,4 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-export default ErrorBoundary; 
+export default ErrorBoundary;

@@ -118,17 +118,20 @@ src/
 ## 🛠️ Technology Stack
 
 ### Core
+
 - **React 18.3.1** - UI library
 - **React Router DOM 6.22.0** - Client-side routing
 - **Emotion 11.14.0** - CSS-in-JS styling
 
 ### Build Tools
+
 - **Webpack 5.96.1** - Module bundler
 - **SWC** - Fast JavaScript/TypeScript compiler
 - **PostCSS** - CSS processing
 - **Sass** - CSS preprocessor
 
 ### Development Tools
+
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
 - **React Refresh** - Hot module replacement
@@ -136,20 +139,25 @@ src/
 ## 🎯 Key Features Explained
 
 ### Glass-Card Design
+
 The website uses a modern glass-card UI pattern with:
+
 - Semi-transparent backgrounds
 - Subtle shadows and borders
 - Smooth hover effects
 - Consistent spacing and typography
 
 ### Theme System
+
 Built-in dark/light theme support with:
+
 - Context-based theme management
 - Smooth transitions between themes
 - Persistent theme preferences
 - CSS custom properties for theming
 
 ### Performance Optimizations
+
 - Code splitting with React.lazy
 - Webpack optimizations for production
 - Image optimization with file-loader
@@ -158,10 +166,13 @@ Built-in dark/light theme support with:
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
+
 This website is optimized for Vercel deployment. See [DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md) for detailed instructions.
 
 ### GitHub Pages
+
 1. Update the homepage in `package.json`:
+
 ```json
 {
   "homepage": "https://{username}.github.io/personal-page-henry"
@@ -169,11 +180,13 @@ This website is optimized for Vercel deployment. See [DEPLOYMENT-OPTIONS.md](./D
 ```
 
 2. Deploy:
+
 ```bash
 npm run deploy
 ```
 
 ### Other Platforms
+
 The build output in the `dist/` directory can be deployed to any static hosting service.
 
 ## 🤝 Contributing

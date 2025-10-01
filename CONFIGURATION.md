@@ -4,18 +4,18 @@ This guide explains all configuration files in Henry's Personal Page and how to 
 
 ## 📁 Configuration Files Overview
 
-| File | Purpose | Customizable |
-|------|---------|--------------|
-| `package.json` | Project metadata and dependencies | ✅ |
-| `webpack.config.js` | Build configuration | ✅ |
-| `vercel.json` | Vercel deployment settings | ✅ |
-| `.eslintrc.js` | Code linting rules | ✅ |
-| `.prettierrc.js` | Code formatting rules | ✅ |
-| `.swcrc` | SWC compiler settings | ✅ |
-| `postcss.config.js` | CSS processing configuration | ✅ |
-| `.gitignore` | Git ignore patterns | ✅ |
-| `.gitattributes` | Git attributes | ✅ |
-| `.npmrc` | NPM configuration | ✅ |
+| File                | Purpose                           | Customizable |
+| ------------------- | --------------------------------- | ------------ |
+| `package.json`      | Project metadata and dependencies | ✅           |
+| `webpack.config.js` | Build configuration               | ✅           |
+| `vercel.json`       | Vercel deployment settings        | ✅           |
+| `.eslintrc.js`      | Code linting rules                | ✅           |
+| `.prettierrc.js`    | Code formatting rules             | ✅           |
+| `.swcrc`            | SWC compiler settings             | ✅           |
+| `postcss.config.js` | CSS processing configuration      | ✅           |
+| `.gitignore`        | Git ignore patterns               | ✅           |
+| `.gitattributes`    | Git attributes                    | ✅           |
+| `.npmrc`            | NPM configuration                 | ✅           |
 
 ## 🛠️ Build Configuration
 
@@ -118,12 +118,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'prettier'],
   plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
     // Custom rules here
@@ -162,17 +157,17 @@ module.exports = {
 module.exports = {
   // Line length
   printWidth: 100,
-  
+
   // Quote style
   singleQuote: true,
   jsxSingleQuote: false,
-  
+
   // Semicolons
   semi: true,
-  
+
   // Trailing commas
   trailingComma: 'all',
-  
+
   // Indentation
   tabWidth: 2,
   useTabs: false,
@@ -191,9 +186,7 @@ Optimized for Vercel deployment with SPA routing.
   "installCommand": "npm install --production=false",
   "outputDirectory": "dist",
   "framework": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {
       "source": "/static/(.*)",
@@ -391,6 +384,7 @@ Thumbs.db
 Create environment files for different environments:
 
 #### `.env.development`
+
 ```bash
 REACT_APP_API_URL=http://localhost:3001
 REACT_APP_ENVIRONMENT=development
@@ -398,6 +392,7 @@ REACT_APP_DEBUG=true
 ```
 
 #### `.env.production`
+
 ```bash
 REACT_APP_API_URL=https://api.example.com
 REACT_APP_ENVIRONMENT=production
@@ -405,6 +400,7 @@ REACT_APP_DEBUG=false
 ```
 
 #### `.env.local` (gitignored)
+
 ```bash
 REACT_APP_API_KEY=your-secret-key
 REACT_APP_ANALYTICS_ID=your-analytics-id
@@ -517,4 +513,4 @@ When updating major versions:
 
 ---
 
-**Need Help?** Check the [main README](./README.md) or [deployment guide](./DEPLOYMENT-OPTIONS.md) for more information. 
+**Need Help?** Check the [main README](./README.md) or [deployment guide](./DEPLOYMENT-OPTIONS.md) for more information.

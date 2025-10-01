@@ -2,11 +2,14 @@ export const Color = {
   light: {
     primary: '#FED766',
 
-    bg: '#fcfcfc',
+    bg: '#f7f6f3',
     'bg-hover': '#eeeeee',
 
     layer: '#f1f1f1',
     'layer-hover': '#e0e0e0',
+    'bg-texture': "radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 40%), radial-gradient(circle at 80% 30%, rgba(224, 224, 224, 0.35) 0%, rgba(224, 224, 224, 0) 45%), radial-gradient(circle at 30% 75%, rgba(210, 210, 210, 0.25) 0%, rgba(210, 210, 210, 0) 40%), linear-gradient(135deg, rgba(245, 245, 245, 0.8) 0%, rgba(232, 232, 232, 0.3) 45%, rgba(250, 250, 250, 0.7) 100%)",
+    'bg-texture-size': '420px 420px',
+    'bg-texture-blend': 'overlay',
 
     'layer-accent': '',
     'layer-accent-hover': '',
@@ -55,6 +58,9 @@ export const Color = {
 
     bg: '#171c26',
     'bg-hover': '#1a1a1a',
+    'bg-texture': 'none',
+    'bg-texture-size': 'auto',
+    'bg-texture-blend': 'normal',
 
     layer: '#1a1a1a',
     'layer-hover': '#2a2a2a',
@@ -64,7 +70,7 @@ export const Color = {
 
     field: '',
     'field-active': '',
-    'border': 'rgba(255, 255, 255, 0.1)',
+    border: 'rgba(255, 255, 255, 0.1)',
     'border-focused': '',
     'border-strong': '',
     'border-disabled': '',
