@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 export const Storage = {
   get(key) {
     try {

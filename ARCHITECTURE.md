@@ -97,6 +97,7 @@ App
 ### Component Categories
 
 #### 1. **Layout Components** (`src/layouts/`)
+
 - **AppLayout**: Main application wrapper
 - **PageContainer**: Margin and padding management
 - **PageLayout**: Content structure and typography
@@ -104,6 +105,7 @@ App
 - **Footer**: Site footer and links
 
 #### 2. **Page Components** (`src/pages/`)
+
 - **HomePage**: Landing page with hero section
 - **ProjectsPage**: Project showcase and portfolio
 - **HobbiesPage**: Personal interests and activities
@@ -111,11 +113,13 @@ App
 - **ErrorPage**: 404 and error handling
 
 #### 3. **UI Components** (`src/components/`)
+
 - **GlassCard**: Glass-morphism card component
 - **ExperienceItem**: Experience/achievement display
 - **ErrorBoundary**: Error handling wrapper
 
 #### 4. **Context Components** (`src/contexts/`)
+
 - **ThemeContext**: Theme switching and management
 
 ## 🔄 Data Flow Architecture
@@ -150,12 +154,10 @@ User Action
 ### Data Flow Patterns
 
 #### 1. **Props Down, Events Up**
+
 ```jsx
 // Parent component passes data down
-<ChildComponent 
-  data={parentData} 
-  onAction={handleAction} 
-/>
+<ChildComponent data={parentData} onAction={handleAction} />;
 
 // Child component emits events up
 const ChildComponent = ({ data, onAction }) => {
@@ -166,21 +168,23 @@ const ChildComponent = ({ data, onAction }) => {
 ```
 
 #### 2. **Context for Global State**
+
 ```jsx
 // Provide global state
 <ThemeProvider>
   <App />
-</ThemeProvider>
+</ThemeProvider>;
 
 // Consume global state
 const { theme, toggleTheme } = useTheme();
 ```
 
 #### 3. **Local State for Component-Specific Data**
+
 ```jsx
 const Component = () => {
   const [localState, setLocalState] = useState(initialValue);
-  
+
   const handleChange = (newValue) => {
     setLocalState(newValue);
   };
@@ -194,6 +198,7 @@ const Component = () => {
 The project uses a hybrid approach combining SCSS modules with CSS custom properties for theming.
 
 #### 1. **Global Styles** (`src/index.scss`)
+
 ```scss
 :root {
   // CSS Custom Properties for theming
@@ -214,13 +219,14 @@ body {
 ```
 
 #### 2. **Component Styles** (Component-specific SCSS)
+
 ```scss
 // src/components/GlassCard.scss
 .glass-card {
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
-  
+
   &--dark {
     --glass-bg: rgba(0, 0, 0, 0.2);
     --glass-border: rgba(255, 255, 255, 0.1);
@@ -229,6 +235,7 @@ body {
 ```
 
 #### 3. **Utility Classes** (`src/lib/style/`)
+
 ```javascript
 // src/lib/style/Color.js
 export const colors = {
@@ -242,32 +249,30 @@ export const colors = {
 ### Theme System
 
 #### Theme Context Implementation
+
 ```jsx
 // src/contexts/ThemeContext.js
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
-  
+
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
-  
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
-  
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 ```
 
 #### CSS Theme Variables
+
 ```scss
-[data-theme="light"] {
+[data-theme='light'] {
   --primary-color: #007bff;
   --background-color: #ffffff;
   --text-color: #333333;
@@ -275,7 +280,7 @@ export const ThemeProvider = ({ children }) => {
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --primary-color: #4dabf7;
   --background-color: #1a1a1a;
   --text-color: #ffffff;
@@ -287,6 +292,7 @@ export const ThemeProvider = ({ children }) => {
 ## 🛣️ Routing Architecture
 
 ### Route Configuration
+
 ```jsx
 // src/routes/index.js
 const routes = [
@@ -314,6 +320,7 @@ const routes = [
 ```
 
 ### Route Structure
+
 - **Home** (`/`): Landing page with introduction
 - **Projects** (`/projects`): Portfolio and project showcase
 - **Hobbies** (`/hobbies`): Personal interests and activities
@@ -327,12 +334,14 @@ const routes = [
 The build system is configured for optimal development and production builds.
 
 #### Development Build
+
 - **Hot Module Replacement**: Instant updates
 - **Source Maps**: Easy debugging
 - **Fast Refresh**: React component updates
 - **Development Server**: Local development
 
 #### Production Build
+
 - **Code Splitting**: Automatic vendor separation
 - **Minification**: Optimized bundle size
 - **Asset Optimization**: Compressed images and fonts
@@ -363,6 +372,7 @@ Distribution Files
 ## 🎯 Design Patterns
 
 ### 1. **Component Composition**
+
 ```jsx
 // Favor composition over inheritance
 const Card = ({ children, variant, ...props }) => (
@@ -375,10 +385,11 @@ const Card = ({ children, variant, ...props }) => (
 <Card variant="glass">
   <h2>Title</h2>
   <p>Content</p>
-</Card>
+</Card>;
 ```
 
 ### 2. **Render Props Pattern**
+
 ```jsx
 const ThemeConsumer = ({ children }) => {
   const theme = useTheme();
@@ -386,12 +397,11 @@ const ThemeConsumer = ({ children }) => {
 };
 
 // Usage
-<ThemeConsumer>
-  {(theme) => <div className={`app--${theme}`}>Content</div>}
-</ThemeConsumer>
+<ThemeConsumer>{(theme) => <div className={`app--${theme}`}>Content</div>}</ThemeConsumer>;
 ```
 
 ### 3. **Higher-Order Components**
+
 ```jsx
 const withErrorBoundary = (Component) => {
   return (props) => (
@@ -406,6 +416,7 @@ const SafeComponent = withErrorBoundary(MyComponent);
 ```
 
 ### 4. **Custom Hooks**
+
 ```jsx
 const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
@@ -433,6 +444,7 @@ const useLocalStorage = (key, initialValue) => {
 ## 🔒 Error Handling Architecture
 
 ### Error Boundary Pattern
+
 ```jsx
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -459,6 +471,7 @@ class ErrorBoundary extends Component {
 ```
 
 ### Error Handling Strategy
+
 1. **Component Level**: Try-catch in event handlers
 2. **Boundary Level**: Error boundaries for component trees
 3. **Application Level**: Global error handling
@@ -467,6 +480,7 @@ class ErrorBoundary extends Component {
 ## 📱 Responsive Architecture
 
 ### Mobile-First Approach
+
 ```scss
 // Base styles (mobile)
 .component {
@@ -492,6 +506,7 @@ class ErrorBoundary extends Component {
 ```
 
 ### Responsive Breakpoints
+
 - **Mobile**: 320px - 767px
 - **Tablet**: 768px - 1023px
 - **Desktop**: 1024px+
@@ -501,6 +516,7 @@ class ErrorBoundary extends Component {
 ### Optimization Strategies
 
 #### 1. **Code Splitting**
+
 ```jsx
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -512,10 +528,11 @@ const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
     <Route path="/" element={<HomePage />} />
     <Route path="/projects" element={<ProjectsPage />} />
   </Routes>
-</Suspense>
+</Suspense>;
 ```
 
 #### 2. **Memoization**
+
 ```jsx
 const ExpensiveComponent = memo(({ data }) => {
   return <div>{/* Expensive rendering */}</div>;
@@ -523,16 +540,17 @@ const ExpensiveComponent = memo(({ data }) => {
 
 const ParentComponent = () => {
   const [data, setData] = useState([]);
-  
+
   const memoizedData = useMemo(() => {
-    return data.filter(item => item.active);
+    return data.filter((item) => item.active);
   }, [data]);
-  
+
   return <ExpensiveComponent data={memoizedData} />;
 };
 ```
 
 #### 3. **Asset Optimization**
+
 - **Image Optimization**: WebP format, responsive images
 - **Font Loading**: Font display swap, preloading
 - **CSS Optimization**: Critical CSS extraction
@@ -541,47 +559,47 @@ const ParentComponent = () => {
 ## 🔄 State Management Architecture
 
 ### Local State
+
 ```jsx
 const Component = () => {
   const [localState, setLocalState] = useState(initialValue);
-  
+
   const updateState = useCallback((newValue) => {
     setLocalState(newValue);
   }, []);
-  
+
   return <div>{/* Component JSX */}</div>;
 };
 ```
 
 ### Global State
+
 ```jsx
 // Context for global state
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const [globalState, setGlobalState] = useState(initialState);
-  
+
   const updateGlobalState = useCallback((updates) => {
-    setGlobalState(prev => ({ ...prev, ...updates }));
+    setGlobalState((prev) => ({ ...prev, ...updates }));
   }, []);
-  
-  return (
-    <GlobalContext.Provider value={{ globalState, updateGlobalState }}>
-      {children}
-    </GlobalContext.Provider>
-  );
+
+  return <GlobalContext.Provider value={{ globalState, updateGlobalState }}>{children}</GlobalContext.Provider>;
 };
 ```
 
 ## 🧪 Testing Architecture
 
 ### Testing Strategy
+
 1. **Unit Tests**: Individual component testing
 2. **Integration Tests**: Component interaction testing
 3. **E2E Tests**: Full application flow testing
 4. **Visual Regression Tests**: UI consistency testing
 
 ### Testing Structure
+
 ```
 src/
 ├── components/
@@ -602,6 +620,7 @@ src/
 ## 🔮 Future Architecture Considerations
 
 ### Scalability Plans
+
 1. **Micro-Frontends**: Component federation
 2. **Server-Side Rendering**: Next.js migration
 3. **State Management**: Redux Toolkit integration
@@ -609,6 +628,7 @@ src/
 5. **Testing**: Comprehensive test coverage
 
 ### Performance Enhancements
+
 1. **Service Workers**: Offline support
 2. **Progressive Web App**: PWA features
 3. **Virtual Scrolling**: Large list optimization
@@ -617,4 +637,4 @@ src/
 
 ---
 
-**Need Help?** Check the [main README](./README.md) or [development guide](./DEVELOPMENT.md) for more information. 
+**Need Help?** Check the [main README](./README.md) or [development guide](./DEVELOPMENT.md) for more information.

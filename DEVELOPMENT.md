@@ -34,29 +34,33 @@ The development server will start at [http://localhost:3000](http://localhost:30
 ### Daily Development Process
 
 1. **Start Development Server**
+
    ```bash
    npm start
    ```
 
 2. **Make Changes**
+
    - Edit files in the `src/` directory
    - Changes will automatically reload in the browser
    - Use Hot Module Replacement for instant updates
 
 3. **Code Quality Checks**
+
    ```bash
    # Run ESLint
    npm run lint
-   
+
    # Run ESLint in watch mode
    npm run lint:watch
    ```
 
 4. **Build for Testing**
+
    ```bash
    # Development build
    npm run build:dev
-   
+
    # Production build
    npm run build
    ```
@@ -101,9 +105,7 @@ const MyComponent = ({ title, children, ...props }) => {
   return (
     <div className="my-component" {...props}>
       <h2>{title}</h2>
-      <div className="my-component__content">
-        {children}
-      </div>
+      <div className="my-component__content">{children}</div>
     </div>
   );
 };
@@ -120,11 +122,11 @@ export default MyComponent;
   border-radius: 8px;
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  
+
   &__content {
     margin-top: 1rem;
   }
-  
+
   // Responsive design
   @media (max-width: 768px) {
     padding: 0.5rem;
@@ -181,7 +183,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 const MyComponent = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  
+
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
@@ -194,14 +196,14 @@ const MyComponent = () => {
       setLoading(false);
     }
   }, []);
-  
+
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-  
+
   if (loading) return <div>Loading...</div>;
   if (!data) return <div>No data available</div>;
-  
+
   return <div>{/* Render data */}</div>;
 };
 ```
@@ -262,7 +264,7 @@ import { Link } from 'react-router-dom';
 
 <Link to="/new-page" className="nav-link">
   New Page
-</Link>
+</Link>;
 ```
 
 ## 🎯 Styling Guidelines
@@ -273,23 +275,23 @@ import { Link } from 'react-router-dom';
 // Component-specific styles
 .component-name {
   // Base styles
-  
+
   // Modifiers
   &--variant {
     // Variant styles
   }
-  
+
   // Elements
   &__element {
     // Element styles
   }
-  
+
   // States
   &:hover,
   &:focus {
     // Interactive states
   }
-  
+
   // Responsive
   @media (max-width: 768px) {
     // Mobile styles
@@ -328,12 +330,10 @@ import { useTheme } from '../contexts/ThemeContext';
 
 const MyComponent = () => {
   const { theme, toggleTheme } = useTheme();
-  
+
   return (
     <div className={`my-component my-component--${theme}`}>
-      <button onClick={toggleTheme}>
-        Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-      </button>
+      <button onClick={toggleTheme}>Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode</button>
     </div>
   );
 };
@@ -459,15 +459,18 @@ log('Component rendered with props:', props);
 ### Manual Testing Checklist
 
 - [ ] **Cross-browser Testing**
+
   - Chrome, Firefox, Safari, Edge
   - Mobile browsers (iOS Safari, Chrome Mobile)
 
 - [ ] **Responsive Testing**
+
   - Desktop (1920px+)
   - Tablet (768px - 1024px)
   - Mobile (320px - 767px)
 
 - [ ] **Accessibility Testing**
+
   - Keyboard navigation
   - Screen reader compatibility
   - Color contrast
@@ -526,22 +529,26 @@ test: add component tests
 ### Pull Request Process
 
 1. **Create Feature Branch**
+
    ```bash
    git checkout -b feature/new-feature
    ```
 
 2. **Make Changes and Commit**
+
    ```bash
    git add .
    git commit -m "feat: add new feature"
    ```
 
 3. **Push and Create PR**
+
    ```bash
    git push origin feature/new-feature
    ```
 
 4. **Code Review**
+
    - Request reviews from team members
    - Address feedback
    - Update documentation
@@ -573,7 +580,7 @@ const MyPage = () => (
 // Use optimized images
 import optimizedImage from '../assets/optimized-image.webp';
 
-<img src={optimizedImage} alt="Description" loading="lazy" />
+<img src={optimizedImage} alt="Description" loading="lazy" />;
 ```
 
 ### Bundle Analysis
@@ -621,20 +628,23 @@ const handleSubmit = (data) => {
 ## 📚 Resources
 
 ### Documentation
+
 - [React Documentation](https://react.dev/)
 - [Webpack Documentation](https://webpack.js.org/)
 - [SCSS Documentation](https://sass-lang.com/)
 
 ### Tools
+
 - [Create React App](https://create-react-app.dev/)
 - [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools)
 - [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
 
 ### Learning Resources
+
 - [React Patterns](https://reactpatterns.com/)
 - [React Performance](https://react.dev/learn/render-and-commit)
 - [Modern JavaScript](https://javascript.info/)
 
 ---
 
-**Need Help?** Check the [main README](./README.md) or [configuration guide](./CONFIGURATION.md) for more information. 
+**Need Help?** Check the [main README](./README.md) or [configuration guide](./CONFIGURATION.md) for more information.

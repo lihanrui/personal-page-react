@@ -43,10 +43,34 @@
 }
 
 .company-logo {
-  width: 2rem;
-  height: 2rem;
+  display: block;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
   margin-right: 0.75rem;
+  flex-shrink: 0;
+  transform: translateY(15%);
+
+  &[alt='Mercedes-Benz'] {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &[alt='Google'] {
+    width: 3.25rem;
+    height: 3.25rem;
+    transform: translateY(20%);
+  }
+
+  &[alt='Samsung'] {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  &[alt='Proximic'] {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 .company-name {

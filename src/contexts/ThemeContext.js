@@ -1,4 +1,5 @@
-import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+/* eslint-disable no-console */
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { Storage } from '../lib/util';
 import { Color } from '../lib/style';
 
@@ -9,11 +10,11 @@ export const useThemeContext = () => useContext(Context);
 const getPreferColor = () => {
   try {
     const stored = Storage.get('theme');
-    
+
     if (stored && (stored === 'light' || stored === 'dark')) {
       return stored;
     }
-    
+
     // Default to dark theme to show our custom colors
     Storage.set('theme', 'dark');
     return 'dark';
@@ -29,6 +30,10 @@ export default function ThemeContext({ children }) {
   const isLight = useMemo(() => theme === 'light', [theme]);
 
   const colors = useMemo(() => Color[theme], [theme]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => {

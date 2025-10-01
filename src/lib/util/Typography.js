@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { css } from '@emotion/react';
 import { Typography } from '../style';
 
@@ -48,4 +50,4 @@ export const component = (componentName) => {
     return css``;
   }
   return css(componentStyle);
-}; 
+};

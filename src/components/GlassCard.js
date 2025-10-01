@@ -2,15 +2,15 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { Media } from '../lib/style';
 
-const GlassCard = ({ 
-  children, 
+const GlassCard = ({
+  children,
   className,
   intensity = 'medium', // 'light', 'medium', 'strong'
   hover = true,
   gradient = false, // Enable gradient background
   gradientType = 'primary', // 'primary', 'secondary', 'rainbow', 'custom'
   customGradient = null, // Custom gradient string
-  ...props 
+  ...props
 }) => {
   const glassStyles = css`
     /* Base glassmorphism styling */
@@ -23,27 +23,28 @@ const GlassCard = ({
     padding: 1.5rem;
     position: relative;
     overflow: hidden;
-    
+
     /* Gradient border */
-    ${gradient && css`
+    ${gradient &&
+    css`
       border-image: ${getBorderGradientStyle(gradientType, customGradient)} 1;
     `}
-    
+
     /* Ensure backdrop support */
     @supports not (backdrop-filter: blur(10px)) {
       background: var(--glass-fallback-bg, rgba(255, 255, 255, 0.9));
     }
 
     /* Theme-specific glass effects */
-    [data-theme="light"] &,
-    :root:not([data-theme="dark"]) & {
+    [data-theme='light'] &,
+    :root:not([data-theme='dark']) & {
       --glass-bg: rgba(255, 255, 255, 0.25);
       --glass-border: rgba(255, 255, 255, 0.3);
       --glass-fallback-bg: rgba(255, 255, 255, 0.85);
       --glass-shine: rgba(255, 255, 255, 0.1);
     }
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       --glass-bg: rgba(255, 255, 255, 0.05);
       --glass-border: rgba(255, 255, 255, 0.1);
       --glass-fallback-bg: rgba(0, 0, 0, 0.8);
@@ -58,17 +59,13 @@ const GlassCard = ({
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(
-        90deg, 
-        transparent, 
-        var(--glass-shine, rgba(255, 255, 255, 0.1)), 
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, var(--glass-shine, rgba(255, 255, 255, 0.1)), transparent);
       opacity: 0.6;
     }
 
     /* Hover effects */
-    ${hover && css`
+    ${hover &&
+    css`
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
 
@@ -78,11 +75,11 @@ const GlassCard = ({
         border-color: var(--primary, rgba(254, 215, 102, 0.3));
         background: ${gradient ? getHoverGradientStyle() : 'var(--glass-bg-hover, rgba(255, 255, 255, 0.15))'};
 
-        [data-theme="light"] & {
+        [data-theme='light'] & {
           --glass-bg-hover: rgba(255, 255, 255, 0.35);
         }
 
-        [data-theme="dark"] & {
+        [data-theme='dark'] & {
           --glass-bg-hover: rgba(255, 255, 255, 0.08);
         }
       }
@@ -171,10 +168,14 @@ const GlassCard = ({
 // Helper function to determine blur intensity
 const getBlurIntensity = (intensity) => {
   switch (intensity) {
-    case 'light': return '8px';
-    case 'medium': return '12px';
-    case 'strong': return '20px';
-    default: return '12px';
+    case 'light':
+      return '8px';
+    case 'medium':
+      return '12px';
+    case 'strong':
+      return '20px';
+    default:
+      return '12px';
   }
 };
 
@@ -216,4 +217,4 @@ export const RainbowGradientCard = ({ children, ...props }) => (
   <GlassCard intensity="medium" hover={true} gradient={true} gradientType="rainbow" {...props}>
     {children}
   </GlassCard>
-); 
+);

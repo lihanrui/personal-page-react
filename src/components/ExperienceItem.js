@@ -18,14 +18,14 @@ const ExperienceItem = ({ experience }) => {
         )}
         <span className="duration">{duration}</span>
       </div>
-      
+
       {roles.map((role, index) => (
         <div key={index}>
           <h5 className="role-title">{role.title}</h5>
           <ul className="description">
             {role.description.map((item, itemIndex) => (
               <li key={itemIndex}>
-                {item.includes("See Projects") ? (
+                {item.includes('See Projects') ? (
                   <>
                     See <Link to="/projects">Projects</Link>
                   </>
@@ -41,4 +41,4 @@ const ExperienceItem = ({ experience }) => {
   );
 };
 
-export default ExperienceItem; 
+export default ExperienceItem;

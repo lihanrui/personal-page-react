@@ -31,29 +31,29 @@ export const gridStyles = {
     gap: 2rem;
     margin: 2rem 0;
   `,
-  
+
   statsGrid: css`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
   `,
-  
+
   fostersGrid: css`
     display: grid;
     gap: 2rem;
     margin-top: 2rem;
   `,
-  
+
   fosterImagesGrid: css`
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: center;
-    
+
     ${Media.small} {
       grid-template-columns: 1fr;
     }
-  `
+  `,
 };
 
 // Image styles
@@ -65,7 +65,9 @@ export const imageStyles = {
     object-fit: contain;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 
     &:hover {
       transform: scale(1.02);
@@ -75,7 +77,7 @@ export const imageStyles = {
     ${Media.small} {
       max-height: 300px;
     }
-  `
+  `,
 };
 
 // Stat/badge styles
@@ -92,7 +94,7 @@ export const statStyles = css`
 // Fact card styles for "By the Numbers" section
 export const factStyles = css`
   text-align: center;
-  
+
   .number {
     font-size: 2.25rem;
     font-weight: 800;
@@ -100,7 +102,7 @@ export const factStyles = css`
     margin-bottom: 0.5rem;
     text-shadow: var(--shadow-sm);
   }
-  
+
   .label {
     font-size: 0.75rem;
     font-weight: 400;
@@ -113,20 +115,40 @@ export const factStyles = css`
 
 // Margin utilities
 export const marginStyles = {
-  mb1: css`margin-bottom: 1rem;`,
-  mb2: css`margin-bottom: 2rem;`,
-  mt1: css`margin-top: 1rem;`,
-  mt2: css`margin-top: 2rem;`,
-  my1: css`margin: 1rem 0;`,
-  my2: css`margin: 2rem 0;`
+  mb1: css`
+    margin-bottom: 1rem;
+  `,
+  mb2: css`
+    margin-bottom: 2rem;
+  `,
+  mt1: css`
+    margin-top: 1rem;
+  `,
+  mt2: css`
+    margin-top: 2rem;
+  `,
+  my1: css`
+    margin: 1rem 0;
+  `,
+  my2: css`
+    margin: 2rem 0;
+  `,
 };
 
 // Text alignment utilities
 export const textAlignStyles = {
-  center: css`text-align: center;`,
-  left: css`text-align: left;`,
-  right: css`text-align: right;`,
-  justify: css`text-align: justify;`
+  center: css`
+    text-align: center;
+  `,
+  left: css`
+    text-align: left;
+  `,
+  right: css`
+    text-align: right;
+  `,
+  justify: css`
+    text-align: justify;
+  `,
 };
 
 // Flex utilities
@@ -136,24 +158,24 @@ export const flexStyles = {
     justify-content: center;
     align-items: center;
   `,
-  
+
   centerWrap: css`
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
   `,
-  
+
   column: css`
     display: flex;
     flex-direction: column;
   `,
-  
+
   columnGap: css`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  `
+  `,
 };
 
 // Foster-specific styles
@@ -189,11 +211,35 @@ export const fosterStyles = css`
 
 // Company logo styles
 export const companyLogoStyles = css`
-  width: 2rem;
-  height: 2rem;
+  display: block;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
   margin-right: 0.75rem;
   filter: var(--logo-filter, none);
+  flex-shrink: 0;
+  transform: translateY(15%);
+
+  &[alt='Mercedes-Benz'] {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &[alt='Google'] {
+    width: 3.25rem;
+    height: 3.25rem;
+    transform: translateY(20%);
+  }
+
+  &[alt='Samsung'] {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  &[alt='Proximic'] {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 // Company header styles
@@ -225,4 +271,4 @@ export const companyHeaderStyles = css`
     line-height: 1.625;
     color: var(--text-secondary);
   }
-`; 
+`;
