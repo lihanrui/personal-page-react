@@ -27,15 +27,7 @@ export const baseStyles = css`
   html,
   body,
   #root {
-    flex: 1;
     min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  #root > main {
-    flex: 1 1;
   }
 
   body {

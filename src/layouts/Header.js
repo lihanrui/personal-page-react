@@ -23,7 +23,10 @@ const headerStyle = css`
   align-items: center;
   justify-content: center;
   transform: translateY(0);
-  transition: transform 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    background-color 0.35s ease,
+    border-color 0.35s ease;
   will-change: transform;
 
   ${Media.medium} {
@@ -42,33 +45,7 @@ const headerContentsStyle = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  margin-left: 15%;
-  margin-right: 15%;
-
-  ${Media.medium} {
-    margin-left: 15%;
-    margin-right: 15%;
-    padding: 0 16px;
-  }
-
-  ${Media.small} {
-    margin-left: 15%;
-    margin-right: 15%;
-    padding: 0 12px;
-  }
-
-  @media (max-width: 768px) {
-    margin-left: 10%;
-    margin-right: 10%;
-    padding: 0 10px;
-  }
-
-  @media (max-width: 480px) {
-    margin-left: 5%;
-    margin-right: 5%;
-    padding: 0 5px;
-  }
+  padding: 0 clamp(0.5rem, 4vw, 1.5rem);
 
   .mobile-left-section {
     display: none;
@@ -453,18 +430,10 @@ const Header = () => {
             <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
               Projects
             </Link>
-            <Link
-              to="/showcase-lab"
-              className={pathname === '/showcase-lab' ? 'active' : ''}
-              onClick={closeMobileMenu}
-            >
+            <Link to="/showcase-lab" className={pathname === '/showcase-lab' ? 'active' : ''} onClick={closeMobileMenu}>
               Showcase Lab
             </Link>
-            <Link
-              to="/stack-lab"
-              className={pathname === '/stack-lab' ? 'active' : ''}
-              onClick={closeMobileMenu}
-            >
+            <Link to="/stack-lab" className={pathname === '/stack-lab' ? 'active' : ''} onClick={closeMobileMenu}>
               Stack Lab
             </Link>
             <Link to="/hobbies" className={pathname === '/hobbies' ? 'active' : ''} onClick={closeMobileMenu}>
