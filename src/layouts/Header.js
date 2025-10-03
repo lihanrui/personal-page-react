@@ -436,6 +436,13 @@ const Header = () => {
             <Link to="/stack-lab" className={pathname === '/stack-lab' ? 'active' : ''} onClick={closeMobileMenu}>
               Stack Lab
             </Link>
+            <Link
+              to="/hobbie-parallax"
+              className={pathname === '/hobbie-parallax' ? 'active' : ''}
+              onClick={closeMobileMenu}
+            >
+              Hobby Parallax
+            </Link>
             <Link to="/hobbies" className={pathname === '/hobbies' ? 'active' : ''} onClick={closeMobileMenu}>
               Hobbies
             </Link>
