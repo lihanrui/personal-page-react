@@ -8,7 +8,16 @@ export const baseStyles = css`
 
   html {
     font-size: 16px;
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-family:
+      'Montserrat',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -22,7 +31,7 @@ export const baseStyles = css`
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   #root > main {
@@ -60,7 +69,12 @@ export const baseStyles = css`
   }
 
   /* Typography base styles */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     line-height: 1.2;
@@ -120,4 +134,4 @@ export const makeCssVars = (color, ns = '') =>
 export const globalStyles = css`
   ${baseStyles}
   ${themeStyles}
-`; 
+`;
