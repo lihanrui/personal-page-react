@@ -8,6 +8,15 @@ import { ReactComponent as LogoIcon } from '../assets/hl-svgrepo-com.svg';
 import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 
+const NAV_LINKS = [
+  { to: '/', label: 'Home', replaceWhenActive: true },
+  { to: '/projects', label: 'Projects' },
+  { to: '/showcase-lab', label: 'Showcase Lab' },
+  { to: '/hobbie-parallax', label: 'Hobby Parallax' },
+  { to: '/hobbies', label: 'Hobbies' },
+  { to: '/fosters', label: 'Fosters 🐱' },
+];
+
 const headerStyle = css`
   position: fixed;
   top: 0;
@@ -424,31 +433,17 @@ const Header = () => {
           </Link>
 
           <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-            <Link to="/" className={pathname === '/' ? 'active' : ''} onClick={closeMobileMenu}>
-              Home
-            </Link>
-            <Link to="/projects" className={pathname === '/projects' ? 'active' : ''} onClick={closeMobileMenu}>
-              Projects
-            </Link>
-            <Link to="/showcase-lab" className={pathname === '/showcase-lab' ? 'active' : ''} onClick={closeMobileMenu}>
-              Showcase Lab
-            </Link>
-            <Link to="/stack-lab" className={pathname === '/stack-lab' ? 'active' : ''} onClick={closeMobileMenu}>
-              Stack Lab
-            </Link>
-            <Link
-              to="/hobbie-parallax"
-              className={pathname === '/hobbie-parallax' ? 'active' : ''}
-              onClick={closeMobileMenu}
-            >
-              Hobby Parallax
-            </Link>
-            <Link to="/hobbies" className={pathname === '/hobbies' ? 'active' : ''} onClick={closeMobileMenu}>
-              Hobbies
-            </Link>
-            <Link to="/fosters" className={pathname === '/fosters' ? 'active' : ''} onClick={closeMobileMenu}>
-              Fosters 🐱
-            </Link>
+            {NAV_LINKS.map(({ to, label, replaceWhenActive }) => (
+              <Link
+                key={to}
+                to={to}
+                replace={replaceWhenActive && pathname === to}
+                className={pathname === to ? 'active' : ''}
+                onClick={closeMobileMenu}
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
 
           <div className="header-actions">

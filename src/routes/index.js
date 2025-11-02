@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import ProjectsPage from '../pages/ProjectsPage';
 import ShowcasePlayground from '../pages/ShowcasePlayground';
-import StackLab from '../pages/StackLab';
 import HobbieParallax from '../pages/HobbieParallax';
 import HobbiesPage from '../pages/HobbiesPage';
 import FostersPage from '../pages/FostersPage';
@@ -15,7 +14,6 @@ const AppRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/projects" element={<ProjectsPage />} />
       <Route path="/showcase-lab" element={<ShowcasePlayground />} />
-      <Route path="/stack-lab" element={<StackLab />} />
       <Route path="/hobbie-parallax" element={<HobbieParallax />} />
       <Route path="/hobbies" element={<HobbiesPage />} />
       <Route path="/fosters" element={<FostersPage />} />
