@@ -49,7 +49,10 @@ const cardStyles = css`
   border: 1px solid rgba(255, 255, 255, 0.08);
   opacity: 0;
   transform: translateY(48px);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
   pointer-events: none;
 
   &.is-active {
@@ -75,7 +78,9 @@ const textColumnStyles = css`
   gap: 1.1rem;
   opacity: 0;
   transform: translateY(60px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 
   &.is-1 {
     opacity: 1;
@@ -127,7 +132,9 @@ const imageColumnStyles = css`
   position: relative;
   opacity: 0;
   transform: translateY(60px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 
   &.is-1 {
     opacity: 1;
@@ -150,14 +157,14 @@ const imageMockStyles = css`
 
 const cardsData = [
   {
-    label: 'Personal Experiments',
-    title: 'Storyboards that build emotional cadence',
+    label: 'Smart AI Photojournaling App',
+    title: 'Reflective: A Companion to Your Everyday Life',
     description:
-      'I prototype pacing and transitions with short-form series, focusing on how beats feel when they land back to back.',
+      'Turning everyday moments into meaningful stories, Reflective helps you capture emotions and rediscover patterns in your life.',
     highlights: [
-      'Weekly storyboard sprints with timed prompts',
-      'Shot lists designed around momentum, not runtime',
-      'Color palettes tuned for consistent cross-platform feel',
+      'Guided reflection — track your journals and photos over time.',
+      'Smart albums — Analyzes photos to organize meaningful memories.',
+      'Private by design — Secure, offline-first, with optional AI insights. We do not sell your data.',
     ],
     background: 'linear-gradient(135deg, rgba(67, 212, 173, 0.8), rgba(31, 61, 167, 0.85))',
   },
@@ -354,15 +361,8 @@ const ShowcasePlayground = () => {
       <div className="showcase-scroll-scene" css={scrollSceneStyles}>
         <div className="showcase-pin-inner" css={pinInnerStyles}>
           {cardsData.map((card, index) => (
-            <article
-              key={card.label}
-              className={`sticky-card${index === 0 ? ' is-active' : ''}`}
-              css={cardStyles}
-            >
-              <div
-                className={`tabs_let-content${index === 0 ? ' is-1' : ''}`}
-                css={textColumnStyles}
-              >
+            <article key={card.label} className={`sticky-card${index === 0 ? ' is-active' : ''}`} css={cardStyles}>
+              <div className={`tabs_let-content${index === 0 ? ' is-1' : ''}`} css={textColumnStyles}>
                 <span css={labelStyles}>{card.label}</span>
                 <h2 css={headingStyles}>{card.title}</h2>
                 <p css={descriptionStyles}>{card.description}</p>
@@ -374,10 +374,7 @@ const ShowcasePlayground = () => {
                   ))}
                 </ul>
               </div>
-              <div
-                className={`tabs_video${index === 0 ? ' is-1' : ''}`}
-                css={imageColumnStyles}
-              >
+              <div className={`tabs_video${index === 0 ? ' is-1' : ''}`} css={imageColumnStyles}>
                 <div css={imageMockStyles} style={{ background: card.background }} />
               </div>
             </article>

@@ -183,40 +183,40 @@ const pageStyles = css`
 
 const sectionsContent = [
   {
-    title: 'Analog Sketching and Concept Art',
-    byline: 'Sketchbooks, pencils, and endless character ideas',
+    title: 'Climbing strong through three years of bouldering and the occasional top rope session.',
+    byline: 'Movement Gyms — routes, dynos, and community',
     paragraphs: [
-      'Most weekends start with a stack of blank pages and a playlist of film scores. I explore loose silhouettes first, letting the shapes dictate posture and attitude before refining facial expressions and wardrobe details.',
-      'Analog sketching keeps my problem-solving instincts sharp. Each iteration lives side-by-side, almost like a flipbook of decisions: what to exaggerate, what to simplify, and how to capture a story in a single pose.',
+      'Routes, dynos, and community. Training at Movement Gym in San Francisco keeps technique sharp and the stoke high.',
+      "I've been bouldering for about three years now, occasionally trading in crash pads for a top rope session when friends talk me into it.",
     ],
-    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
+    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80',
   },
   {
-    title: 'Culinary Experiments',
-    byline: 'Fermentation journals meet seasonal farmers market hauls',
+    title: 'Soundtracking days with piano improvisation across rock, classical, and pop.',
+    byline: 'Piano & Playlists — harmonies, remixes, and creative recharge',
     paragraphs: [
-      'My kitchen notebooks look like chemistry lab results - pH readings, hydration ratios, and tasting notes for every batch of sourdough or lacto-fermented pickle.',
-      'The ritual of slow food anchors me. While dough proofs or kombucha ferments, I storyboard the next UI transition or iterate on a tricky micro-interaction. The patience each craft teaches feeds the other.',
+      'A lifelong musician exploring harmonies and reimagining favorite tracks at the keys—equal parts relaxation and creative challenge.',
+      'I love to play piano and experiment across genres, letting improvisation reset my headspace before jumping back into product design.',
+    ],
+    image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    title: 'Recreating restaurant favorites with butter-forward experiments for friends, family, and feline taste-testers.',
+    byline: 'Kitchen Lab — recipe tinkering, comfort food, and plating practice',
+    paragraphs: [
+      'Recipe tinkering, comfort food, and plating practice turn weeknights into culinary projects—even when the cats insist on supervision.',
+      'I love to experiment with recipes and serve them to friends and family, always chasing the details that make a dish feel like it came straight from a favorite restaurant.',
     ],
     image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80',
   },
   {
-    title: 'Trail Photography',
-    byline: 'Chasing alpine light with a mirrorless pack setup',
+    title: 'A home base for kittens with hearts full of mischief and eventual forever families.',
+    byline: '20+ Fosters — Humane Society of Silicon Valley partnerships',
     paragraphs: [
-      'I hike with a lightweight mirrorless kit, logging GPS tracks and sun angles so I can return when conditions line up. Midday scouting turns into blue-hour captures, layering composite exposures to balance sky and foreground.',
-      'Back in the studio, color grading becomes a study in UI contrast. Saturation curves and luminance masks inform the palettes I choose for product interfaces the following week.',
+      'Partnering with the Humane Society of Silicon Valley to nurture playful personalities before they meet their humans.',
+      'I have fostered over twenty cats and kittens so far, including a current resident named Monmonmon who is busy perfecting her pounce.',
     ],
-    image: 'https://images.unsplash.com/photo-1526481280695-3c469928b67b?auto=format&fit=crop&w=1600&q=80',
-  },
-  {
-    title: 'Interactive Light Installations',
-    byline: 'Mapping motion sensors to cascading LED patterns',
-    paragraphs: [
-      'Armed with addressable LEDs, a stack of microcontrollers, and too many jumper wires, I prototype light sculptures that react to proximity and gesture.',
-      'The installations are playful user-testing labs. Watching how friends explore them gives me raw, unfiltered data on intuitive affordances and sensory delight - lessons I bring back to digital product design.',
-    ],
-    image: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&w=1600&q=80',
+    image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1600&q=80',
   },
 ];
 
