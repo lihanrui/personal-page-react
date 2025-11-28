@@ -296,7 +296,7 @@ const StickyShowcase = ({ items = [], introHeight = 110 }) => {
           {items.length > 0 && (
             <div key={items[safeActiveIndex]?.key || safeActiveIndex} css={[mediaBase, mediaActive]}>
               {items[safeActiveIndex]?.media?.type === 'video' && items[safeActiveIndex]?.media?.src ? (
-                <video css={videoMedia} autoPlay loop muted playsInline>
+                <video css={videoMedia} autoPlay loop muted defaultMuted playsInline>
                   <source
                     src={items[safeActiveIndex].media.src}
                     type={items[safeActiveIndex].media.format || 'video/mp4'}

@@ -72,6 +72,13 @@ module.exports = {
         test: /\.svg$/,
         use: [loaders.svg, loaders.url],
       },
+      {
+        test: /\.(mp4|mov|avi|mpe?g|webm)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/media/[name]-[hash][ext]',
+        },
+      },
     ],
   },
   plugins: [
@@ -141,8 +148,9 @@ module.exports = {
         interval: 1000,
       },
     },
+    host: '127.0.0.1',
     hot: true,
-    port: 3000,
+    port: 3001,
     open: false,
     historyApiFallback: true,
     watchFiles: {

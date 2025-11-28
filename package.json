@@ -11,8 +11,8 @@
     "npm": ">=9"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development CHOKIDAR_USEPOLLING=true WATCHPACK_POLLING=true webpack serve --progress --port 3000",
-    "start:fast": "cross-env NODE_ENV=development webpack serve --progress --port 3000 --hot --live-reload",
+    "start": "cross-env NODE_ENV=development CHOKIDAR_USEPOLLING=true WATCHPACK_POLLING=true webpack serve --progress --port 3001 --host 127.0.0.1",
+    "start:fast": "cross-env NODE_ENV=development webpack serve --progress --port 3001 --host 127.0.0.1 --hot --live-reload",
     "dev": "npm run start",
     "build": "cross-env NODE_ENV=production webpack --mode=production",
     "build:dev": "webpack --mode=development",

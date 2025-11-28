@@ -1,6 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Global, css } from '@emotion/react';
 
+import climbingVideo from '../assets/climbing movie for website IMG_7228.MOV';
+import chefVideo from '../assets/chef.mov';
+import kittensImage from '../assets/kittens_foster.jpg';
+
 const parallaxGlobalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@700&display=swap');
 
@@ -118,7 +122,8 @@ const pageStyles = css`
     overflow: hidden;
   }
 
-  .image-container img {
+  .image-container img,
+  .image-container video {
     display: block;
     position: absolute;
     top: 0;
@@ -130,7 +135,13 @@ const pageStyles = css`
     transition: opacity 0.8s ease;
   }
 
-  .image-container img.is-active {
+  .image-container video.zoomed-out {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+
+  .image-container img.is-active,
+  .image-container video.is-active {
     opacity: 1;
   }
 
@@ -183,46 +194,59 @@ const pageStyles = css`
 
 const sectionsContent = [
   {
-    title: 'Climbing strong through three years of bouldering and the occasional top rope session.',
-    byline: 'Movement Gyms — routes, dynos, and community',
+    title: 'Vertical Visions - Climbing and the Joy of Reaching New Heights',
+    byline: 'Santa Clara, Sunnyvale, Mountain View (new gym), and San Francisco',
     paragraphs: [
       'Routes, dynos, and community. Training at Movement Gym in San Francisco keeps technique sharp and the stoke high.',
-      "I've been bouldering for about three years now, occasionally trading in crash pads for a top rope session when friends talk me into it.",
+      <>
+        I've been bouldering for about 3 years now, and I love it. I've also top roped a few times. My favorite gym is{' '}
+        <a href="https://movementgyms.com/" target="_blank" rel="noopener noreferrer">
+          Movement
+        </a>{' '}
+        in San Francisco.
+      </>,
     ],
     image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80',
+    video: climbingVideo,
   },
   {
-    title: 'Soundtracking days with piano improvisation across rock, classical, and pop.',
-    byline: 'Piano & Playlists — harmonies, remixes, and creative recharge',
+    title: 'Music, Piano, Food for the Soul',
+    byline: '',
     paragraphs: [
-      'A lifelong musician exploring harmonies and reimagining favorite tracks at the keys—equal parts relaxation and creative challenge.',
-      'I love to play piano and experiment across genres, letting improvisation reset my headspace before jumping back into product design.',
+      'I love to play piano and listen to all sorts of music, including rock, classical, and  pop.',
+      'I also played the clarinet in band at school and hope to improve my singing skills someday.',
     ],
-    image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1600&q=80',
+    image: 'https://images.pexels.com/photos/860662/pexels-photo-860662.jpeg?auto=format&fit=crop&w=1600&q=80',
   },
   {
-    title: 'Recreating restaurant favorites with butter-forward experiments for friends, family, and feline taste-testers.',
-    byline: 'Kitchen Lab — recipe tinkering, comfort food, and plating practice',
+    title: 'Cooking.',
+    byline: 'Dabbling with replicating foodie adventures',
     paragraphs: [
-      'Recipe tinkering, comfort food, and plating practice turn weeknights into culinary projects—even when the cats insist on supervision.',
-      'I love to experiment with recipes and serve them to friends and family, always chasing the details that make a dish feel like it came straight from a favorite restaurant.',
+      'I love to experiment with recipes and serve it to my friends and family, and occasionally cats.',
+      'I take particular pride in replicating restaurant dishes at home, although it comes at the cost of my waistline and many bars of butter.',
     ],
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80',
+    image: chefVideo,
+    poster: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80',
+    video: chefVideo,
+    mediaClassName: 'zoomed-out',
   },
   {
-    title: 'A home base for kittens with hearts full of mischief and eventual forever families.',
-    byline: '20+ Fosters — Humane Society of Silicon Valley partnerships',
+    title: 'Changing Lives One Paw at a Time',
+    byline: '20+ kittens fostered, from 6 weeks to spay & neuter day',
     paragraphs: [
-      'Partnering with the Humane Society of Silicon Valley to nurture playful personalities before they meet their humans.',
-      'I have fostered over twenty cats and kittens so far, including a current resident named Monmonmon who is busy perfecting her pounce.',
+      "I've fostered over 20 kittens. These ranged from healthy to ringworm to bottle feeders.",
+      'In addition to fostering, I also adopted 2 of my favorite kittens from the shelter.',
+      'Fostering has changed my life and how I interact with all 4 of my cats.',
+      'It has made me more responsible and a better caretaker.',
     ],
-    image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1600&q=80',
+    image: kittensImage,
   },
 ];
 
 const HobbieParallax = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef([]);
+  const mediaRefs = useRef([]);
 
   const sections = useMemo(() => sectionsContent, []);
 
@@ -307,20 +331,85 @@ const HobbieParallax = () => {
     return () => observer.disconnect();
   }, [sections.length]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) {
+      return undefined;
+    }
+
+    const target = sectionRefs.current[0];
+    if (!target) {
+      return undefined;
+    }
+
+    const scrollToSection = () => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const frame = window.requestAnimationFrame(scrollToSection);
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    mediaRefs.current.forEach((node, index) => {
+      if (!node || node.tagName !== 'VIDEO') {
+        return;
+      }
+
+      node.muted = true;
+      node.defaultMuted = true;
+
+      if (index === activeIndex) {
+        const playPromise = node.play();
+        if (typeof playPromise?.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      } else {
+        node.pause();
+        node.currentTime = 0;
+      }
+    });
+  }, [activeIndex]);
+
   return (
     <main className="hobbie-parallax">
       <Global styles={parallaxGlobalStyles} />
       <Global styles={pageStyles} />
 
       <div className="image-container" aria-hidden="true">
-        {sections.map((item, index) => (
-          <img
-            key={`parallax-image-${item.title}`}
-            src={item.image}
-            alt=""
-            className={index === activeIndex ? 'is-active' : ''}
-          />
-        ))}
+        {sections.map((item, index) => {
+          const isActive = index === activeIndex;
+
+          if (item.video) {
+            return (
+              <video
+                key={`parallax-media-${item.title}`}
+                src={item.video}
+                poster={item.poster ?? item.image}
+                className={[item.mediaClassName, isActive ? 'is-active' : ''].filter(Boolean).join(' ')}
+                muted
+                defaultMuted
+                loop
+                playsInline
+                autoPlay
+                ref={(node) => {
+                  mediaRefs.current[index] = node;
+                }}
+              />
+            );
+          }
+
+          mediaRefs.current[index] = null;
+
+          return (
+            <img key={`parallax-media-${item.title}`} src={item.image} alt="" className={isActive ? 'is-active' : ''} />
+          );
+        })}
       </div>
 
       <header className="header">
@@ -346,8 +435,8 @@ const HobbieParallax = () => {
             <article className="content">
               <h2 className="section-title">{section.title}</h2>
               <span className="byline">{section.byline}</span>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+              {section.paragraphs.map((paragraph, paragraphIndex) => (
+                <p key={`${section.title}-${paragraphIndex}`}>{paragraph}</p>
               ))}
             </article>
           </section>
@@ -356,11 +445,7 @@ const HobbieParallax = () => {
 
       <footer className="footer">
         <div>
-          <p>
-            Want to swap hobby notes? Drop a line at{' '}
-            <a href="mailto:henry@sidequests.design">henry@sidequests.design</a>.
-          </p>
-          <p>Let&apos;s build something delightfully impractical together.</p>
+          <p>Movement, music, food, and furry pets — four spaces that keep curiosity alive outside of code.</p>
         </div>
       </footer>
     </main>
