@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { cardStyles, companyHeaderStyles, companyLogoStyles } from '../lib/style/Components';
 
 const ExperienceItem = ({ experience }) => {
@@ -25,13 +24,7 @@ const ExperienceItem = ({ experience }) => {
           <ul className="description">
             {role.description.map((item, itemIndex) => (
               <li key={itemIndex}>
-                {item.includes('See Projects') ? (
-                  <>
-                    See <Link to="/projects">Projects</Link>
-                  </>
-                ) : (
-                  item
-                )}
+                {item}
               </li>
             ))}
           </ul>

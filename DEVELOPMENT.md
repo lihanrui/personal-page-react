@@ -1,6 +1,6 @@
 # Development Guide
 
-This guide covers the development workflow, best practices, and common tasks for working with Henry's Personal Page.
+This guide covers the development workflow, best practices, and common tasks for working with Hanrui Li | Software Engineer.
 
 ## 🚀 Getting Started
 

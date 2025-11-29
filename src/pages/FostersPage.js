@@ -1,9 +1,7 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import PageLayout from '../layouts/PageLayout';
 import PageContainer from '../layouts/PageContainer';
 import GlassCard, { RainbowGradientCard, HobbyCard } from '../components/GlassCard';
-import StickyShowcase from '../components/StickyShowcase';
 import {
   fosterStyles,
   gridStyles,
@@ -24,96 +22,6 @@ import daisyImg from '../assets/fosters/daisy.jpg';
 import receivedImg from '../assets/fosters/received_4889754461124684.jpeg';
 import catsplosionImg from '../assets/fosters/catsplosion.jpg';
 import newbornKittensImg from '../assets/fosters/newborn_kittens.jpg';
-
-const heroSectionStyles = css`
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 1.5rem 3rem;
-  overflow: hidden;
-`;
-
-const heroBackdrop = css`
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(97, 255, 201, 0.18) 0%, rgba(255, 214, 102, 0.25) 45%, rgba(32, 72, 116, 0.4) 100%);
-  filter: blur(80px);
-  opacity: 0.65;
-`;
-
-const heroCardStyles = css`
-  position: relative;
-  max-width: 720px;
-  text-align: center;
-  background: rgba(18, 24, 36, 0.55);
-  border: 1px solid rgba(255, 214, 102, 0.18);
-  border-radius: 26px;
-  padding: 3.2rem 3.75rem;
-  color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(22px);
-
-  h1 {
-    font-size: clamp(2.6rem, 2.2rem + 1.8vw, 3.4rem);
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
-
-  p {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.85);
-  }
-`;
-
-const fosterShowcaseItems = [
-  {
-    key: 'care',
-    badge: 'Daily Rhythm',
-    title: {
-      leading: 'Structured care routines keep',
-      highlight: 'kittens thriving',
-      trailing: 'through every growth milestone.',
-    },
-    description:
-      'From syringe feeding to playtime socialization, each foster has a tailored schedule that balances nutrition, wellness, and enrichment.',
-    media: {
-      gradient:
-        'radial-gradient(circle at 25% 30%, rgba(255, 214, 102, 0.45), transparent 60%), linear-gradient(135deg, rgba(16, 28, 48, 0.92), rgba(255, 173, 120, 0.55))',
-    },
-  },
-  {
-    key: 'storytelling',
-    badge: 'Adoption Journeys',
-    title: {
-      leading: 'Sharing personalities through',
-      highlight: 'photo essays & updates',
-      trailing: 'to connect cats with their people.',
-    },
-    description:
-      'Documenting quirks, milestones, and medical progress helps adopters bond early and feel confident welcoming a new companion.',
-    media: {
-      gradient:
-        'radial-gradient(circle at 70% 25%, rgba(131, 255, 207, 0.45), transparent 55%), linear-gradient(135deg, rgba(24, 22, 60, 0.92), rgba(104, 173, 255, 0.5))',
-    },
-  },
-  {
-    key: 'community',
-    badge: 'HSSV Foster',
-    title: {
-      leading: 'Partnering with the Humane Society of Silicon Valley to',
-      highlight: 'open space for the next rescue',
-      trailing: 'while guiding adopters post-placement.',
-    },
-    description:
-      'Staying connected with shelter teams ensures every kitten gets specialized care, and every adopter feels supported long after pick-up day.',
-    media: {
-      gradient:
-        'radial-gradient(circle at 40% 65%, rgba(255, 255, 255, 0.35), transparent 60%), linear-gradient(135deg, rgba(22, 42, 68, 0.9), rgba(97, 255, 201, 0.45))',
-    },
-  },
-];
 
 const fosters = [
   {
@@ -177,19 +85,6 @@ const fosters = [
 const FostersPage = () => {
   return (
     <>
-      <section css={heroSectionStyles}>
-        <div css={heroBackdrop} />
-        <div css={heroCardStyles}>
-          <h1>Foster Stories</h1>
-          <p>
-            A revolving door of tiny houseguests, each with a story worth telling. Fostering creates the space, structure,
-            and love that bridges shelters and forever homes.
-          </p>
-        </div>
-      </section>
-
-      <StickyShowcase items={fosterShowcaseItems} />
-
       <PageContainer margin="default" padding="default">
         <PageLayout>
           <div css={[fosterStyles, gridStyles.fostersGrid]}>

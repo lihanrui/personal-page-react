@@ -1,4 +1,4 @@
-# Henry's Personal Page
+# Hanrui Li | Software Engineer
 
 A modern, responsive personal website built with React. Features a beautiful glass-card UI design with dark/light theme support and optimized performance.
 
@@ -96,9 +96,9 @@ src/
 ├── pages/              # Page components
 │   ├── ErrorPage.js
 │   ├── FostersPage.js
-│   ├── HobbiesPage.js
+│   ├── HobbieParallax.js
 │   ├── HomePage.js
-│   └── ProjectsPage.js
+│   └── ShowcasePlayground.js
 ├── routes/             # Routing configuration
 │   └── index.js
 ├── lib/                # Utility libraries
@@ -111,8 +111,8 @@ src/
 ## 🎨 Pages
 
 - **Home** (`/`) - Landing page with personal introduction
-- **Projects** (`/projects`) - Development projects showcase
-- **Hobbies** (`/hobbies`) - Personal interests and activities
+- **Showcase Lab** (`/showcase-lab`) - Interactive playground for design experiments
+- **Hobby Parallax** (`/hobbie-parallax`) - Scroll-driven hobby narrative
 - **Fosters** (`/fosters`) - Foster care information and gallery
 
 ## 🛠️ Technology Stack

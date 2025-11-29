@@ -10,10 +10,8 @@ import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', replaceWhenActive: true },
-  { to: '/projects', label: 'Projects' },
   { to: '/showcase-lab', label: 'Showcase Lab' },
   { to: '/hobbie-parallax', label: 'Hobby Parallax' },
-  { to: '/hobbies', label: 'Hobbies' },
   { to: '/fosters', label: 'Fosters 🐱' },
 ];
 
@@ -37,9 +35,16 @@ const headerStyle = css`
     background-color 0.35s ease,
     border-color 0.35s ease;
   will-change: transform;
+  padding: 0 15%;
+  box-sizing: border-box;
 
   ${Media.medium} {
     height: 50px;
+    padding: 0 15%;
+  }
+
+  ${Media.small} {
+    padding: 0 1.5rem;
   }
 `;
 

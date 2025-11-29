@@ -1,6 +1,6 @@
 # Architecture Guide
 
-This guide explains the architecture, design patterns, and component relationships in Henry's Personal Page.
+This guide explains the architecture, design patterns, and component relationships in Hanrui Li | Software Engineer.
 
 ## 🏗️ Overview
 
@@ -36,9 +36,9 @@ src/
 ├── pages/               # Page-level components
 │   ├── ErrorPage.js     # 404/error page
 │   ├── FostersPage.js   # Foster care information page
-│   ├── HobbiesPage.js   # Hobbies and interests page
+│   ├── HobbieParallax.js # Scroll-driven hobby narrative
 │   ├── HomePage.js      # Landing page
-│   ├── ProjectsPage.js  # Projects showcase page
+│   ├── ShowcasePlayground.js # Interactive showcase experiments
 │   └── index.js         # Page exports
 ├── routes/              # Routing configuration
 │   └── index.js         # Route definitions
@@ -86,8 +86,8 @@ App
 │   │   └── ThemeToggle
 │   ├── Main Content (Routes)
 │   │   ├── HomePage
-│   │   ├── ProjectsPage
-│   │   ├── HobbiesPage
+│   │   ├── ShowcasePlayground
+│   │   ├── HobbieParallax
 │   │   ├── FostersPage
 │   │   └── ErrorPage
 │   └── Footer
@@ -107,8 +107,8 @@ App
 #### 2. **Page Components** (`src/pages/`)
 
 - **HomePage**: Landing page with hero section
-- **ProjectsPage**: Project showcase and portfolio
-- **HobbiesPage**: Personal interests and activities
+- **ShowcasePlayground**: Interactive experiments and UI explorations
+- **HobbieParallax**: Scroll-driven hobby storytelling
 - **FostersPage**: Foster care information and gallery
 - **ErrorPage**: 404 and error handling
 
@@ -301,12 +301,12 @@ const routes = [
     element: <HomePage />,
   },
   {
-    path: '/projects',
-    element: <ProjectsPage />,
+    path: '/showcase-lab',
+    element: <ShowcasePlayground />,
   },
   {
-    path: '/hobbies',
-    element: <HobbiesPage />,
+    path: '/hobbie-parallax',
+    element: <HobbieParallax />,
   },
   {
     path: '/fosters',
@@ -322,8 +322,8 @@ const routes = [
 ### Route Structure
 
 - **Home** (`/`): Landing page with introduction
-- **Projects** (`/projects`): Portfolio and project showcase
-- **Hobbies** (`/hobbies`): Personal interests and activities
+- **Showcase Lab** (`/showcase-lab`): Interactive playground
+- **Hobby Parallax** (`/hobbie-parallax`): Scroll-driven hobby narrative
 - **Fosters** (`/fosters`): Foster care information and gallery
 - **Error** (`*`): 404 and error handling
 
@@ -520,13 +520,13 @@ class ErrorBoundary extends Component {
 ```jsx
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
-const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
+const ShowcasePlayground = lazy(() => import('./pages/ShowcasePlayground'));
 
 // Usage with Suspense
 <Suspense fallback={<LoadingSpinner />}>
   <Routes>
     <Route path="/" element={<HomePage />} />
-    <Route path="/projects" element={<ProjectsPage />} />
+    <Route path="/showcase-lab" element={<ShowcasePlayground />} />
   </Routes>
 </Suspense>;
 ```

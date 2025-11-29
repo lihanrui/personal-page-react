@@ -1,6 +1,6 @@
 # Configuration Guide
 
-This guide explains all configuration files in Henry's Personal Page and how to customize them for your needs.
+This guide explains all configuration files in Hanrui Li | Software Engineer and how to customize them for your needs.
 
 ## 📁 Configuration Files Overview
 

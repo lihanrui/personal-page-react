@@ -1,6 +1,6 @@
 # Deployment Options
 
-This guide covers various deployment options for Henry's Personal Page, with Vercel being the recommended choice.
+This guide covers various deployment options for Hanrui Li | Software Engineer, with Vercel being the recommended choice.
 
 ## 🚀 Recommended: Vercel
 
@@ -125,12 +125,14 @@ Convert React Router routes to Next.js App Router:
 
 ```jsx
 // Current: React Router
-<Route path="/projects" element={<ProjectsPage />} />;
+<Route path="/showcase-lab" element={<ShowcasePlayground />} />;
 
 // Next.js: App Router
-// app/projects/page.js
-export default function ProjectsPage() {
-  return <ProjectsPage />;
+// app/showcase-lab/page.js
+import ShowcasePlayground from '../../src/pages/ShowcasePlayground';
+
+export default function ShowcaseLabPage() {
+  return <ShowcasePlayground />;
 }
 ```
 

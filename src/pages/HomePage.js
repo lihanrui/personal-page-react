@@ -162,7 +162,7 @@ const experienceData = [
       {
         title: 'Independent Social Media Projects',
         description: [
-          'See Projects',
+          'Explore the latest builds in the Showcase Lab',
           'Currently focused on personal project development and continuous learning initiatives to expand technical capabilities',
           'Dedicated to staying current with industry trends and best practices through self-directed learning and hands-on experimentation',
         ],
@@ -281,13 +281,13 @@ const HomePage = () => {
       <section css={heroSectionStyles}>
         <div css={heroBackdrop} />
         <div css={heroCardStyles}>
-          <h1>Henry Li</h1>
+          <h1>Hanrui Li | Software Engineer</h1>
           <p>
             Building human-centered experiences across <span>Android</span>, <span>Chrome OS</span>, and large-scale
             device fleets. Focused on clarity, performance, and the craft of making technology feel effortless.
           </p>
           <div css={heroFooter}>
-            <Link to="/projects">Explore Projects</Link>
+            <Link to="/showcase-lab">Explore Showcase Lab</Link>
             <Link to="/fosters">Meet the Cats</Link>
           </div>
         </div>
@@ -328,15 +328,7 @@ const HomePage = () => {
                       <h5 className="role-title">{role.title}</h5>
                       <ul className="description">
                         {role.description.map((item, itemIndex) => (
-                          <li key={itemIndex}>
-                            {item.includes('See Projects') ? (
-                              <>
-                                See <Link to="/projects">Projects</Link>
-                              </>
-                            ) : (
-                              item
-                            )}
-                          </li>
+                          <li key={itemIndex}>{item}</li>
                         ))}
                       </ul>
                     </div>

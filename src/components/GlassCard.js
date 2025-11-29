@@ -182,12 +182,6 @@ const getBlurIntensity = (intensity) => {
 export default GlassCard;
 
 // Pre-configured variants for common use cases
-export const ProjectCard = ({ children, ...props }) => (
-  <GlassCard intensity="medium" hover={true} gradient={true} gradientType="primary" {...props}>
-    {children}
-  </GlassCard>
-);
-
 export const HobbyCard = ({ children, ...props }) => (
   <GlassCard intensity="light" hover={true} gradient={true} gradientType="warm" {...props}>
     {children}

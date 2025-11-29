@@ -175,19 +175,11 @@ margin: 2% (minimal margins for small screens)
 </PageContainer>
 ```
 
-### ProjectsPage
+### ShowcasePlayground
 
 ```jsx
 <PageContainer margin="default" padding="default">
-  <PageLayout title="Projects">{/* Project showcase grid */}</PageLayout>
-</PageContainer>
-```
-
-### HobbiesPage
-
-```jsx
-<PageContainer margin="default" padding="default">
-  <PageLayout title="Hobbies">{/* Hobbies and interests */}</PageLayout>
+  <PageLayout title="Showcase Lab">{/* Interactive experiments */}</PageLayout>
 </PageContainer>
 ```
 
