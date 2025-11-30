@@ -37,7 +37,8 @@ src/
 │   ├── ErrorPage.js     # 404/error page
 │   ├── FostersPage.js   # Foster care information page
 │   ├── HobbieParallax.js # Scroll-driven hobby narrative
-│   ├── HomePage.js      # Landing page
+│   ├── CompanyPage.js   # Full-width branding image page
+│   ├── Contact.js       # Contact experience (formerly home)
 │   ├── ShowcasePlayground.js # Interactive showcase experiments
 │   └── index.js         # Page exports
 ├── routes/              # Routing configuration
@@ -85,9 +86,10 @@ App
 │   │   ├── Navigation
 │   │   └── ThemeToggle
 │   ├── Main Content (Routes)
-│   │   ├── HomePage
+│   │   ├── ContactPage
 │   │   ├── ShowcasePlayground
 │   │   ├── HobbieParallax
+│   │   ├── CompanyPage
 │   │   ├── FostersPage
 │   │   └── ErrorPage
 │   └── Footer
@@ -106,9 +108,10 @@ App
 
 #### 2. **Page Components** (`src/pages/`)
 
-- **HomePage**: Landing page with hero section
+- **ContactPage**: Contact-focused landing experience
 - **ShowcasePlayground**: Interactive experiments and UI explorations
-- **HobbieParallax**: Scroll-driven hobby storytelling
+- **HobbieParallax**: Scroll-driven hobby storytelling (Hobbies)
+- **CompanyPage**: Branded company hero background
 - **FostersPage**: Foster care information and gallery
 - **ErrorPage**: 404 and error handling
 
@@ -298,7 +301,11 @@ export const ThemeProvider = ({ children }) => {
 const routes = [
   {
     path: '/',
-    element: <HomePage />,
+    element: <CompanyPage />,
+  },
+  {
+    path: '/contact',
+    element: <ContactPage />,
   },
   {
     path: '/showcase-lab',
@@ -307,6 +314,10 @@ const routes = [
   {
     path: '/hobbie-parallax',
     element: <HobbieParallax />,
+  },
+  {
+    path: '/company',
+    element: <CompanyPage />,
   },
   {
     path: '/fosters',
@@ -321,9 +332,11 @@ const routes = [
 
 ### Route Structure
 
-- **Home** (`/`): Landing page with introduction
-- **Showcase Lab** (`/showcase-lab`): Interactive playground
-- **Hobby Parallax** (`/hobbie-parallax`): Scroll-driven hobby narrative
+- **Company** (`/`): Full-width hero background (default route)
+- **Contact** (`/contact`): Contact-focused landing experience
+- **Showcase** (`/showcase-lab`): Interactive playground
+- **Hobbies** (`/hobbie-parallax`): Scroll-driven hobby narrative
+- **Company** (`/company`): Alias path to the same hero background
 - **Fosters** (`/fosters`): Foster care information and gallery
 - **Error** (`*`): 404 and error handling
 
@@ -519,13 +532,15 @@ class ErrorBoundary extends Component {
 
 ```jsx
 // Lazy load pages
-const HomePage = lazy(() => import('./pages/HomePage'));
+const ContactPage = lazy(() => import('./pages/Contact'));
 const ShowcasePlayground = lazy(() => import('./pages/ShowcasePlayground'));
+const CompanyPage = lazy(() => import('./pages/CompanyPage'));
 
 // Usage with Suspense
 <Suspense fallback={<LoadingSpinner />}>
   <Routes>
-    <Route path="/" element={<HomePage />} />
+    <Route path="/" element={<CompanyPage />} />
+    <Route path="/contact" element={<ContactPage />} />
     <Route path="/showcase-lab" element={<ShowcasePlayground />} />
   </Routes>
 </Suspense>;

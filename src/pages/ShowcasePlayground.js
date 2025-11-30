@@ -199,6 +199,10 @@ const ShowcasePlayground = () => {
   const autoScrollHandledRef = useRef(false);
 
   useEffect(() => {
+    document.title = 'Project Showcase';
+  }, []);
+
+  useEffect(() => {
     if (typeof window === 'undefined' || autoScrollHandledRef.current) {
       return undefined;
     }

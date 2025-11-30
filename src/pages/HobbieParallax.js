@@ -244,6 +244,10 @@ const sectionsContent = [
 ];
 
 const HobbieParallax = () => {
+  useEffect(() => {
+    document.title = 'Hobbies';
+  }, []);
+
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef([]);
   const mediaRefs = useRef([]);
@@ -412,16 +416,6 @@ const HobbieParallax = () => {
         })}
       </div>
 
-      <header className="header">
-        <div>
-          <h1 className="page-title">Side Projects in Motion</h1>
-          <p>
-            A slow scroll through the obsessions that keep my curiosity running&mdash;from sketchbooks to trail cameras
-            to interactive light.
-          </p>
-        </div>
-      </header>
-
       <div className="sections-wrapper">
         {sections.map((section, index) => (
           <section
@@ -445,7 +439,7 @@ const HobbieParallax = () => {
 
       <footer className="footer">
         <div>
-          <p>Movement, music, food, and furry pets — four spaces that keep curiosity alive outside of code.</p>
+          <p>Recharge with purpose.</p>
         </div>
       </footer>
     </main>

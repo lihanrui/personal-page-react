@@ -85,7 +85,7 @@ interface PaddingObject {
 ### Full-Width Layout
 
 ```jsx
-// Full-width page (like HomePage)
+// Full-width page (like ContactPage)
 <PageContainer margin="full" padding="none">
   <div className="hero-section">
     <h1>Welcome to My Site</h1>
@@ -167,7 +167,7 @@ margin: 2% (minimal margins for small screens)
 
 ## 🎨 Current Page Configurations
 
-### HomePage
+### ContactPage
 
 ```jsx
 <PageContainer margin="default" padding="default">
@@ -179,7 +179,7 @@ margin: 2% (minimal margins for small screens)
 
 ```jsx
 <PageContainer margin="default" padding="default">
-  <PageLayout title="Showcase Lab">{/* Interactive experiments */}</PageLayout>
+  <PageLayout title="Showcase">{/* Interactive experiments */}</PageLayout>
 </PageContainer>
 ```
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PageLayout from '../layouts/PageLayout';
 import PageContainer from '../layouts/PageContainer';
 import GlassCard, { RainbowGradientCard, HobbyCard } from '../components/GlassCard';
@@ -83,11 +83,15 @@ const fosters = [
 ];
 
 const FostersPage = () => {
+  useEffect(() => {
+    document.title = 'Fostering: Caring for cat friends until they are ready to find their forever homes';
+  }, []);
+
   return (
     <>
       <PageContainer margin="default" padding="default">
         <PageLayout>
-          <div css={[fosterStyles, gridStyles.fostersGrid]}>
+          <div css={[fosterStyles]}>
             <RainbowGradientCard>
               <h2 css={[marginStyles.mb1, textAlignStyles.center]}>Meet the Kittens</h2>
               <p css={[textAlignStyles.center, { color: 'var(--text-secondary)', lineHeight: '1.6' }]}>

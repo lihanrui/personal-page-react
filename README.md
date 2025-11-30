@@ -97,7 +97,8 @@ src/
 │   ├── ErrorPage.js
 │   ├── FostersPage.js
 │   ├── HobbieParallax.js
-│   ├── HomePage.js
+│   ├── CompanyPage.js
+│   ├── Contact.js
 │   └── ShowcasePlayground.js
 ├── routes/             # Routing configuration
 │   └── index.js
@@ -110,9 +111,10 @@ src/
 
 ## 🎨 Pages
 
-- **Home** (`/`) - Landing page with personal introduction
-- **Showcase Lab** (`/showcase-lab`) - Interactive playground for design experiments
-- **Hobby Parallax** (`/hobbie-parallax`) - Scroll-driven hobby narrative
+- **Company** (`/` or `/company`) - Full-width hero with company branding
+- **Contact** (`/contact`) - Personal introduction and contact-focused landing page
+- **Showcase** (`/showcase-lab`) - Interactive playground for design experiments
+- **Hobbies** (`/hobbie-parallax`) - Scroll-driven hobby narrative
 - **Fosters** (`/fosters`) - Foster care information and gallery
 
 ## 🛠️ Technology Stack

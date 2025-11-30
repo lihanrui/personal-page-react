@@ -9,9 +9,10 @@ import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 
 const NAV_LINKS = [
-  { to: '/', label: 'Home', replaceWhenActive: true },
-  { to: '/showcase-lab', label: 'Showcase Lab' },
-  { to: '/hobbie-parallax', label: 'Hobby Parallax' },
+  { to: '/', label: 'Home' },
+  { to: '/showcase-lab', label: 'Showcase' },
+  { to: '/hobbie-parallax', label: 'Hobbies' },
+  { to: '/contact', label: 'Contact', replaceWhenActive: true },
   { to: '/fosters', label: 'Fosters 🐱' },
 ];
 
